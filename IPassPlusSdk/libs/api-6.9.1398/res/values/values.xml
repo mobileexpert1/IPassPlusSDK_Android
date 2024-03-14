@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dark_green">#228835</color>
+    <color name="light_green">#94C22F</color>
+    <color name="orange">#C9683C</color>
+    <color name="red">#D44443</color>
+    <color name="reg_green_ok">#4CAF50</color>
+    <color name="reg_purple">#bd7dff</color>
+    <color name="reg_purple_light">#b9a2cf</color>
+    <color name="reg_red_fail">#F44336</color>
+    <color name="yellow">#D5B53B</color>
+    <dimen name="reg_activity_horizontal_margin">12dp</dimen>
+    <dimen name="reg_activity_vertical_margin">12dp</dimen>
+    <dimen name="reg_auto_focus_square_size">30dp</dimen>
+    <dimen name="reg_crop_frame_thickness">2dp</dimen>
+    <dimen name="reg_current_text_side_margin">32dp</dimen>
+    <dimen name="reg_frame_corner_length">12dp</dimen>
+    <dimen name="reg_frame_powered_margin">8dp</dimen>
+    <dimen name="reg_frame_spacing">4dp</dimen>
+    <dimen name="reg_img_button_size">44dp</dimen>
+    <dimen name="reg_info_text_top_margin">8dp</dimen>
+    <dimen name="reg_large_img_button_size">60dp</dimen>
+    <dimen name="reg_rfid_icon_height">50dp</dimen>
+    <dimen name="reg_rfid_icon_width">70dp</dimen>
+    <dimen name="reg_small_img_button_padding">12dp</dimen>
+    <dimen name="reg_small_img_button_size">28dp</dimen>
+    <dimen name="reg_visual_element_margin">4dp</dimen>
+    <style name="FullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/reg_purple</item>
+        <item name="colorPrimary">@color/reg_purple_light</item>
+
+        
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowIsFloating">false</item>
+
+        
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+    <style name="PrimaryButton" parent="Theme.AppCompat">
+        <item name="colorButtonNormal">@color/reg_purple</item>
+        <item name="colorControlHighlight">@color/reg_purple_light</item>
+    </style>
+</resources>
