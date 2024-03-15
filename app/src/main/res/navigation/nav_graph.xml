@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.app.ipassplus.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.app.ipassplus.ui.dashboard.fragment.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.app.ipassplus.ui.dashboard.fragment.DashboardFragment"
+        android:label="DashboardFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.settings.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/verificationStatusFragment"
+        android:name="com.app.ipassplus.ui.menu.fragment.VerificationStatusFragment"
+        android:label="fragment_verification_status"
+        tools:layout="@layout/fragment_verification_status" />
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.app.ipassplus.ui.menu.fragment.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.app.ipassplus.ui.menu.fragment.MenuFragment"
+        android:label="MenuFragment" />
+    <fragment
+        android:id="@+id/advanceSettingsFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.advanced_settings.fragment.AdvanceSettingsFragment"
+        android:label="AdvanceSettingsFragment"
+        tools:layout="@layout/fragment_advance_settings"/>
+    <fragment
+        android:id="@+id/debugSettingFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.debug_settings.DebugSettingFragment"
+        android:label="DebugSettingFragment" />
+    <fragment
+        android:id="@+id/imageQualityFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.image_quality.ImageQualityFragment"
+        android:label="ImageQualityFragment" />
+</navigation>

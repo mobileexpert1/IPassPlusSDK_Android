@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightbg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cltop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/ibBackArrowVS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_arrow"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            android:text="@string/verification_statusess"
+            app:layout_constraintRight_toLeftOf="@id/ibBackArrowVS"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/robotomedium"
+            />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/grey"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/lightbg"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:weightSum="5">
+        <TextView
+            android:id="@+id/SuccessTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotoregular"
+            android:textSize="@dimen/_12sdp"
+            android:layout_weight="4.5"
+            android:gravity="end"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:text="Success"
+            />
+        <TextView
+            android:id="@+id/FailedTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotoregular"
+            android:textSize="@dimen/_12sdp"
+            android:layout_weight=".5"
+            android:text="Failed"
+            android:gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/lightbg">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:weightSum="5">
+
+
+            <TextView
+                android:id="@+id/DocumentVerificationTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_weight="3.5"
+                android:text="@string/id_document_verification"
+                />
+
+
+            <ImageView
+                android:id="@+id/IVtick"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_weight="1"
+                android:src="@drawable/circle_tik" />
+
+            <ImageView
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:src="@drawable/red_danger30"
+                android:layout_weight=".5"
+                />
+
+
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/grey"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:weightSum="5">
+
+
+            <TextView
+                android:id="@+id/DocumentExpireTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_weight="4"
+                android:text="@string/id_document_expiration_check"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:src="@drawable/vector3x"
+                android:layout_weight="1.5"
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/grey"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:weightSum="5">
+
+
+            <TextView
+                android:id="@+id/FaceComparisonTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_weight="3"
+                android:text="@string/face_comparison_compare_facial_images_and_determines_whether_they_match"
+                />
+
+
+            <ImageView
+                android:id="@+id/IVFaceComparison"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/ic_face_liveness_true" />
+
+            <ImageView
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:src="@drawable/ic_face_liveness_false"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/_10sdp" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/grey"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:weightSum="5">
+
+
+            <TextView
+                android:id="@+id/LivenessCheckTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_weight="3"
+                android:text="@string/liveness_check_verifies_that_a_face_presented_to_a_mobile_device_is_a_live_human_being"
+                />
+
+
+            <ImageView
+                android:id="@+id/IVLivenessCheck"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_weight=".9"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/ic_face_liveness_true"/>
+
+            <ImageView
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:src="@drawable/ic_face_liveness_false"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/_10sdp" />
+
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/grey"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cltop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/ibBackArrowAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_arrow"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            android:text="@string/about_the_apps"
+            app:layout_constraintRight_toLeftOf="@id/ibBackArrowAbout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/robotomedium"
+            />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/grey"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:id="@+id/LLAboutpp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cltop"
+        android:layout_above="@+id/rlBottom"
+        android:background="@color/lightbg"
+        android:orientation="horizontal">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tvAboutTheApp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/this_application_about_"
+                    android:fontFamily="@font/robotoregular"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="MissingConstraints" />
+
+
+
+                <TextView
+                    android:id="@+id/tvVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/version"
+                    android:fontFamily="@font/robotobold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="MissingConstraints" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/grey"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+                <LinearLayout
+                    android:id="@+id/LLVersions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="5"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+
+                        <TextView
+                            android:id="@+id/tvVersionSet"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:text="@string/versions"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                        <TextView
+                            android:id="@+id/tvVersionNumber"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="3.7.18006"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/robotomedium"
+                            android:layout_gravity="end"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grey"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="5"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+
+                        <TextView
+                            android:id="@+id/tvApiVersion"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:text="@string/api_version"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                        <TextView
+                            android:id="@+id/tvApiVersionNum"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="6.9.9406"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/robotomedium"
+                            android:layout_gravity="end"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grey"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="5"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+
+                        <TextView
+                            android:id="@+id/tvCoreVersion"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:text="@string/core_version"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                        <TextView
+                            android:id="@+id/tvCoreVersionNum"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="6.9.9544"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/robotomedium"
+                            android:layout_gravity="end"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grey"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="5"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+
+                        <TextView
+                            android:id="@+id/tvCoreMode"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:text="@string/core_mode"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                        <TextView
+                            android:id="@+id/tvCoreModeNum"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="fullrfid"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/robotomedium"
+                            android:layout_gravity="end"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grey"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="5"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+
+                        <TextView
+                            android:id="@+id/tvDatabaseVersion"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:text="@string/database_version"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                        <TextView
+                            android:id="@+id/tvDatabaseVersionModeNum"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="237589"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/robotomedium"
+                            android:layout_gravity="end"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grey"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="5"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+
+                        <TextView
+                            android:id="@+id/tvDocumentList"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:text="@string/document_list"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                        <TextView
+                            android:id="@+id/tvDocumentListNum"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="@string/full"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/robotomedium"
+                            android:layout_gravity="end"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grey"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:weightSum="5"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+
+                        <TextView
+                            android:id="@+id/tvFaceSDk"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:text="@string/face_sdk_version"
+                            android:fontFamily="@font/robotoregular"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                        <TextView
+                            android:id="@+id/tvFaceVersion"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="5.2.2715"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/robotomedium"
+                            android:layout_gravity="end"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grey"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"/>-->
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rlBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginHorizontal="@dimen/_40sdp"
+            android:weightSum="4"
+            tools:ignore="NotSibling">
+
+
+            <ImageView
+                android:id="@+id/IvFaceBook"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_facebook"/>
+
+            <ImageView
+                android:id="@+id/IvLinkedln"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_linkenld"/>
+
+            <ImageView
+                android:id="@+id/IvTwitter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_twitter"/>
+            <ImageView
+                android:id="@+id/IvGithub"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_github"/>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

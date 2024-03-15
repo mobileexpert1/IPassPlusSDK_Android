@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.IPassPlus" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Base.Theme.IPassPlus" parent="Theme.Material3.Light.NoActionBar">
+    </style>
+
+    <style name="Theme.IPassPlus" parent="Base.Theme.IPassPlus" />
+    <style name="ConfirmAlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="buttonBarPositiveButtonStyle">@style/ButtonStyleConfirm</item>
+        <item name="buttonBarNegativeButtonStyle">@style/ButtonStyleCancel</item>
+    </style>
+    <style name="ButtonStyleCancel" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">?colorSecondaryVariant</item>
+    </style>
+
+    <style name="ButtonStyleConfirm" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/confirm_red</item>
+    </style>
+<!--
+    <style name="Theme.IPassPlus" parent="android:Theme.Material.Light.NoActionBar" />-->
 </resources>

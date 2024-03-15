@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightbg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cltop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/ibBackArrowSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_arrow"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            android:text="@string/settingss"
+            app:layout_constraintRight_toLeftOf="@id/ibBackArrowSetting"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/robotomedium"
+            />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/grey"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        android:layout_weight="9.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvIdentity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/identity_verification"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+            <LinearLayout
+                android:id="@+id/llIdentity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_menuview"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/rlFacematching"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_6sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvFacematching"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/face_matchings"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/tvSettingdescreption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvFacematching"
+                        android:fontFamily="@font/robotolight"
+                        android:layout_alignStart="@+id/tvFacematching"
+                        android:text="@string/compare_the_portrait_from_the_document_with_the_selfie"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <Switch
+                        android:id="@+id/swFacematcing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey"
+                        android:layout_below="@id/tvSettingdescreption"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_alignStart="@id/tvSettingdescreption"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlLiveness"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvLiveness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/liveness"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <TextView
+                        android:id="@+id/tvLivenessdescreption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvLiveness"
+                        android:fontFamily="@font/robotolight"
+                        android:layout_alignStart="@+id/tvLiveness"
+                        android:text="@string/liveness_check"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <Switch
+                        android:id="@+id/swLiveness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:thumb="@drawable/custom_switch"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scanning_settings"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+
+            <LinearLayout
+                android:id="@+id/llScanning"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_menuview"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlCameraToUse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_4sdp">
+
+                    <TextView
+                        android:id="@+id/tvCamera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/camera_to_use"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/robotoregular"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                    <TextView
+                        android:id="@+id/tvCameraCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/lato_regular"
+                        android:textSize="@dimen/_12sdp"
+                        tools:text="" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey"
+                        android:layout_below="@id/tvCamera"
+                        android:layout_alignStart="@id/tvCamera"
+                        android:layout_marginTop="@dimen/_8sdp"
+
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlMutlipage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_4sdp">
+
+                    <TextView
+                        android:id="@+id/tvMultipage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/multipage_processing"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <TextView
+                        android:id="@+id/tvMultipagedescreption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvMultipage"
+                        android:fontFamily="@font/robotolight"
+                        android:layout_alignStart="@+id/tvMultipage"
+                        android:text="@string/enable_multipage_document_processing"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <Switch
+                        android:id="@+id/swMultipageSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:thumb="@drawable/custom_switch"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey"
+                        android:layout_below="@id/tvMultipagedescreption"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_alignStart="@id/tvMultipagedescreption"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlDoublePage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_4sdp">
+
+                    <TextView
+                        android:id="@+id/tvDoublepage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/double_page_spread_processing"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <TextView
+                        android:id="@+id/tvDoublepagedescreption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvDoublepage"
+                        android:fontFamily="@font/robotolight"
+                        android:layout_alignStart="@id/tvDoublepage"
+                        android:text="@string/enable_processing_of_a_document_double_page_spread"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="12sp" />
+
+                    <Switch
+                        android:id="@+id/swDoublepageSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:thumb="@drawable/custom_switch"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                </RelativeLayout>
+
+                <!-- <RelativeLayout
+                     android:id="@+id/rlShowCaptureButton"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:padding="@dimen/_4sdp">
+
+                     <TextView
+                         android:id="@+id/tvShowCaptureButton"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="Show Capture Button"
+                         android:textColor="@color/black"
+                         android:fontFamily="@font/robotoregular"
+                         android:layout_marginStart="@dimen/_6sdp"
+                         android:textSize="@dimen/_12sdp"/>
+
+                     <TextView
+                         android:id="@+id/tvCaptureButtondescreption"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_below="@id/tvShowCaptureButton"
+                         android:fontFamily="@font/robotolight"
+                         android:layout_alignStart="@id/tvShowCaptureButton"
+                         android:text="@string/enable_processing_of_a_document_double_page_spread"
+                         android:layout_marginBottom="@dimen/_5sdp"
+                         android:textSize="12sp" />
+
+                     <Switch
+                         android:id="@+id/swShowCaptureButton"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignParentEnd="true"
+                         android:layout_centerInParent="true"
+                         android:layout_marginEnd="@dimen/_6sdp"
+                         android:thumb="@drawable/custom_switch"
+                         tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+
+                 </RelativeLayout>-->
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sound_and_vibration"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+
+            <LinearLayout
+                android:id="@+id/llSound"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_menuview"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlSound"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_4sdp">
+
+                    <TextView
+                        android:id="@+id/tvSound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sound"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="6dp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <TextView
+                        android:id="@+id/tvSounddescreption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvSound"
+                        android:fontFamily="@font/robotolight"
+                        android:layout_alignStart="@id/tvSound"
+                        android:text="@string/make_a_sound_when_processing_is_finished"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="12sp" />
+
+                    <Switch
+                        android:id="@+id/swSoundSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:thumb="@drawable/custom_switch"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey"
+                        android:layout_below="@id/tvSounddescreption"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_alignStart="@id/tvSounddescreption" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlVibration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_4sdp">
+
+                    <TextView
+                        android:id="@+id/tvVibration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/vibration"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tvVibrationdescreption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvVibration"
+                        android:fontFamily="@font/robotolight"
+                        android:layout_alignStart="@id/tvVibration"
+                        android:text="@string/vibrate_when_processing_is_finished"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <Switch
+                        android:id="@+id/swVibrationSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:thumb="@drawable/custom_switch"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/instructions"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+            <LinearLayout
+                android:id="@+id/llInstructions"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_menuview"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlInstruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        android:id="@+id/tvInstruction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/show_instructions"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <TextView
+                        android:id="@+id/tvInstructiondescreption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvInstruction"
+                        android:fontFamily="@font/robotolight"
+                        android:layout_alignStart="@id/tvInstruction"
+                        android:text="@string/show_identity_document_scanning_instruction"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="@dimen/_10sdp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llAdvance"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_menuview"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlAdvanced"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/tvAdvance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/advance"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:src="@drawable/next_" />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llReset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:background="@drawable/reset_stroke"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlReset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/tvResetSetting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="@string/reset_all_settings"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/orange"
+                        android:textSize="@dimen/_12sdp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+

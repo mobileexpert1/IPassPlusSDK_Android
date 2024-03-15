@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_dialog"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:id="@+id/tvRateiPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rate_ipass_app"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/robotobold"/>
+
+
+        <TextView
+            android:id="@+id/tvStarRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="@string/tap_a_star_to_give_your_rating"
+            android:layout_below="@id/tvRateiPass"
+            android:fontFamily="@font/robotoregular"
+            android:textStyle="bold" />
+
+        <RatingBar
+            android:id="@+id/rBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/Widget.AppCompat.RatingBar"
+            android:layout_centerHorizontal="true"
+            android:progressTint="@color/Yellow"
+            android:layout_below="@id/tvStarRating"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:progressBackgroundTint="@color/grey"
+            android:stepSize="4"
+            android:numStars="5"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/rBar"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/cancel"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:textColor="@color/canceltext"
+                android:backgroundTint="@color/cancel"
+                android:layout_marginBottom="@dimen/_14sdp"
+                />
+
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/submit"
+                android:layout_marginBottom="@dimen/_14sdp"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
