@@ -1,14 +1,285 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.menu.settings.image_quality.ImageQualityFragment">
+    android:background="@color/lightbg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cltop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/ibBackArrowIQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_arrow"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            android:text="@string/image_qualitys"
+            app:layout_constraintRight_toLeftOf="@id/ibBackArrowIQ"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/lato_bold"
+            />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/grey" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:scrollbars="none">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/LLImageQuality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@drawable/bg_menuview"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/rlGlares"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvGlares"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/glares"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swGlares"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlFocus"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvFocus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/focus"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swFocus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/color"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rlThershold"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvThershold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/dpi_threshold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+                    <TextView
+                        android:id="@+id/tvDpiThresholdSet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        tools:ignore="20"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlAngleThershold"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvAngleThershold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/angle_threshold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/tvAngleThresholdSet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        tools:ignore="20"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlDocumentPosition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_4sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvDocumentPosition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/document_position_indent"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/tvDocumentPositionSet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        tools:ignore="20"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+                    <TextView
+                        android:id="@+id/tvtvCaptureDetectedDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvDocumentPosition"
+                        android:fontFamily="@font/robotolight"
+                        android:layout_alignStart="@+id/tvDocumentPosition"
+                        android:text="@string/the_minimum_indent_from_the_corners_of_the_document_to_the_borders_of_the_image"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="@dimen/_9sdp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

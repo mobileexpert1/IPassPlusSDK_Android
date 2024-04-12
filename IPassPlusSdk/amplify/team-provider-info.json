@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ipasssdkandroid-dev-184116-authRole",
+      "UnauthRoleArn": "arn:aws:iam::258621055876:role/amplify-ipasssdkandroid-dev-184116-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::258621055876:role/amplify-ipasssdkandroid-dev-184116-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-ipasssdkandroid-dev-184116-deployment",
+      "UnauthRoleName": "amplify-ipasssdkandroid-dev-184116-unauthRole",
+      "StackName": "amplify-ipasssdkandroid-dev-184116",
+      "StackId": "arn:aws:cloudformation:us-east-1:258621055876:stack/amplify-ipasssdkandroid-dev-184116/ff309770-f34d-11ee-b668-0e3ca98978c3",
+      "AmplifyAppId": "d1m50uqewjrr5r"
+    },
+    "categories": {
+      "auth": {
+        "ipasssdkandroid31f75929": {}
+      }
+    }
+  }
+}

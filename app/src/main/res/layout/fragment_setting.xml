@@ -83,8 +83,7 @@
                     android:id="@+id/rlFacematching"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/_6sdp"
-                    >
+                    android:padding="@dimen/_6sdp">
 
                     <TextView
                         android:id="@+id/tvFacematching"
@@ -104,30 +103,31 @@
                         android:fontFamily="@font/robotolight"
                         android:layout_alignStart="@+id/tvFacematching"
                         android:text="@string/compare_the_portrait_from_the_document_with_the_selfie"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_9sdp" />
 
-                    <Switch
+
+                    <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swFacematcing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerInParent="true"
-                        android:thumb="@drawable/custom_switch"
-                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
 
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/grey"
-                        android:layout_below="@id/tvSettingdescreption"
-                        android:layout_marginTop="@dimen/_3sdp"
-                        android:layout_alignStart="@id/tvSettingdescreption"/>
                 </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
 
                 <RelativeLayout
                     android:id="@+id/rlLiveness"
-                    android:visibility="gone"
+                    android:visibility="visible"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -150,17 +150,18 @@
                         android:layout_alignStart="@+id/tvLiveness"
                         android:text="@string/liveness_check"
                         android:layout_marginBottom="5dp"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_9sdp" />
 
-                    <Switch
+
+                    <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swLiveness"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
+                        android:layout_centerInParent="true"
                         android:layout_marginEnd="@dimen/_6sdp"
-                        android:thumb="@drawable/custom_switch"
-                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
 
                 </RelativeLayout>
 
@@ -188,6 +189,8 @@
                     android:id="@+id/rlCameraToUse"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
                     android:padding="@dimen/_4sdp">
 
                     <TextView
@@ -195,7 +198,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/camera_to_use"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:textColor="@color/black"
@@ -214,17 +216,13 @@
                         android:textSize="@dimen/_12sdp"
                         tools:text="" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/grey"
-                        android:layout_below="@id/tvCamera"
-                        android:layout_alignStart="@id/tvCamera"
-                        android:layout_marginTop="@dimen/_8sdp"
-
-                        />
-
                 </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp" />
 
                 <RelativeLayout
                     android:id="@+id/rlMutlipage"
@@ -250,28 +248,26 @@
                         android:fontFamily="@font/robotolight"
                         android:layout_alignStart="@+id/tvMultipage"
                         android:text="@string/enable_multipage_document_processing"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_9sdp" />
 
-                    <Switch
+                    <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swMultipageSwitch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerInParent="true"
                         android:layout_marginEnd="@dimen/_6sdp"
-                        android:thumb="@drawable/custom_switch"
-                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
 
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/grey"
-                        android:layout_below="@id/tvMultipagedescreption"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_alignStart="@id/tvMultipagedescreption"
-                        />
                 </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginStart="@dimen/_10sdp" />
 
                 <RelativeLayout
                     android:id="@+id/rlDoublePage"
@@ -298,17 +294,19 @@
                         android:layout_alignStart="@id/tvDoublepage"
                         android:text="@string/enable_processing_of_a_document_double_page_spread"
                         android:layout_marginBottom="@dimen/_5sdp"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_9sdp"/>
 
-                    <Switch
+                    <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swDoublepageSwitch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerInParent="true"
                         android:layout_marginEnd="@dimen/_6sdp"
-                        android:thumb="@drawable/custom_switch"
-                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+
+
 
                 </RelativeLayout>
 
@@ -399,27 +397,25 @@
                         android:layout_alignStart="@id/tvSound"
                         android:text="@string/make_a_sound_when_processing_is_finished"
                         android:layout_marginBottom="5dp"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_9sdp" />
 
-                    <Switch
+                    <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swSoundSwitch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerInParent="true"
                         android:layout_marginEnd="@dimen/_6sdp"
-                        android:thumb="@drawable/custom_switch"
-                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/grey"
-                        android:layout_below="@id/tvSounddescreption"
-                        android:layout_marginTop="@dimen/_3sdp"
-                        android:layout_alignStart="@id/tvSounddescreption" />
 
                 </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
 
                 <RelativeLayout
                     android:id="@+id/rlVibration"
@@ -446,17 +442,17 @@
                         android:layout_alignStart="@id/tvVibration"
                         android:text="@string/vibrate_when_processing_is_finished"
                         android:layout_marginBottom="5dp"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_9sdp" />
 
-                    <Switch
+                    <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swVibrationSwitch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerInParent="true"
                         android:layout_marginEnd="@dimen/_6sdp"
-                        android:thumb="@drawable/custom_switch"
-                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
 
                 </RelativeLayout>
 
@@ -505,7 +501,7 @@
                         android:layout_alignStart="@id/tvInstruction"
                         android:text="@string/show_identity_document_scanning_instruction"
                         android:layout_marginBottom="5dp"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_9sdp" />
 
                 </RelativeLayout>
 
@@ -517,32 +513,32 @@
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_menuview"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:id="@+id/rlAdvanced"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/_8sdp">
+                    android:layout_height="@dimen/_40sdp">
 
                     <TextView
                         android:id="@+id/tvAdvance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:text="@string/advance"
                         android:fontFamily="@font/robotoregular"
                         android:textColor="@color/black"
-                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
                         android:textSize="@dimen/_12sdp"/>
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_8sdp"
-                        android:src="@drawable/next_" />
+                        android:src="@drawable/ic_next" />
 
 
                 </RelativeLayout>

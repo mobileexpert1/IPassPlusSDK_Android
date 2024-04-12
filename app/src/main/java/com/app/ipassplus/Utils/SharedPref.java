@@ -59,6 +59,20 @@ public class SharedPref {
         return pref.getBoolean (var_name, false);
     }
 
+    public int getSelectedPosition(String var_name) {
+        SharedPreferences pref=context.getSharedPreferences(pref_name,
+                Context.MODE_PRIVATE);
+        return pref.getInt(var_name,0);
+    }
+
+    public void saveSelectedPosition(int position) {
+        SharedPreferences pref=context.getSharedPreferences(pref_name,context.MODE_PRIVATE);
+        Editor edit = pref.edit ();
+        edit.putInt ("",0);
+        edit.apply ();
+    }
+
+
     public  boolean getDefaultTrue(String var_name) {
         SharedPreferences pref = context.getSharedPreferences (pref_name,
                 Context.MODE_PRIVATE);
@@ -127,6 +141,8 @@ public class SharedPref {
         SharedPreferences pref = context.getSharedPreferences (prefLanguage_name, Context.MODE_PRIVATE);
         return pref.getString (key, "en");
     }
+
+
 
 
 }

@@ -1,7 +1,7 @@
 package com.app.ipassplus.Utils
 
 object Constants {
-
+    const val PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 22
     //Menu
      const val CONTACT_US = "https://app.ipass-mena.com/privacypolicy"
      const val HELP_CENTER = "https://app.ipass-mena.com/privacypolicy"
@@ -69,6 +69,7 @@ object Constants {
      const val SAVE_EVENT_LOGS = "SAVE_EVENT_LOGS"
      const val SAVE_IMAGES = "SAVE_IMAGES"
      const val SAVE_CROPPED_IMAGES = "SAVE_CROPPED_IMAGES"
+     const val SAVE_RFID_SESSION = "SAVE_RFID_SESSION"
      const val SHOW_METADATA = "SHOW_METADATA"
      const val SHOW_LIST_SCENARIOS = "SHOW_LIST_SCENARIOS"
 

@@ -29,7 +29,9 @@ android {
             )
         }
     }
+
     compileOptions {
+        //isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -41,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.10"
     }
     packaging {
         resources {
@@ -52,7 +54,7 @@ android {
 
 dependencies {
     implementation(project(mapOf("path" to ":IPassPlusSdk")))
-    implementation(project(":IPassPlusSdk"))
+//    implementation(project(":IPassPlusSdk"))
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-compose:1.8.2")
@@ -76,12 +78,12 @@ dependencies {
 
     implementation ("com.intuit.sdp:sdp-android:1.1.0")
     implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.tbuonomo:dotsindicator:5.0")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
 
-    /* implementation ("com.regula.btdevice:api:1.0.+@aar")
-     //noinspection GradleDynamicVersion
-     implementation ("com.regula.documentreader.core:fullrfid:6.9.+@aar")
-     //noinspection GradleDynamicVersion
-     implementation("com.regula.documentreader:api:6.9.+@aar") {
-         this.isTransitive = true
-     }*/
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6")
+    implementation ("com.google.code.gson:gson:2.8.9")
+
 }

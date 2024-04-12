@@ -8,8 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.app.ipassplus.R
 
-class SettingBottomSheetAdapter(private val list: List<String>,
-                                private var selectedItem: String,
+class SettingBottomSheetAdapter(private val list: List<String>, private var selectedItem: String,
     private val callback: (String) -> Unit) : RecyclerView.Adapter<SettingBottomSheetAdapter.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

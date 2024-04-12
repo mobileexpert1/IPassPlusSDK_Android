@@ -23,16 +23,29 @@ android {
             )
         }
     }
+    /*buildFeatures {
+        viewBinding = true
+        compose = true
+    }*/
     compileOptions {
+       // isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.10"
+    }
 }
 
 dependencies {
+    coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:1.0.5")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -48,11 +61,36 @@ dependencies {
     }*/
     implementation ("com.regula.btdevice:api:1.0.+@aar")
     //noinspection GradleDynamicVersion
-    implementation ("com.regula.documentreader.core:fullauthrfid:6.9.+@aar")
+    implementation ("com.regula.documentreader.core:fullauthrfid:7.1.10527@aar")
 //    implementation ("com.regula.documentreader.core:fullrfid:6.9.+@aar")
     //noinspection GradleDynamicVersion
     implementation("com.regula.documentreader:api:6.9.+@aar") {
         this.isTransitive = true
     }
     implementation(files("libs/api-6.9.1398"))
+
+
+    // FaceLivenessDetector dependency
+    implementation ("com.amplifyframework.ui:liveness:1.2.1")
+
+    // Amplify Auth dependency (unnecessary if using your own credentials provider)
+    implementation ("com.amplifyframework:aws-auth-cognito:2.14.5")
+
+    // Material3 dependency for theming FaceLivenessDetector
+    implementation ("androidx.compose.material3:material3:1.2.0")
+
+    // Support for Java 8 features
+    coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:2.0.4")
+
+// https://mvnrepository.com/artifact/com.amazonaws/aws-android-sdk-rekognition
+//    implementation("com.amazonaws:aws-android-sdk-rekognition:2.75.0")
+    implementation ("com.amazonaws:aws-android-sdk-core:2.16.0")
+    implementation ("com.amazonaws:aws-android-sdk-rekognition:2.16.0")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6")
+    implementation ("com.google.code.gson:gson:2.8.9")
+
+
 }

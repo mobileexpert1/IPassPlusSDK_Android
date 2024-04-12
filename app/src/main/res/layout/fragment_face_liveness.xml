@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/llSelfie">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cltop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/ibCross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            android:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/_10sdp"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/pbMain"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selfie time!"
+            android:textSize="@dimen/_20sdp"
+            android:fontFamily="@font/robotomedium"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_gravity="center"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get ready"
+            android:textStyle="bold"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/robotoregular"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_gravity="center"/>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_15sdp">
+
+                <ImageView
+                    android:id="@+id/ivSun"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/sun"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_toStartOf="@id/tvGoodillumination"/>
+
+
+                <TextView
+                    android:id="@+id/tvGoodillumination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/robotoregular"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Good illumination."
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/ivFaceScan"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_below="@id/ivSun"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_alignStart="@id/ivSun"
+                    android:src="@drawable/face_scan" />
+
+
+                <TextView
+                    android:id="@+id/tvFaceScan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoregular"
+                    android:layout_toEndOf="@id/ivFaceScan"
+                    android:layout_below="@id/ivSun"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_alignStart="@id/tvGoodillumination"
+                    android:text="@string/no_accessories_glass_mask_hat_etc"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/ivCameraEye"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/camera"
+                    android:layout_alignStart="@id/ivFaceScan"
+                    android:layout_below="@id/ivFaceScan"
+                    android:layout_marginTop="@dimen/_15sdp"/>
+
+
+                <TextView
+                    android:id="@+id/tvCameraEye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoregular"
+                    android:layout_toEndOf="@id/ivCameraEye"
+                    android:layout_below="@id/ivFaceScan"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_alignStart="@id/tvFaceScan"
+                    android:text="@string/camera_at_eye_level"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp">
+
+            <TextView
+                android:id="@+id/tvGobtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/goo"
+                android:textSize="@dimen/_24sdp"
+                android:textColor="@color/white"
+                android:padding="@dimen/_5sdp"
+                android:fontFamily="@font/robotoregular"
+                android:gravity="center_horizontal"
+                android:background="@drawable/rounded"
+                android:layout_marginHorizontal="@dimen/_30sdp"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvPoweredIpass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_semibold"
+                android:text="Powered by IPass"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold" />
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -51,4 +51,66 @@
         android:id="@+id/imageQualityFragment"
         android:name="com.app.ipassplus.ui.menu.settings.image_quality.ImageQualityFragment"
         android:label="ImageQualityFragment" />
+    <fragment
+        android:id="@+id/documentPickerFragment"
+        android:name="com.app.ipassplus.ui.dashboard.fragment.DocumentPickerFragment"
+        android:label="fragment_document_picker"
+        tools:layout="@layout/fragment_document_picker" />
+    <fragment
+        android:id="@+id/reportEventLogFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.debug_settings.ReportEventLogFragment"
+        android:label="ReportEventLogFragment" />
+    <fragment
+        android:id="@+id/rfidSettingFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.rfid_settings.RfidSettingFragment"
+        android:label="fragment_rfid_setting"
+        tools:layout="@layout/fragment_rfid_setting" />
+    <fragment
+        android:id="@+id/eIDSettingFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.eid_settings.eIDSettingFragment"
+        android:label="eIDSettingFragment" />
+    <fragment
+        android:id="@+id/eDLSettingFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.edl_settings.eDLSettingFragment"
+        android:label="eDLSettingFragment" />
+    <fragment
+        android:id="@+id/epassportSettingFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.epassport_settings.EpassportSettingFragment"
+        android:label="EpassportSettingFragment" />
+    <fragment
+        android:id="@+id/dataGroupSettingFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.rfid_settings.DataGroupSettingFragment"
+        android:label="DataGroupSettingFragment" />
+    <fragment
+        android:id="@+id/authenticationFragment"
+        android:name="com.app.ipassplus.ui.menu.settings.athentication_settings.AuthenticationFragment"
+        android:label="AuthenticationFragment" />
+    <dialog
+        android:id="@+id/textDataFragment"
+        android:name="com.app.ipassplus.ui.dashboard.fragment.result.TextDataFragment"
+        android:label="TextDataFragment" />
+    <fragment
+        android:id="@+id/checksDetailsFragment"
+        android:name="com.app.ipassplus.ui.dashboard.fragment.result.ChecksDetailsFragment"
+        android:label="ChecksDetailsFragment" />
+    <fragment
+        android:id="@+id/faceAuthFragment"
+        android:name="com.app.ipassplus.ui.dashboard.fragment.result.FaceAuthFragment"
+        android:label="FaceAuthFragment" />
+    <fragment
+        android:id="@+id/faceLivenessFragment"
+        android:name="com.app.ipassplus.ui.dashboard.fragment.FaceLivenessFragment"
+        android:label="FaceLivenessFragment" />
+    <fragment
+        android:id="@+id/imageListFragment"
+        android:name="com.app.ipassplus.ui.dashboard.fragment.result.ImageListFragment"
+        android:label="ImageListFragment" />
+    <fragment
+        android:id="@+id/overAllResultFragment"
+        android:name="com.app.ipassplus.ui.dashboard.fragment.result.OverAllResultFragment"
+        android:label="OverAllResultFragment" />
+    <fragment
+        android:id="@+id/scenarioResultFragment"
+        android:name="com.app.ipassplus.ui.dashboard.fragment.result.ScenarioResultFragment"
+        android:label="ScenarioResultFragment" />
 </navigation>

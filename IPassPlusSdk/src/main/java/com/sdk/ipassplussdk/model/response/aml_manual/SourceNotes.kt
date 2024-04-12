@@ -1,0 +1,33 @@
+package com.sdk.ipassplussdk.model.response.aml_manual
+
+data class SourceNotes(
+//    val company-am: CompanyAm,
+    val complyadvantage: Complyadvantage,
+//    val complyadvantage-adverse-media: ComplyadvantageAdverseMedia,
+//    val fitness-probity-medicaid-exclusions-lists-oig-leie: FitnessProbityMedicaidExclusionsListsOigLeie,
+//    val india-bureau-of-civil-aviation-security-leadership: IndiaBureauOfCivilAviationSecurityLeadership,
+//    val india-employees-provident-fund-organisation-leadership: IndiaEmployeesProvidentFundOrganisationLeadership,
+//    val india-financial-intelligence-unit-non-compliant-nbfc-list: IndiaFinancialIntelligenceUnitNonCompliantNbfcList,
+//    val india_jaipur-municipal-corporation-legislative-leadership: IndiaJaipurMunicipalCorporationLegislativeLeadership,
+//    val india-karauli-district-leadership: IndiaKarauliDistrictLeadership,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-ahmedabad: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Ahmedabad,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-chandigarh: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Chandigarh,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-chhattisgarh: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Chhattisgarh,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-delhi: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Delhi,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-goa: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Goa,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-gwalior: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Gwalior,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-hyderabad: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Hyderabad,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-jaipur: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Jaipur,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-jharkhand: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Jharkhand,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-kolkata: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Kolkata,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-pune: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Pune,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-164-shillong: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection164Shillong,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-274-bangalore: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection274Bangalore,
+//    val india-ministry-of-corporate-affairs-list-of-disqualified-directors-section-274-kanpur: IndiaMinistryOfCorporateAffairsListOfDisqualifiedDirectorsSection274Kanpur,
+//    val india-ministry-of-social-justice-and-empowerment-blacklisted-ngos: IndiaMinistryOfSocialJusticeAndEmpowermentBlacklistedNgos,
+//    val india-securities-exchange-board-of-india-debarred-entities: IndiaSecuritiesExchangeBoardOfIndiaDebarredEntities,
+//    val india-telangana-districts-magistrates: IndiaTelanganaDistrictsMagistrates,
+//    val new-zealand-insolvency-and-trustee-service-public-notices: NewZealandInsolvencyAndTrusteeServicePublicNotices,
+//    val united-states-department-of-justice-securities-and-financial-fraud: UnitedStatesDepartmentOfJusticeSecuritiesAndFinancialFraud,
+//    val united-states-system-for-award-management-exclusions: UnitedStatesSystemForAwardManagementExclusions
+)

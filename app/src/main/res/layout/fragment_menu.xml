@@ -7,7 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="10">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cltop"
         android:layout_width="match_parent"
@@ -85,7 +84,7 @@
                         android:id="@+id/ivSetting"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
-                        android:src="@drawable/ic_setting"
+                        android:src="@drawable/ic_settings"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_centerVertical="true" />
                     <TextView
@@ -101,12 +100,12 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:src="@drawable/next_" />
+                        android:src="@drawable/ic_next" />
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -120,18 +119,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_32sdp"
                     app:layout_constraintTop_toBottomOf="@+id/rlProfile">
-
-
                     <ImageView
                         android:id="@+id/ivVerification"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
                         android:src="@drawable/ic_verification"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_centerVertical="true"
-                        />
-
-
+                        android:layout_centerVertical="true" />
                     <TextView
                         android:id="@+id/tvVerification"
                         android:layout_width="wrap_content"
@@ -143,16 +137,13 @@
                         android:text="@string/verification_statuses"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
-
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/next_"
+                        android:src="@drawable/ic_next"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="@dimen/_15sdp"
-                        />
-
+                        android:layout_marginEnd="@dimen/_15sdp" />
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -160,19 +151,17 @@
                         android:layout_alignParentBottom="true"
                         android:layout_alignStart="@id/tvVerification"
                         />
-
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/rlAboutapp"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_32sdp"
                     app:layout_constraintTop_toBottomOf="@+id/rlVerifivation">
-
                     <ImageView
                         android:id="@+id/ivAboutApp"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
-                        android:src="@drawable/ic_info"
+                        android:src="@drawable/ic_about_app"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp" />
                     <TextView
@@ -187,10 +176,10 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/next_"
+                        android:src="@drawable/ic_next"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="@dimen/_15sdp"
                         />
@@ -212,7 +201,7 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:src="@drawable/ic_info" />
+                        android:src="@drawable/ic_review_app" />
                     <TextView
                         android:id="@+id/tvReviewApp"
                         android:layout_width="wrap_content"
@@ -225,12 +214,12 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:src="@drawable/next_" />
+                        android:src="@drawable/ic_next" />
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -248,7 +237,7 @@
                         android:id="@+id/ivShareApp"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
-                        android:src="@drawable/ic_share"
+                        android:src="@drawable/ic_share_app"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         />
@@ -325,7 +314,7 @@
                         android:id="@+id/ivHelp"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
-                        android:src="@drawable/ic_chat"
+                        android:src="@drawable/ic_help_center"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp" />
                     <TextView
@@ -358,8 +347,6 @@
                 android:orientation="vertical"
                 android:paddingVertical="@dimen/_4sdp">
 
-
-
                 <RelativeLayout
                     android:id="@+id/rlVisit"
                     android:layout_width="match_parent"
@@ -370,7 +357,7 @@
                         android:id="@+id/ivVisit"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
-                        android:src="@drawable/ic_website"
+                        android:src="@drawable/ic_visit_website"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_8sdp"
                         />
@@ -386,8 +373,6 @@
                         android:text="@string/visit_our_website"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
-
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -402,47 +387,37 @@
                     android:id="@+id/rlViewongplay"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_32sdp"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     tools:ignore="MissingConstraints">
 
                     <ImageView
                         android:id="@+id/ivGplay"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
-                        android:src="@drawable/ic_play"
+                        android:src="@drawable/ic_play_store"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_10sdp"
-
-                        />
-
+                        android:layout_marginStart="@dimen/_10sdp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
                         android:layout_toEndOf="@+id/ivGplay"
                         android:fontFamily="@font/robotoregular"
                         android:text="@string/view_on_google_play"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
-
-
                 </RelativeLayout>
             </LinearLayout>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/llLaoutLearn"
                 android:layout_marginStart="@dimen/_18sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:fontFamily="@font/lato_regular"
                 android:text="@string/legal" />
-
-
             <LinearLayout
                 android:id="@+id/llLaoutLegal"
-                android:layout_below="@+id/llLaoutLearn"
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_height="wrap_content"
@@ -451,19 +426,16 @@
                 android:orientation="vertical"
                 android:paddingVertical="@dimen/_3sdp">
 
-
-
                 <RelativeLayout
                     android:id="@+id/rlLegal"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_32sdp"
                     tools:ignore="MissingConstraints">
-
                     <ImageView
                         android:id="@+id/ivLegal"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
-                        android:src="@drawable/ic_privacy"
+                        android:src="@drawable/ic_privacy_policy"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         />
@@ -471,13 +443,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
                         android:layout_toEndOf="@+id/ivLegal"
                         android:fontFamily="@font/robotoregular"
                         android:text="@string/privacy_policy"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
-
                 </RelativeLayout>
             </LinearLayout>
 

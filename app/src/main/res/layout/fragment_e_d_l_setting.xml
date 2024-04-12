@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/lightbg">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/LleID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_menuview"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/rlReadeID"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvReadeID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/read_edl"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swAdjustLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvGeneral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/data_groups" />
+
+            <LinearLayout
+                android:id="@+id/LlDataGroups"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_menuview"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlTextData"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvTextData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/text_data_elements_dg1"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swTextData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlLicenseInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+
+                    <TextView
+                        android:id="@+id/tvLicenseInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="@string/license_holder_information_dg2"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swLicenseInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlIssueDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+
+                    <TextView
+                        android:id="@+id/tvIssueDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/issuing_authority_details_dg3"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swIssueDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlPortraitImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+
+                    <TextView
+                        android:id="@+id/tvPortraitImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/portrait_image_dg4"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swPortraitImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlSignatureImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvPSignatureImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signature_usual_mark_image_dg5"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swSignatureImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlBiometryFacial"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+
+                    <TextView
+                        android:id="@+id/tvBiometryFacial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/biometry_facial_data_dg6"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swBiometryFacial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlBiometryFingerprint"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+
+                    <TextView
+                        android:id="@+id/tvBiometryFingerprint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/biometry_fingerprint_s_dg7"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swBiometryFingerprint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlBiometryIris"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+
+                    <TextView
+                        android:id="@+id/tvBiometryIris"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/biometry_iris_data_dg8"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swBiometryIris"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlBiometryOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvBiometryOther"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/biometry_other_dg9"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swBiometryOther"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlNotdefinedeDL"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+
+                    <TextView
+                        android:id="@+id/tvotdefinedeDL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/not_defined_dg100"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swBotdefinedeDL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlDomesticData"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvDomesticData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/optional_domestic_data_dg11"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swDomesticData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlNonMarch"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvDNonMarch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/non_march_alert_dg12"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swNonMarch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlActiveAuthInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvActiveAuthInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/active_authentication_info_dg13"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swActiveAuthInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlrlEacInfoeDl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+
+                    <TextView
+                        android:id="@+id/tvrlEacInfoeDl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/eac_info_dgs14"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swrlEacInfoeDl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

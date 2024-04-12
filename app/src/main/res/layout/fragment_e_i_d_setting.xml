@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/lightbg">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/LleID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_menuview"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/rleID"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tveID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/read_eid"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/sweID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvGeneral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/data_groups" />
+            <LinearLayout
+                android:id="@+id/LlDataGroups"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_menuview"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlDocumentType"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvDocumentType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/document_type_dg1"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swDocumentType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlIssueState"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp">
+                    <TextView
+                        android:id="@+id/tvIssueState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/issuing_state_dg2"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swIssueState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rlDateOfExpiry"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvDateOfExpiry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/date_of_expiry_dg3"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swDateOfExpiry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rlGiveName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvGiveName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/given_name_dg4"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swGiveName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rlFamilyName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvFamilyName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/family_name_dg5"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swFamilyName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rlPseudonym"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvPseudonym"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pseudonym_dg6"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swPseudonym"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlAcademicTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvAcademicTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/academic_title_dg7"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swAcademicTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlDateOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvDateOfBirth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date_of_birth_dg8"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swDateOfBirth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlPlaceOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvPlaceOfBirth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/place_of_birth_dg9"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swPlaceOfBirth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlNationality"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvNationality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nationality_dg10"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swNationality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlSex"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvSex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sex_dg11"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swSex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rlOptional"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvOptional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/optional_detials_dg12"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swOptional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlUndefined"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvUndefined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/undefined_dg13"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swUndefined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlUndefinedDG14"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvUndefinedDG14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/undefined_dg14"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swUndefinedDG14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlUndefinedDG15"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvUndefinedDG15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/undefined_dg15"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swUndefinedDG15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlUndefinedDG16"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvUndefinedDG16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/undefined_dg16"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swUndefinedDG16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlPlaceRegistration"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvPlaceRegistration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/place_of_registration_dg17"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swPlaceRegistration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlPlaceRegistrationDG18"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvPlaceRegistration18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/place_of_registration_dg17"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swPlaceRegistration18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlResidence"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvResidence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/residence_permit_1_dg19"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swResidence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rlResidencePermit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvResidencePermit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/residence_permit_2_dg20"
+                        android:layout_centerVertical="true"
+
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swResidencePermit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+                <RelativeLayout
+                    android:id="@+id/rlOptionalsDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    >
+                    <TextView
+                        android:id="@+id/tvOptionalsDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/optional_details_dg21"
+                        android:fontFamily="@font/robotoregular"
+                        android:textColor="@color/black"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swOptionalsDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        app:thumbTint="@color/selector_switch_thumb"
+                        app:trackTint="@color/selector_switch_track" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

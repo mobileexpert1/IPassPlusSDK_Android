@@ -4,8 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="full_processing">Full Processing</string>
     <string name="processing_scenario_for_obtaining_all_document_data">Processing scenario for obtaining all\ndocument data</string>
-    <string name="procesing_scenario_for_obtaning_bank_card_data">Processing scenario for obtaning bank\ncard data</string>
-    <string name="procesing_scenario_for_obtaning_mrz_n_data">Processing scenario for obtaning MRZ\ndata</string>
+    <string name="procesing_scenario_for_obtaning_bank_card_data">Processing scenario for obtaning bank card data</string>
+    <string name="procesing_scenario_for_obtaning_mrz_n_data">Processing scenario for obtaning MRZ data</string>
     <string name="procesing_scenario_for_obtaning_barcode_ndata">Processing scenario for obtaning\nbarcode data</string>
     <string name="procesing_scenario_for_obtaning_nvisaul_zone_ocr_results">Processing scenario for obtaning\nvisaul zone OCR results</string>
     <string name="menu">Menu</string>
@@ -58,7 +58,8 @@
     <string name="reset_all_settings">Reset all settings</string>
     <string name="reset">Reset</string>
     <string name="strCancel">Cancel</string>
-
+    <string name="save">SAVE</string>
+    <string name="cancels">CANCEL</string>
 
     <string name="verification_statusess">Verification statuses</string>
     <string name="id_document_verification">ID document verification</string>
@@ -108,6 +109,9 @@
     <string name="internal_image">Integral image</string>
     <string name="hologram_dectection">Hologram dectection</string>
     <string name="image_quality">Image quality</string>
+    <string name="time_out">Timeout</string>
+    <string name="timeout_document_detection">Timeout starting from document\ndetection</string>
+    <string name="timeout_identification">Timeout starting from document type\nidentification</string>
     <string name="date_format">Date format</string>
     <string name="document_filter">Document filter</string>
     <string name="custom_parameters">Custom parameters</string>
@@ -118,10 +122,10 @@
     <string name="save_event_log_to_the_device">Save event log to the device</string>
     <string name="save_images">Save images</string>
     <string name="save_images_for_debug_function">Save images (for debug function)</string>
-    <string name="save_cropped_images_for_debug_function">Save cropped images (for debug function)</string>
+    <string name="save_cropped_images_for_debug_function">Save cropped images (for debug\nfunction)</string>
     <string name="save_cropped_images">Save cropped images</string>
     <string name="report_event_logs">Report event logs</string>
-    <string name="report_the_issue_to_our_support_team">Report the issue to our support\nteam</string>
+    <string name="report_the_issue_to_our_support_team">Report the issue to our\nsupport team</string>
     <string name="show_metadata">Show metadata</string>
     <string name="show_complete_list_of_scenarios">Show complete list of scenarios</string>
     <string name="debug_setting">Debug settings</string>
@@ -134,11 +138,135 @@
     <string name="document_position_indent">Document position: Indent</string>
     <string name="the_minimum_indent_from_the_corners_of_the_document_to_the_borders_of_the_image">The minimum indent from the\ncorners of the document to the\nborders of the image</string>
     <string name="camera_to_use1">Camera to use</string>
+    <string name="no_accessories_glass_mask_hat_etc">No accessories: glasses,\nmask, hat, etc.</string>
+
     <string name="camera_at_eye_level">Camera at eye level.</string>
     <string name="goo">Go</string>
     <string name="egypt_id_card_1">Egypt -Id Card #1</string>
     <string name="string_default">default</string>
     <string name="strAccessibilityCloseButton">Close</string>
+
+    <string name="camera_apis">Camera API</string>
+    <string name="camera2_api">Camera2 API</string>
+    <string name="auto_selection">Auto selection</string>
+    <string name="date_formats">Date Format</string>
+    <string name="video_processing">Video processing</string>
+    <string name="frame_processing">Frame processing</string>
+    <string name="autos">Auto</string>
+    <string name="report_event_logss">Report event logs</string>
+    <string name="authentication_procedure_type">Authentication\nprocedure type</string>
+    <string name="basic_security_messaging_procedure">Basic Security\nMessaging procedure</string>
+    <string name="data_access_key">Data access key</string>
+    <string name="data_access_key_value">Data access key value</string>
+    <string name="priority_of_using_ds_certificates">Priority of using DS\nCertificates</string>
+    <string name="use_of_external_csda_certificates">Use of external CSDA\ncertificates</string>
+    <string name="trust_pkd_certificates">Trust PKD certificates</string>
+    <string name="passive_authenication_pa">Passive Authenication (PA)</string>
+    <string name="mrz1">MRZ</string>
+    <string name="pace">PACE</string>
+    <string name="data_groups">Data groups</string>
+    <string name="authentication">Authentication</string>
+
+    <string name="biometric_verification">Biometric verification</string>
+    <string name="face_matching1">Face matching</string>
+    <string name="liveness_check1">Liveness check</string>
+    <string name="document_verification">Document verification</string>
+    <string name="document_type">Document type</string>
+    <string name="optical">Optical</string>
+    <string name="text_fields">Text fields</string>
+    <string name="authenticity">Authenticity</string>
+
+    <string name="basic_access_control">Basic Access Control (BAC)</string>
+    <string name="password_authenticated_connection_establishment_pace">Password Authenticated Connection Establishment (PACE)</string>
+    <string name="chip_authentication">Chip Authentication (CA)</string>
+    <string name="terminal_authentication_ta">Terminal Authentication (TA)</string>
+    <string name="active_authentication_aa">Active Authentication (AA)</string>
+    <string name="passive_authentication">Passive Authentication (PA)</string>
+    <string-array name="select_image">
+        <item>Gallery</item>
+        <item>Camera Shot</item>
+    </string-array>
+
+
+    <string name="do_not_perform_aa_after_ca">Do not perform AA after CA</string>
+    <string name="profile_type">Profile type</string>
+    <string name="strict_iso_protocol">Strict ISO protocol</string>
+    <string name="read_epassport">Read ePassport</string>
+    <string name="machine_readable_zone_dg1">Machine Readable Zone\n(DG1)</string>
+    <string name="biometry_facial_data_dg2">Biometry - Facial data (DG2)</string>
+    <string name="biometry_fingerprint_s_dg3">Biometry - Fingerprint(s)\n(DG3)</string>
+    <string name="biometry_iris_data_dg4">Biometry - Iris Data (DG4)</string>
+    <string name="portrait_s_dg5">Portrait(s) (DG5)</string>
+    <string name="not_defined_dg6">not defined (DG6)</string>
+    <string name="not_defined_dg8">not defined (DG8)</string>
+    <string name="not_defined_dg9">not defined (DG9)</string>
+    <string name="not_defined_dg10">not defined (DG10)</string>
+    <string name="signature_usual_mark_image_dg7">Signature / usual mark image\n(DG7)</string>
+    <string name="addtional_personal_details_s_dg11">Addtional personal details(s)\n(DG11)</string>
+    <string name="addtional_document_details_dg12">Addtional document details\n(DG12)</string>
+    <string name="optional_details_s_dg13">Optional details(s) (DG13)</string>
+    <string name="eac_info_dg14">EAC info (DG14)</string>
+    <string name="active_authentication_info_dg15">Active Authentication info\n(DG15)</string>
+    <string name="person_s_to_notify_dg16">Person(s) to notify (DG16)</string>
+    <string name="read_eid">Read eID</string>
+    <string name="document_type_dg1">Document type (DG1)</string>
+    <string name="issuing_state_dg2">Issuing state (DG2)</string>
+    <string name="date_of_expiry_dg3">Date of expiry (DG3)</string>
+    <string name="given_name_dg4">Given name (DG4)</string>
+    <string name="family_name_dg5">Family name (DG5)</string>
+    <string name="pseudonym_dg6">Pseudonym (DG6)</string>
+    <string name="academic_title_dg7">Academic title (DG7)</string>
+    <string name="date_of_birth_dg8">Date of birth (DG8)</string>
+    <string name="place_of_birth_dg9">Place of birth (DG9)</string>
+    <string name="values">Value</string>
+
+    <string name="nationality_dg10">Nationality (DG10)</string>
+    <string name="sex_dg11">Sex (DG11)</string>
+    <string name="optional_detials_dg12">Optional detials (DG12)</string>
+    <string name="undefined_dg13">Undefined (DG13)</string>
+    <string name="undefined_dg14">Undefined (DG14)</string>
+    <string name="undefined_dg15">Undefined (DG15)</string>
+    <string name="undefined_dg16">Undefined (DG16)</string>
+    <string name="place_of_registration_dg17">Place of registration (DG17)</string>
+    <string name="place_of_registration_dg18">Place of registration (DG18)</string>
+    <string name="residence_permit_1_dg19">Residence permit 1 (DG19)</string>
+    <string name="residence_permit_2_dg20">Residence permit 2 (DG20)</string>
+    <string name="optional_details_dg21">Optional details (DG21)</string>
+    <string name="read_edl">Read eDL</string>
+    <string name="text_data_elements_dg1">Text data elements (DG1)</string>
+    <string name="license_holder_information_dg2">License holder information\n(DG2)</string>
+    <string name="issuing_authority_details_dg3">Issuing authority details\n(DG3)</string>
+    <string name="portrait_image_dg4">Portrait Image (DG4)</string>
+    <string name="signature_usual_mark_image_dg5">Signature / usual mark image\n(DG5)</string>
+    <string name="biometry_facial_data_dg6">Biometry - Facial data (DG6)</string>
+    <string name="biometry_fingerprint_s_dg7">Biometry - Fingerprint(s)\n(DG7)</string>
+    <string name="biometry_iris_data_dg8">Biometry - Iris Data (DG8)</string>
+    <string name="biometry_other_dg9">Biometry - Other (DG9)</string>
+    <string name="not_defined_dg100">not defined (DG10)</string>
+    <string name="optional_domestic_data_dg11">Optional domestic data\n(DG11)</string>
+    <string name="non_march_alert_dg12">Non-march alert (DG12)</string>
+    <string name="active_authentication_info_dg13">Active Authentication info\n(DG13)</string>
+    <string name="eac_info_dgs14">EAC info (DG14)</string>
+    <string name="epassport">ePassport</string>
+    <string name="eid">eID</string>
+    <string name="edl">eDL</string>
+
+    <string name="doc_9303_6th_edition_2006">Doc 9303,6th edition,2006</string>
+    <string name="lds_and_pki_maintenance_v2_0_may_21">LDS and PKI Maintenance,v2.0,May 21,</string>
+    <string name="sai">SAI</string>
+    <string name="puk">PUK</string>
+    <string name="pin">PIN</string>
+    <string name="can">CAN</string>
+    <string name="mrzs">MRZ</string>
+    <string name="bac">BAC</string>
+    <string name="pacee">PACE</string>
+    <string name="standard_inspection_procedure">Standard inspection procedure</string>
+    <string name="advance_inspection_procedure">Advance inspection procedure</string>
+    <string name="general_inspection_procedure">General inspection procedure</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="nationality">Nationality</string>
+    <string name="save_rfid_session_to_the_device_for_debugging">Save RFID session to the device (for\ndebugging)</string>
+    <string name="save_rfid_session">Save RFID session</string>
 
 
 </resources>
