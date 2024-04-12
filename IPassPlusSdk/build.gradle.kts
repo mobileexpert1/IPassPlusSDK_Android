@@ -1,7 +1,11 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
+
+var artifactId = "IPassPlusSDK"
+var groupId = "com.sdk.ipassplussdk"
 
 android {
     namespace = "com.sdk.ipassplussdk"
@@ -42,6 +46,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.10"
     }
+
 }
 
 dependencies {
@@ -94,3 +99,43 @@ dependencies {
 
 
 }
+project.afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.sdk.ipassplussdk"
+                artifactId = "IPassPlusSDK"
+                version = "1.0.2"
+            }
+        }
+    }
+}
+
+//project.afterEvaluate {
+//    publishing {
+//        publications {
+//            create<MavenPublication>("library") {
+//                groupId = groupId
+//                artifactId = artifactId
+//                version = "1.0.2"
+//                artifact(bundleReleaseAar)
+//            }
+//        }
+//    }
+//}
+
+
+//project.afterEvaluate {
+//    publishing {
+//        publications {
+//            library(MavenPublication) {
+//                setGroupId groupId
+//                        setArtifactId artifactId
+//                        version '1.0.5'
+//                artifact bundleReleaseAar
+//            }
+//        }
+//    }
+//}

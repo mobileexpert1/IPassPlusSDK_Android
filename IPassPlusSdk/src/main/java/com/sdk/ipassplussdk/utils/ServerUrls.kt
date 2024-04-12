@@ -17,5 +17,6 @@ object ServerUrls {
     const val url_valid_api = "ipass/plus/digital/manipulation"
     const val url_post_ceon = "ipass/plus/socialmedia"
     const val url_get_ceon = "ipass/plus/socialmedia/get"
+    const val url_data_save = "ipass/sdk/data/save"
 
 }

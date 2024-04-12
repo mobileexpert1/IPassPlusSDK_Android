@@ -17,6 +17,7 @@ import com.sdk.ipassplussdk.model.response.aml_manual.AmlManualResponse
 import com.sdk.ipassplussdk.model.response.ceon.GetCeon.GetCeonResponse
 import com.sdk.ipassplussdk.model.response.ceon.PostCeon.PostCeonResponse
 import com.sdk.ipassplussdk.model.response.check_face_analysis.CheckFaceAnalysisResponse
+import com.sdk.ipassplussdk.model.response.data_save.DataSaveRequest
 import com.sdk.ipassplussdk.model.response.facesimilarity.FaceSimilarityResponse
 import com.sdk.ipassplussdk.model.response.livenesscheck.LivenessCheckResponse
 import com.sdk.ipassplussdk.model.response.login.LoginResponse
@@ -127,5 +128,10 @@ interface ApiInterface {
         @Query("token1") token1: String,
         @Body getCeonRequest: GetCeonRequest
     ): Call<BaseModel<GetCeonResponse>>
+
+    @POST(ServerUrls.url_data_save)
+    fun dataSaveRequest(
+        @Body getCeonRequest: DataSaveRequest
+    ): Call<GetCeonResponse>
 
 }
