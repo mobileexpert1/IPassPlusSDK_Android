@@ -251,10 +251,10 @@ class MainActivity : AppCompatActivity() {
     fun getLoginRequest() {
 
 //        var email: String = "yazan12@gmail.com"
-        var email: String = "ipassmobile@yopmail.com"
-        var password: String = "Admin@123#"
-
-        val request = LoginRequest(email,password)
+//        var email: String = "ipassmobile@yopmail.com"
+//        var password: String = "Admin@123#"
+//
+//        val request = LoginRequest(email,password)
 
 //        IPassSDK.getLoginRequest(this, object : ResultListener<LoginResponse> {
 //            override fun onSuccess(t: LoginResponse?) {
@@ -275,10 +275,10 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun sessionCreateRequest(bindViewGroup: ViewGroup) {
 
-        val token = Constants.TOKEN
-        val request = SessionCreateRequest()
-        request.email = email
-        request.authToken = auth_token
+//        val token = Constants.TOKEN
+//        val request = SessionCreateRequest()
+//        request.email = email
+//        request.authToken = auth_token
 
         IPassSDK.faceSessionCreateRequest(this,bindViewGroup) {
 

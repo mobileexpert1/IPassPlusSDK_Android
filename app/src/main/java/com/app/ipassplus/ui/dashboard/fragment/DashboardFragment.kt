@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -56,7 +57,9 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onScenarioPickClick(position: Int, model: ScenariosItemModel) {
-        IPassSDK.showScannerRequest(requireContext(), "anshul12@gmail.com")
+        IPassSDK.showScannerRequest(requireContext(), binding.root as ViewGroup,"anshul12@gmail.com") {
+            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+        }
     }
 
     var auth_token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYxNTQyNmMzY2RmZDA4NDlmYTQ1NzcxIiwiZW1haWwiOiJpcGFzc21vYmlsZUB5b3BtYWlsLmNvbSIsImlhdCI6MTcxMjgzMzE3NCwiZXhwIjoxNzEyODM0OTc0fQ.7mmV3gcHd54YQ8uohfKwI_RJW0GzIYH_SFG--VGZ_Zg"

@@ -11,6 +11,7 @@ import com.sdk.ipassplussdk.model.request.session_create.SessionCreateRequest
 import com.sdk.ipassplussdk.model.request.session_result.SessionResultRequest
 import com.sdk.ipassplussdk.model.response.BaseModel
 import com.sdk.ipassplussdk.model.response.check_face_analysis.CheckFaceAnalysisResponse
+import com.sdk.ipassplussdk.model.response.data_save.Livenessdata
 import com.sdk.ipassplussdk.model.response.session_create.FaceSessionCreateResponse
 import com.sdk.ipassplussdk.model.response.session_result.SessionResultResponse
 import com.sdk.ipassplussdk.utils.Constants
@@ -29,15 +30,15 @@ object SessionResultData {
         sid: String,
         email: String,
         request: SessionResultRequest,
-        completion: ResultListener<SessionResultResponse>
+        completion: ResultListener<Livenessdata>
     ) {
         if (InternetConnectionService.networkAvailable(context)) {
             ApiClient("")?.create(ApiInterface::class.java)!!
                 .sessionResult(token, sessionId, sid, email, request).enqueue(object :
-                    Callback<SessionResultResponse> {
+                    Callback<Livenessdata> {
                     override fun onResponse(
-                        call: Call<SessionResultResponse>,
-                        response: Response<SessionResultResponse>
+                        call: Call<Livenessdata>,
+                        response: Response<Livenessdata>
                     ) {
                         print("Response ==> $response")
                         if (response.isSuccessful) {
@@ -51,7 +52,7 @@ object SessionResultData {
                         }
                     }
 
-                    override fun onFailure(call: Call<SessionResultResponse>, t: Throwable) {
+                    override fun onFailure(call: Call<Livenessdata>, t: Throwable) {
                         completion.onError(t.message.toString())
                     }
                 })

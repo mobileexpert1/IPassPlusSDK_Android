@@ -8,6 +8,8 @@ import com.sdk.ipassplussdk.apis.ApiInterface
 import com.sdk.ipassplussdk.apis.ResultListener
 import com.sdk.ipassplussdk.model.request.regula.regula_post_data.OcrPostdataRequest
 import com.sdk.ipassplussdk.model.response.BaseModel
+import com.sdk.ipassplussdk.model.response.data_save.DataSaveRequest
+import com.sdk.ipassplussdk.model.response.data_save.DataSaveResponse
 import com.sdk.ipassplussdk.model.response.regula.regula_post_data.OcrPostDataResponse
 import com.sdk.ipassplussdk.utils.Constants
 import com.sdk.ipassplussdk.utils.ErrorHandler
@@ -18,19 +20,18 @@ import retrofit2.Response
 
 object PostAllData {
     @RequiresApi(Build.VERSION_CODES.O)
-    fun ocrPostData(
+    fun postAllData(
         context: Context,
-        token: String,
-        request: OcrPostdataRequest,
-        completion: ResultListener<OcrPostDataResponse>
+        request: DataSaveRequest,
+        completion: ResultListener<DataSaveResponse>
     ) {
         if (InternetConnectionService.networkAvailable(context)) {
             ApiClient("")?.create(ApiInterface::class.java)!!
-                .ocrPostData(token, request).enqueue(object :
-                    Callback<OcrPostDataResponse> {
+                .dataSaveRequest( request ).enqueue(object :
+                    Callback<DataSaveResponse> {
                     override fun onResponse(
-                        call: Call<OcrPostDataResponse>,
-                        response: Response<OcrPostDataResponse>
+                        call: Call<DataSaveResponse>,
+                        response: Response<DataSaveResponse>
                     ) {
                         print("Response ==> $response")
                         if (response.isSuccessful) {
@@ -44,7 +45,7 @@ object PostAllData {
                         }
                     }
 
-                    override fun onFailure(call: Call<OcrPostDataResponse>, t: Throwable) {
+                    override fun onFailure(call: Call<DataSaveResponse>, t: Throwable) {
                         completion.onError(t.message.toString())
                     }
                 })

@@ -18,6 +18,8 @@ import com.sdk.ipassplussdk.model.response.ceon.GetCeon.GetCeonResponse
 import com.sdk.ipassplussdk.model.response.ceon.PostCeon.PostCeonResponse
 import com.sdk.ipassplussdk.model.response.check_face_analysis.CheckFaceAnalysisResponse
 import com.sdk.ipassplussdk.model.response.data_save.DataSaveRequest
+import com.sdk.ipassplussdk.model.response.data_save.DataSaveResponse
+import com.sdk.ipassplussdk.model.response.data_save.Livenessdata
 import com.sdk.ipassplussdk.model.response.facesimilarity.FaceSimilarityResponse
 import com.sdk.ipassplussdk.model.response.livenesscheck.LivenessCheckResponse
 import com.sdk.ipassplussdk.model.response.login.LoginResponse
@@ -80,7 +82,7 @@ interface ApiInterface {
         @Query("email") email: String,
         @Body sessionCreateRequest: SessionResultRequest
 //        @Query("token1") token1: String,
-    ): Call<SessionResultResponse>
+    ): Call<Livenessdata>
 
     @POST(ServerUrls.url_aml_manual)
     fun amlManual(
@@ -132,6 +134,6 @@ interface ApiInterface {
     @POST(ServerUrls.url_data_save)
     fun dataSaveRequest(
         @Body getCeonRequest: DataSaveRequest
-    ): Call<GetCeonResponse>
+    ): Call<DataSaveResponse>
 
 }

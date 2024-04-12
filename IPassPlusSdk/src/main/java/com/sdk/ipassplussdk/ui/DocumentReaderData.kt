@@ -6,8 +6,8 @@ import android.app.AlertDialog
 import android.content.Context
 import android.os.Build
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.google.gson.Gson
 import com.regula.documentreader.api.DocumentReader
 import com.regula.documentreader.api.completions.IDocumentReaderCompletion
 import com.regula.documentreader.api.completions.rfid.IRfidReaderCompletion
@@ -20,13 +20,9 @@ import com.regula.documentreader.api.errors.DocReaderRfidException
 import com.regula.documentreader.api.errors.DocumentReaderException
 import com.regula.documentreader.api.results.DocumentReaderNotification
 import com.regula.documentreader.api.results.DocumentReaderResults
-import com.sdk.ipassplussdk.apis.ResultListener
 import com.sdk.ipassplussdk.core.IPassSDK.setRawResult
-import com.sdk.ipassplussdk.core.OcrPostData
-import com.sdk.ipassplussdk.model.request.regula.regula_post_data.OcrPostdataRequest
-import com.sdk.ipassplussdk.model.response.regula.regula_post_data.OcrPostDataResponse
-import com.sdk.ipassplussdk.utils.Constants
-import com.sdk.ipassplussdk.views.ProgressManager
+import com.sdk.ipassplussdk.model.response.regula_data.RegulaData
+import org.json.JSONObject
 
 @SuppressLint("StaticFieldLeak")
 object DocumentReaderData {
@@ -40,6 +36,7 @@ object DocumentReaderData {
     private var email: String? = null
     private var auth_token: String? = null
     private var rawResult: String? = null
+    private var callback: (String) -> Unit = {}
 //    private var img1: String? = null
 //    private var img2: String? = null
 
@@ -55,6 +52,7 @@ object DocumentReaderData {
                     sid:String,
                     custEmail: String,
                     auth_token: String,
+                    callback: (String) -> Unit
 //                    img1: String,
 //                    img2: String,
                     ) {
@@ -62,6 +60,7 @@ object DocumentReaderData {
         this.sid = sid
         this.email = custEmail
         this.auth_token = auth_token
+        this.callback = callback
 //        this.img1 = img1
 //        this.img2 = img2
 
@@ -85,9 +84,15 @@ object DocumentReaderData {
         if (action == DocReaderAction.COMPLETE
             || action == DocReaderAction.TIMEOUT) {
 
+            rawResult = results?.rawResult!!
+            val jsonResult = JSONObject(rawResult!!)
+            val gg: RegulaData = Gson().fromJson(rawResult!!, RegulaData::class.java)
+            setRawResult(rawResult!!)
+            callback.invoke("success")
+
 //            ProgressManager.showProgress(context!!, "Uploading scanned data")
 
-            DocumentReader.Instance().startRFIDReader(context!!, object: IRfidReaderCompletion() {
+   /*         DocumentReader.Instance().startRFIDReader(context!!, object: IRfidReaderCompletion() {
                 override fun onChipDetected() {
                     Log.d("Rfid", "Chip detected")
                 }
@@ -107,14 +112,18 @@ object DocumentReaderData {
                 ) {
                     if (rfidAction == DocReaderAction.COMPLETE) {
                         rawResult = results_RFIDReader?.rawResult!!
-                        setRawResult(rawResult!!)
+                        val jsonResult = JSONObject(rawResult!!)
+                        setRawResult(jsonResult)
+                        callback.invoke("success")
                     } else if (rfidAction == DocReaderAction.CANCEL) {
                        rawResult = results?.rawResult!!
-                        setRawResult(rawResult!!)
+                        val jsonResult = JSONObject(rawResult!!)
+                        setRawResult(jsonResult)
+                        callback.invoke("success")
                     }
 
                 }
-            })
+            })*/
 
 //            val request = OcrPostdataRequest()
 //            request.sid = sid
