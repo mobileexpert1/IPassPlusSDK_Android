@@ -67,7 +67,7 @@ object DocumentReaderData {
         DocumentReader.Instance().processParams().multipageProcessing = true
         DocumentReader.Instance().functionality().edit().setShowSkipNextPageButton(false)
 
-        val scannerConfig = ScannerConfig.Builder(Scenario.SCENARIO_FULL_AUTH).build()
+        val scannerConfig = ScannerConfig.Builder(Scenario.SCENARIO_FULL_PROCESS).build()
         DocumentReader.Instance().showScanner(context, scannerConfig, completion)
     }
 
@@ -85,45 +85,47 @@ object DocumentReaderData {
             || action == DocReaderAction.TIMEOUT) {
 
             rawResult = results?.rawResult!!
-            val jsonResult = JSONObject(rawResult!!)
-            val gg: RegulaData = Gson().fromJson(rawResult!!, RegulaData::class.java)
             setRawResult(rawResult!!)
             callback.invoke("success")
 
 //            ProgressManager.showProgress(context!!, "Uploading scanned data")
 
-   /*         DocumentReader.Instance().startRFIDReader(context!!, object: IRfidReaderCompletion() {
-                override fun onChipDetected() {
-                    Log.d("Rfid", "Chip detected")
-                }
-
-                override fun onProgress(notification: DocumentReaderNotification) {
-                    rfidProgress(notification.code, notification.value)
-                }
-
-                override fun onRetryReadChip(exception: DocReaderRfidException) {
-                    Log.d("Rfid", "Retry with error: " + exception.errorCode)
-                }
-
-                override fun onCompleted(
-                    rfidAction: Int,
-                    results_RFIDReader: DocumentReaderResults?,
-                    error: DocumentReaderException?
-                ) {
-                    if (rfidAction == DocReaderAction.COMPLETE) {
-                        rawResult = results_RFIDReader?.rawResult!!
-                        val jsonResult = JSONObject(rawResult!!)
-                        setRawResult(jsonResult)
-                        callback.invoke("success")
-                    } else if (rfidAction == DocReaderAction.CANCEL) {
-                       rawResult = results?.rawResult!!
-                        val jsonResult = JSONObject(rawResult!!)
-                        setRawResult(jsonResult)
-                        callback.invoke("success")
+            if (results.chipPage != 0) {
+                DocumentReader.Instance().startRFIDReader(context!!, object: IRfidReaderCompletion() {
+                    override fun onChipDetected() {
+                        Log.d("Rfid", "Chip detected")
                     }
 
-                }
-            })*/
+                    override fun onProgress(notification: DocumentReaderNotification) {
+                        rfidProgress(notification.code, notification.value)
+                    }
+
+                    override fun onRetryReadChip(exception: DocReaderRfidException) {
+                        Log.d("Rfid", "Retry with error: " + exception.errorCode)
+                    }
+
+                    override fun onCompleted(
+                        rfidAction: Int,
+                        results_RFIDReader: DocumentReaderResults?,
+                        error: DocumentReaderException?
+                    ) {
+                        if (rfidAction == DocReaderAction.COMPLETE) {
+                            rawResult = results_RFIDReader?.rawResult!!
+                            setRawResult(rawResult!!)
+                            callback.invoke("success")
+                        } else if (rfidAction == DocReaderAction.CANCEL) {
+                            rawResult = results.rawResult
+                            setRawResult(rawResult!!)
+                            callback.invoke("success")
+                        }
+                    }
+                })
+            } else {
+                rawResult = results.rawResult!!
+                setRawResult(rawResult!!)
+                callback.invoke("success")
+            }
+
 
 //            val request = OcrPostdataRequest()
 //            request.sid = sid

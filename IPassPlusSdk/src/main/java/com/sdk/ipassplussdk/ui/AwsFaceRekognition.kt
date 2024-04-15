@@ -51,6 +51,7 @@ object AwsFaceRekognition {
                         disableStartView = true,
                         onComplete = {
                             Log.i("MyApp", "Face Liveness flow is complete")
+                            bindView.removeViewInLayout(this)
                             callback.invoke("success")
                            /* val request = FaceSimilarityRequest()
                             request.sid = "183"
