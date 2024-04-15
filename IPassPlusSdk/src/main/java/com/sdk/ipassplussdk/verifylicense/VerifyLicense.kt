@@ -7,7 +7,7 @@ import com.sdk.ipassplussdk.views.Components
 object VerifyLicense {
 
 fun verifyLicense(context: Context){
-    if (LicenseUtil.readFileFromAssets("Regula", "regula.license", context) == null)
+    if (LicenseUtil.readFileFromAssets("SdkLicense", "sdkLicense.license", context) == null)
         Components.showDialog(context)
 }
 

@@ -13,7 +13,6 @@ import com.regula.documentreader.api.params.DocReaderConfig
 import com.sdk.ipassplussdk.utils.Constants
 import com.sdk.ipassplussdk.utils.InternetConnectionService
 import com.sdk.ipassplussdk.utils.LicenseUtil
-import com.sdk.ipassplussdk.views.Components.showProgressDialog
 import com.sdk.ipassplussdk.views.Components.showDialog
 
 object InitializeDatabase {
@@ -25,7 +24,7 @@ object InitializeDatabase {
     @RequiresApi(Build.VERSION_CODES.O)
     fun InitDatabase(context: Context, initDialog: AlertDialog?, callback: (String) -> Unit){
         if (InternetConnectionService.networkAvailable(context)) {
-            if (LicenseUtil.readFileFromAssets("Regula", "regula.license", context) == null
+            if (LicenseUtil.readFileFromAssets("SdkLicense", "sdkLicense.license", context) == null
                 && !isInitializedByBleDevice
             ) showDialog(
                 context
@@ -35,8 +34,8 @@ object InitializeDatabase {
                 onInitComplete(context, callback)
 
             val license = LicenseUtil.readFileFromAssets(
-                "Regula",
-                "regula.license",
+                "SdkLicense",
+                "sdkLicense.license",
                 context
             )
 
@@ -108,7 +107,7 @@ object InitializeDatabase {
         DocumentReader.Instance().processParams().debugSaveImages = false
 
         val path = DocumentReader.Instance().processParams().sessionLogFolder
-        Log.d("Regula" , "Path: $path")
+        Log.d("SdkLicense" , "Path: $path")
 
 
         DocumentReader.Instance().setLocalizationCallback { stringId ->

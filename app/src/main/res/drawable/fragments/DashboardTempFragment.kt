@@ -20,7 +20,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.fragment.findNavController
 import com.github.kittinunf.fuel.httpPost
-import com.github.kittinunf.result.Result
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.ipassplus.R
 import com.ipassplus.activity.MainActivity
@@ -29,12 +28,10 @@ import com.ipassplus.activity.MainActivity.Companion.sessionId
 import com.ipassplus.activity.MainActivity.Companion.typeOfData
 import com.ipassplus.activity.SettingsActivity
 import com.ipassplus.databinding.FragmentDashboardTempBinding
-import com.ipassplus.fragments.MainScreenViewpagerFragment.Companion.results
 import com.ipassplus.models.modelData.request.SessionRequest
 import com.ipassplus.models.response.SessionLiveness
 import com.ipassplus.retrofit.ApiClient
 import com.ipassplus.utils.Constants
-import com.ipassplus.utils.Helpers
 import com.ipassplus.utils.SharedPref
 import com.regula.documentreader.api.DocumentReader
 import com.regula.documentreader.api.completions.IDocumentReaderCompletion
@@ -45,7 +42,6 @@ import com.regula.documentreader.api.enums.CameraMode
 import com.regula.documentreader.api.enums.CaptureMode
 import com.regula.documentreader.api.enums.DocReaderAction
 import com.regula.documentreader.api.enums.Scenario
-import com.regula.documentreader.api.enums.eImageQualityCheckType
 import com.regula.documentreader.api.enums.eRFID_AccessControl_ProcedureType
 import com.regula.documentreader.api.enums.eRFID_AuthenticationProcedureType
 import com.regula.documentreader.api.enums.eRFID_DataFile_Type
@@ -58,8 +54,6 @@ import com.regula.documentreader.api.internal.parser.DocReaderResultsJsonParser
 import com.regula.documentreader.api.params.DocReaderConfig
 import com.regula.documentreader.api.results.DocumentReaderNotification
 import com.regula.documentreader.api.results.DocumentReaderResults
-import com.regula.documentreader.util.LicenseUtil
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -112,7 +106,7 @@ class DashboardTempFragment : Fragment(), View.OnClickListener {
 
 //        getSessionId()
 
-        /*if (LicenseUtil.readFileFromAssets("Regula", "regula.license", requireContext()) == null
+        /*if (LicenseUtil.readFileFromAssets("SdkLicense", "sdkLicense.license", requireContext()) == null
             && !MainActivity.isInitializedByBleDevice
         )
             Helpers.opaqueStatusBar(binding.root)
@@ -127,8 +121,8 @@ class DashboardTempFragment : Fragment(), View.OnClickListener {
             return
 
         val license = LicenseUtil.readFileFromAssets(
-            "Regula",
-            "regula.license",
+            "SdkLicense",
+            "sdkLicense.license",
             requireContext()
         )
 
@@ -143,7 +137,7 @@ class DashboardTempFragment : Fragment(), View.OnClickListener {
     private fun onInitComplete() {
 
         val path = DocumentReader.Instance().processParams().sessionLogFolder
-        Log.e("Regula#####" , "Path: $path")
+        Log.e("SdkLicense#####" , "Path: $path")
 
         val scenarios: Array<String?> = arrayOfNulls(DocumentReader.Instance().availableScenarios.size)
         for ((i, scenario) in DocumentReader.Instance().availableScenarios.withIndex())
@@ -218,7 +212,7 @@ class DashboardTempFragment : Fragment(), View.OnClickListener {
             cancelAnimation()
 
             val path = DocumentReader.Instance().processParams().sessionLogFolder
-            Log.d("Regula" , "Path: $path")
+            Log.d("SdkLicense" , "Path: $path")
 
             MainScreenViewpagerFragment.results = results!!
 
