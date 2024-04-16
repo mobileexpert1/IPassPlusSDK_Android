@@ -39,9 +39,9 @@ object SessionCreateData {
                             completion.onSuccess(response.body()!!)
                         } else {
                             try {
-                                completion.onError(ErrorHandler(response,"user"))
+                                completion.onError(response.message())
                             }catch (e: Exception){
-
+                                completion.onError("")
                             }
                         }
                     }

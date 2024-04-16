@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.app.ipassplus.R
@@ -51,12 +52,12 @@ class ScenariosListAdapter(private val mList: ArrayList<ScenariosItemModel>, val
             //pref = SharedPref(context)
 
             if (model.isSelected){
-                rlMain.background = context.getDrawable(R.color.purple)
+                rlMain.background = AppCompatResources.getDrawable(context, R.drawable.bg_purple)
                 ivImage.setColorFilter(ContextCompat.getColor(context, R.color.white))
                 tvFullProcess.setTextColor(context.getColor(R.color.white))
                 tvDescription.setTextColor(context.getColor(R.color.lightgrey))
             }else{
-                rlMain.background = context.getDrawable(R.color.lightbg)
+                rlMain.background = AppCompatResources.getDrawable(context, R.drawable.bg_scenario)
                 ivImage.setColorFilter(ContextCompat.getColor(context, R.color.purple))
                 tvFullProcess.setTextColor(context.getColor(R.color.black))
                 tvDescription.setTextColor(context.getColor(R.color.black))

@@ -7,10 +7,8 @@ import androidx.annotation.RequiresApi
 import com.sdk.ipassplussdk.apis.ApiClient
 import com.sdk.ipassplussdk.apis.ApiInterface
 import com.sdk.ipassplussdk.apis.ResultListener
-import com.sdk.ipassplussdk.model.request.regula.regula_post_data.OcrPostdataRequest
 import com.sdk.ipassplussdk.model.response.BaseModel
-import com.sdk.ipassplussdk.model.response.regula.regula_data_get_sid.RegulaDataGetSidResponse
-import com.sdk.ipassplussdk.model.response.regula.regula_post_data.OcrPostDataResponse
+import com.sdk.ipassplussdk.model.response.ipass.ipass_data_get_sid.IpassDataGetSidResponse
 import com.sdk.ipassplussdk.utils.Constants
 import com.sdk.ipassplussdk.utils.ErrorHandler
 import com.sdk.ipassplussdk.utils.InternetConnectionService
@@ -25,15 +23,15 @@ object MobileGetSidData {
         token: String,
         token1: String,
         sid: String,
-        completion: ResultListener<BaseModel<RegulaDataGetSidResponse>>
+        completion: ResultListener<BaseModel<IpassDataGetSidResponse>>
     ) {
         if (InternetConnectionService.networkAvailable(context)) {
             ApiClient("")?.create(ApiInterface::class.java)!!
                 .dataGetSid(token, token1, sid).enqueue(object :
-                    Callback<BaseModel<RegulaDataGetSidResponse>> {
+                    Callback<BaseModel<IpassDataGetSidResponse>> {
                     override fun onResponse(
-                        call: Call<BaseModel<RegulaDataGetSidResponse>>,
-                        response: Response<BaseModel<RegulaDataGetSidResponse>>
+                        call: Call<BaseModel<IpassDataGetSidResponse>>,
+                        response: Response<BaseModel<IpassDataGetSidResponse>>
                     ) {
                         print("Response ==> $response")
                         if (response.isSuccessful) {
@@ -47,7 +45,7 @@ object MobileGetSidData {
                         }
                     }
 
-                    override fun onFailure(call: Call<BaseModel<RegulaDataGetSidResponse>>, t: Throwable) {
+                    override fun onFailure(call: Call<BaseModel<IpassDataGetSidResponse>>, t: Throwable) {
                         completion.onError(t.message.toString())
                     }
                 })

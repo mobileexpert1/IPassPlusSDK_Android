@@ -73,7 +73,7 @@ dependencies {
     implementation ("androidx.compose.material3:material3:1.2.0")
 
     // Support for Java 8 features
-    coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:2.0.4")
+    coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:1.1.5")
 
     implementation ("com.amazonaws:aws-android-sdk-core:2.16.0")
     implementation ("com.amazonaws:aws-android-sdk-rekognition:2.16.0")

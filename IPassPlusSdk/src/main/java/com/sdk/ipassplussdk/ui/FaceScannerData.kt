@@ -39,10 +39,14 @@ object FaceScannerData {
                         region = "us-east-1",
                         disableStartView = true,
                         onComplete = {
-                            bindView.removeViewInLayout(this)
+                                     Log.e("FaceLivenessDetector", "onComplete")
+                            bindView.removeView(this as ComposeView)
+//                            bindView.removeView(this.rootView)
+                            bindView.removeViewInLayout(this.rootView)
                             callback.invoke("success")
                         },
                         onError = { error ->
+                            Log.e("FaceLivenessDetector", "onError")
                             callback.invoke("Error during Face Liveness flow ${error.message}")
                         }
                     )

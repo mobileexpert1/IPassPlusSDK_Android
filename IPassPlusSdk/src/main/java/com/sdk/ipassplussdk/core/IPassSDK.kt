@@ -59,6 +59,7 @@ object IPassSDK {
                 showFaceScanner(context, bindingView, callback)
             }
             override fun onError(exception: String) {
+                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
                 callback.invoke(exception)
             }
         })
@@ -71,6 +72,7 @@ object IPassSDK {
         bindingView: ViewGroup,
         callback: (String) -> Unit
     ) {
+        if (progressDialog?.isShowing!!) progressDialog?.dismiss()
         initFaceDetector(context, sessionId, bindingView) {
             if (it.equals("success")) {
                 getSessionResult(context, callback)
@@ -81,6 +83,7 @@ object IPassSDK {
 //    get liveness data and images from aws
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getSessionResult(context: Context, callback: (String) -> Unit) {
+        progressDialog = showProgressDialog(context, "Fetching Liveness Result")
         val sessionResultRequest = SessionResultRequest()
         sessionResultRequest.authToken = auth_token
         SessionResultData.sessionResult(context, Constants.TOKEN, sessionId, sid, Constants.EMAIL, sessionResultRequest, object : ResultListener<Livenessdata> {
@@ -88,6 +91,7 @@ object IPassSDK {
                 postDataToServer(context, response, callback)
             }
             override fun onError(exception: String) {
+                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
                 callback.invoke(exception)
             }
         })
@@ -100,6 +104,7 @@ object IPassSDK {
         response: Livenessdata?,
         callback: (String) -> Unit
     ) {
+        progressDialog?.setTitle("Posting data to server")
         val postdataRequest = DataSaveRequest()
         postdataRequest.email = Constants.EMAIL
         postdataRequest.randomid = sid
@@ -109,9 +114,11 @@ object IPassSDK {
 
         PostAllData.postAllData(context, postdataRequest, object : ResultListener<DataSaveResponse> {
             override fun onSuccess(response: DataSaveResponse?) {
+                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
                 callback.invoke(response?.message!!)
             }
             override fun onError(exception: String) {
+                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
                 callback.invoke(exception)
             }
         })
@@ -127,7 +134,11 @@ object IPassSDK {
     ) {
         sid = getSid()
         DocumentReaderData.showScanner(context, sid, custEmail, auth_token) {
-            faceSessionCreateRequest(context, bindingView, callback)
+            progressDialog = showProgressDialog(context, "Initializing Face Scanner")
+            faceSessionCreateRequest(context, bindingView) {
+
+                callback.invoke(it)
+            }
         }
     }
 

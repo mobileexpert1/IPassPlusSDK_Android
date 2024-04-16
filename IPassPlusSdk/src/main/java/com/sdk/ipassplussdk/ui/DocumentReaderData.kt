@@ -7,7 +7,6 @@ import android.content.Context
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.google.gson.Gson
 import com.regula.documentreader.api.DocumentReader
 import com.regula.documentreader.api.completions.IDocumentReaderCompletion
 import com.regula.documentreader.api.completions.rfid.IRfidReaderCompletion
@@ -21,8 +20,6 @@ import com.regula.documentreader.api.errors.DocumentReaderException
 import com.regula.documentreader.api.results.DocumentReaderNotification
 import com.regula.documentreader.api.results.DocumentReaderResults
 import com.sdk.ipassplussdk.core.IPassSDK.setRawResult
-import com.sdk.ipassplussdk.model.response.regula_data.RegulaData
-import org.json.JSONObject
 
 @SuppressLint("StaticFieldLeak")
 object DocumentReaderData {

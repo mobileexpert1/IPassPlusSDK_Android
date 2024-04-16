@@ -7,8 +7,8 @@ import com.sdk.ipassplussdk.model.request.check_face_analysis.CheckFaceAnalysisR
 import com.sdk.ipassplussdk.model.request.facesimilarity.FaceSimilarityRequest
 import com.sdk.ipassplussdk.model.request.livenesscheck.LivenessCheckRequest
 import com.sdk.ipassplussdk.model.request.login.LoginRequest
-import com.sdk.ipassplussdk.model.request.regula.regula_get_data_by_email.OcrGetDataByEmailRequest
-import com.sdk.ipassplussdk.model.request.regula.regula_post_data.OcrPostdataRequest
+import com.sdk.ipassplussdk.model.request.ipass.ipass_get_data_by_email.OcrGetDataByEmailRequest
+import com.sdk.ipassplussdk.model.request.ipass.ipass_post_data.OcrPostdataRequest
 import com.sdk.ipassplussdk.model.request.session_create.SessionCreateRequest
 import com.sdk.ipassplussdk.model.request.session_result.SessionResultRequest
 import com.sdk.ipassplussdk.model.request.valid_api.ValidApiRequest
@@ -20,15 +20,12 @@ import com.sdk.ipassplussdk.model.response.check_face_analysis.CheckFaceAnalysis
 import com.sdk.ipassplussdk.model.response.data_save.DataSaveRequest
 import com.sdk.ipassplussdk.model.response.data_save.DataSaveResponse
 import com.sdk.ipassplussdk.model.response.data_save.Livenessdata
-import com.sdk.ipassplussdk.model.response.facesimilarity.FaceSimilarityResponse
 import com.sdk.ipassplussdk.model.response.livenesscheck.LivenessCheckResponse
 import com.sdk.ipassplussdk.model.response.login.LoginResponse
-import com.sdk.ipassplussdk.model.response.regula.regula_data_get_sid.RegulaDataGetSidResponse
-import com.sdk.ipassplussdk.model.response.regula.regula_get_data_by_email.OcrGetDataByEmailResponse
-import com.sdk.ipassplussdk.model.response.regula.regula_post_data.OcrPostDataResponse
+import com.sdk.ipassplussdk.model.response.ipass.ipass_data_get_sid.IpassDataGetSidResponse
+import com.sdk.ipassplussdk.model.response.ipass.ipass_get_data_by_email.OcrGetDataByEmailResponse
+import com.sdk.ipassplussdk.model.response.ipass.ipass_post_data.OcrPostDataResponse
 import com.sdk.ipassplussdk.model.response.session_create.Data
-import com.sdk.ipassplussdk.model.response.session_create.FaceSessionCreateResponse
-import com.sdk.ipassplussdk.model.response.session_result.SessionResultResponse
 import com.sdk.ipassplussdk.model.response.valid_api.ValidApiResponse
 import com.sdk.ipassplussdk.utils.ServerUrls
 import retrofit2.Call
@@ -109,7 +106,7 @@ interface ApiInterface {
         @Query("token") token: String,
         @Query("token1") token1: String,
         @Query("sid") sid: String
-    ): Call<BaseModel<RegulaDataGetSidResponse>>
+    ): Call<BaseModel<IpassDataGetSidResponse>>
 
     @POST(ServerUrls.url_valid_api)
     fun validApi(

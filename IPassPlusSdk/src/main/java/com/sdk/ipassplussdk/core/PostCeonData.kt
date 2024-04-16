@@ -10,7 +10,6 @@ import com.sdk.ipassplussdk.apis.ResultListener
 import com.sdk.ipassplussdk.model.request.ceon.PostCeon.PostCeonRequest
 import com.sdk.ipassplussdk.model.response.BaseModel
 import com.sdk.ipassplussdk.model.response.ceon.PostCeon.PostCeonResponse
-import com.sdk.ipassplussdk.model.response.regula.regula_post_data.OcrPostDataResponse
 import com.sdk.ipassplussdk.utils.Constants
 import com.sdk.ipassplussdk.utils.ErrorHandler
 import com.sdk.ipassplussdk.utils.InternetConnectionService

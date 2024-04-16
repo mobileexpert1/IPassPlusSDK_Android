@@ -6,11 +6,8 @@ import androidx.annotation.RequiresApi
 import com.sdk.ipassplussdk.apis.ApiClient
 import com.sdk.ipassplussdk.apis.ApiInterface
 import com.sdk.ipassplussdk.apis.ResultListener
-import com.sdk.ipassplussdk.model.request.regula.regula_post_data.OcrPostdataRequest
-import com.sdk.ipassplussdk.model.response.BaseModel
 import com.sdk.ipassplussdk.model.response.data_save.DataSaveRequest
 import com.sdk.ipassplussdk.model.response.data_save.DataSaveResponse
-import com.sdk.ipassplussdk.model.response.regula.regula_post_data.OcrPostDataResponse
 import com.sdk.ipassplussdk.utils.Constants
 import com.sdk.ipassplussdk.utils.ErrorHandler
 import com.sdk.ipassplussdk.utils.InternetConnectionService
