@@ -65,7 +65,7 @@ object DocumentReaderData {
 //        this.img2 = img2
 
         DocumentReader.Instance().processParams().multipageProcessing = true
-        DocumentReader.Instance().functionality().edit().setShowSkipNextPageButton(false)
+        DocumentReader.Instance().functionality().edit().setShowSkipNextPageButton(false).apply()
 
         val scannerConfig = ScannerConfig.Builder(Scenario.SCENARIO_FULL_PROCESS).build()
         DocumentReader.Instance().showScanner(context, scannerConfig, completion)

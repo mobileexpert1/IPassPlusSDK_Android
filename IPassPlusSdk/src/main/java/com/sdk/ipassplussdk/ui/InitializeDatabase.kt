@@ -118,7 +118,7 @@ object InitializeDatabase {
         }
         callback.invoke("success")
 
-//        AwsFaceRekognition.configureAws(context, callback)
+//        FaceScannerData.configureFaceScanner(context, callback)
 
     }
 

@@ -58,10 +58,7 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onScenarioPickClick(position: Int, model: ScenariosItemModel) {
         IPassSDK.showScannerRequest(requireContext(), binding.root as ViewGroup,"anshul12@gmail.com") {
-            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         }
     }
-
-    var auth_token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYxNTQyNmMzY2RmZDA4NDlmYTQ1NzcxIiwiZW1haWwiOiJpcGFzc21vYmlsZUB5b3BtYWlsLmNvbSIsImlhdCI6MTcxMjgzMzE3NCwiZXhwIjoxNzEyODM0OTc0fQ.7mmV3gcHd54YQ8uohfKwI_RJW0GzIYH_SFG--VGZ_Zg"
 
 }

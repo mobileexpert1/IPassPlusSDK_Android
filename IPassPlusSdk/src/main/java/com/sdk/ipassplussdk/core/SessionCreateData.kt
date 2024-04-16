@@ -7,13 +7,8 @@ import androidx.annotation.RequiresApi
 import com.sdk.ipassplussdk.apis.ApiClient
 import com.sdk.ipassplussdk.apis.ApiInterface
 import com.sdk.ipassplussdk.apis.ResultListener
-import com.sdk.ipassplussdk.model.request.check_face_analysis.CheckFaceAnalysisRequest
 import com.sdk.ipassplussdk.model.request.session_create.SessionCreateRequest
-import com.sdk.ipassplussdk.model.response.BaseModel
-import com.sdk.ipassplussdk.model.response.check_face_analysis.CheckFaceAnalysisResponse
 import com.sdk.ipassplussdk.model.response.session_create.Data
-import com.sdk.ipassplussdk.model.response.session_create.FaceSessionCreateResponse
-import com.sdk.ipassplussdk.ui.AwsFaceRekognition
 import com.sdk.ipassplussdk.utils.Constants
 import com.sdk.ipassplussdk.utils.ErrorHandler
 import com.sdk.ipassplussdk.utils.InternetConnectionService
@@ -40,7 +35,7 @@ object SessionCreateData {
                     ) {
                         print("Response ==> $response")
                         if (response.isSuccessful) {
-//                            AwsFaceRekognition.initFaceDetector(context, response.body()?.sessionId!!, bindView)
+//                            FaceScannerData.initFaceDetector(context, response.body()?.sessionId!!, bindView)
                             completion.onSuccess(response.body()!!)
                         } else {
                             try {

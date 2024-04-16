@@ -27,10 +27,6 @@ android {
             )
         }
     }
-    /*buildFeatures {
-        viewBinding = true
-        compose = true
-    }*/
     compileOptions {
        // isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
@@ -57,17 +53,9 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    /*implementation ("com.regula.btdevice:api:1.0.+@aar")
-    //noinspection GradleDynamicVersion
-    implementation ("com.regula.documentreader.core:fullrfid:6.9.+@aar")
-    //noinspection GradleDynamicVersion
-    implementation("com.regula.documentreader:api:6.9.+@aar") {
-        this.isTransitive = true
-    }*/
     implementation ("com.regula.btdevice:api:1.0.+@aar")
     //noinspection GradleDynamicVersion
     implementation ("com.regula.documentreader.core:fullauthrfid:7.1.10527@aar")
-//    implementation ("com.regula.documentreader.core:fullrfid:6.9.+@aar")
     //noinspection GradleDynamicVersion
     implementation("com.regula.documentreader:api:6.9.+@aar") {
         this.isTransitive = true
@@ -87,8 +75,6 @@ dependencies {
     // Support for Java 8 features
     coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:2.0.4")
 
-// https://mvnrepository.com/artifact/com.amazonaws/aws-android-sdk-rekognition
-//    implementation("com.amazonaws:aws-android-sdk-rekognition:2.75.0")
     implementation ("com.amazonaws:aws-android-sdk-core:2.16.0")
     implementation ("com.amazonaws:aws-android-sdk-rekognition:2.16.0")
 
@@ -112,30 +98,3 @@ project.afterEvaluate {
         }
     }
 }
-
-//project.afterEvaluate {
-//    publishing {
-//        publications {
-//            create<MavenPublication>("library") {
-//                groupId = groupId
-//                artifactId = artifactId
-//                version = "1.0.2"
-//                artifact(bundleReleaseAar)
-//            }
-//        }
-//    }
-//}
-
-
-//project.afterEvaluate {
-//    publishing {
-//        publications {
-//            library(MavenPublication) {
-//                setGroupId groupId
-//                        setArtifactId artifactId
-//                        version '1.0.5'
-//                artifact bundleReleaseAar
-//            }
-//        }
-//    }
-//}
