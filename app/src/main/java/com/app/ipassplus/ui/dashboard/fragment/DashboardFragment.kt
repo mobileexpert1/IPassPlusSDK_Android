@@ -3,6 +3,7 @@ package com.app.ipassplus.ui.dashboard.fragment
 import ScenariosListAdapter
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +12,12 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.app.ipassplus.MainActivity
 import com.app.ipassplus.R
 import com.app.ipassplus.ui.dashboard.model.ScenariosItemModel
 import com.app.ipassplus.databinding.FragmentDashboardBinding
 import com.sdk.ipassplussdk.core.IPassSDK
+import com.sdk.ipassplussdk.utils.Constants
 
 class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
 
@@ -57,7 +60,13 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onScenarioPickClick(position: Int, model: ScenariosItemModel) {
-        IPassSDK.showScannerRequest(requireContext(), binding.root as ViewGroup,"anshul12@gmail.com") {
+        IPassSDK.showScannerRequest(requireContext(),Constants.EMAIL, MainActivity.authToken, Constants.TOKEN, binding.root as ViewGroup) {
+            status, message ->
+            if (status) {
+                Log.e("showScannerRequest", message)
+            } else {
+                Log.e("showScannerRequest", message)
+            }
         }
     }
 

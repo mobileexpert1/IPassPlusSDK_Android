@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class DataSaveRequest (
 
   @SerializedName("email"        ) var email        : String?       = null,
-  @SerializedName("regulaDat"    ) var regulaDat    : JsonObject?    = null,
+  @SerializedName("idvData"    ) var idvData    : JsonObject?    = null,
   @SerializedName("livenessdata" ) var livenessdata : Livenessdata? = Livenessdata(),
   @SerializedName("randomid"     ) var randomid     : String?       = null
 

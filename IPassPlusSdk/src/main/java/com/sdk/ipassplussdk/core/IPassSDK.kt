@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Build
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import com.google.gson.JsonParser
 import com.sdk.ipassplussdk.apis.ResultListener
 import com.sdk.ipassplussdk.model.request.login.LoginRequest
@@ -15,6 +14,7 @@ import com.sdk.ipassplussdk.model.response.data_save.DataSaveResponse
 import com.sdk.ipassplussdk.model.response.data_save.Livenessdata
 import com.sdk.ipassplussdk.model.response.login.LoginResponse
 import com.sdk.ipassplussdk.model.response.session_create.Data
+import com.sdk.ipassplussdk.resultCallbacks.InitializeDatabaseCompletion
 import com.sdk.ipassplussdk.ui.FaceScannerData
 import com.sdk.ipassplussdk.ui.FaceScannerData.initFaceDetector
 import com.sdk.ipassplussdk.ui.DocumentReaderData
@@ -22,45 +22,40 @@ import com.sdk.ipassplussdk.ui.InitializeDatabase
 import com.sdk.ipassplussdk.utils.Constants
 import com.sdk.ipassplussdk.utils.InternetConnectionService
 import com.sdk.ipassplussdk.utils.Scenarios
-import com.sdk.ipassplussdk.views.Components.showProgressDialog
 import java.util.UUID
 
 object IPassSDK {
 
     private var sid = ""
-    private var auth_token = ""
+//    private var auth_token = ""
     private var rawResult: String? = null
-    private var sessionId = ""
-    private var progressDialog: AlertDialog? = null
-
-    fun setRawResult(rawResult: String) {
-        this.rawResult = rawResult
-    }
 
 
 //    init face detection
     @RequiresApi(Build.VERSION_CODES.O)
     private fun faceSessionCreateRequest(
         context: Context,
+        email: String,
+        authToken: String,
+        appToken: String,
         bindingView: ViewGroup,
-        callback: (String) -> Unit
+        callback: (Boolean, String) -> Unit
     ) {
         if (!InternetConnectionService.networkAvailable(context)) {
             return
         }
 
         val request = SessionCreateRequest()
-        request.email = Constants.EMAIL
-        request.authToken = auth_token
+        request.email = email
+        request.authToken = authToken
 
-        SessionCreateData.sessionCreate(context, Constants.TOKEN, bindingView, request, object : ResultListener<Data> {
+        SessionCreateData.sessionCreate(context, appToken, request, object : ResultListener<Data> {
             override fun onSuccess(response: Data?) {
-                sessionId = response?.sessionId!!
-                showFaceScanner(context, bindingView, callback)
+                val sessionId = response?.sessionId!!
+                showFaceScanner(context, email, authToken, appToken, sessionId, bindingView, callback)
             }
             override fun onError(exception: String) {
-                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
-                callback.invoke(exception)
+                callback.invoke(false, exception)
             }
         })
     }
@@ -68,31 +63,37 @@ object IPassSDK {
 //    show scanner to detect face liveness
     @RequiresApi(Build.VERSION_CODES.O)
     private fun showFaceScanner(
-        context: Context,
-        bindingView: ViewGroup,
-        callback: (String) -> Unit
-    ) {
-        if (progressDialog?.isShowing!!) progressDialog?.dismiss()
+    context: Context,
+    email: String,
+    authToken: String,
+    appToken: String,
+    sessionId: String,
+    bindingView: ViewGroup,
+    callback: (Boolean, String) -> Unit
+) {
         initFaceDetector(context, sessionId, bindingView) {
             if (it.equals("success")) {
-                getSessionResult(context, callback)
-            } else callback.invoke(it)
+                getSessionResult(context, email, authToken, appToken, sessionId, callback)
+            } else callback.invoke(false, it)
         }
     }
 
 //    get liveness data and images from aws
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun getSessionResult(context: Context, callback: (String) -> Unit) {
-        progressDialog = showProgressDialog(context, "Fetching Liveness Result")
+    private fun getSessionResult(context: Context,
+                                 email: String,
+                                 authToken: String,
+                                 appToken: String,
+                                 sessionId: String,
+                                 callback: (Boolean, String) -> Unit) {
         val sessionResultRequest = SessionResultRequest()
-        sessionResultRequest.authToken = auth_token
-        SessionResultData.sessionResult(context, Constants.TOKEN, sessionId, sid, Constants.EMAIL, sessionResultRequest, object : ResultListener<Livenessdata> {
+        sessionResultRequest.authToken = authToken
+        SessionResultData.sessionResult(context, appToken, sessionId, sid, email, sessionResultRequest, object : ResultListener<Livenessdata> {
             override fun onSuccess(response: Livenessdata?) {
                 postDataToServer(context, response, callback)
             }
             override fun onError(exception: String) {
-                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
-                callback.invoke(exception)
+                callback.invoke(false, exception)
             }
         })
     }
@@ -102,24 +103,21 @@ object IPassSDK {
     private fun postDataToServer(
         context: Context,
         response: Livenessdata?,
-        callback: (String) -> Unit
+        callback: (Boolean, String) -> Unit
     ) {
-        progressDialog?.setTitle("Posting data to server")
         val postdataRequest = DataSaveRequest()
         postdataRequest.email = Constants.EMAIL
         postdataRequest.randomid = sid
         val rawData = JsonParser().parse(rawResult).asJsonObject
-        postdataRequest.regulaDat = rawData
+        postdataRequest.idvData = rawData
         postdataRequest.livenessdata = (response as Livenessdata)
 
         PostAllData.postAllData(context, postdataRequest, object : ResultListener<DataSaveResponse> {
             override fun onSuccess(response: DataSaveResponse?) {
-                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
-                callback.invoke(response?.message!!)
+                callback.invoke(true, response?.message!!)
             }
             override fun onError(exception: String) {
-                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
-                callback.invoke(exception)
+                callback.invoke(false, exception)
             }
         })
     }
@@ -128,66 +126,65 @@ object IPassSDK {
     @RequiresApi(Build.VERSION_CODES.O)
     fun showScannerRequest(
         context: Context,
+        email: String,
+        authToken: String,
+        appToken: String,
         bindingView: ViewGroup,
-        custEmail: String,
-        callback: (String) -> Unit
+        callback: (status: Boolean, message: String) -> Unit
     ) {
         sid = getSid()
-        DocumentReaderData.showScanner(context, sid, custEmail, auth_token) {
-            progressDialog = showProgressDialog(context, "Initializing Face Scanner")
-            faceSessionCreateRequest(context, bindingView) {
-
-                callback.invoke(it)
+        DocumentReaderData.showScanner(context) {
+            status, message ->
+            if (status) {
+                this.rawResult = message
+                faceSessionCreateRequest(context, email, authToken, appToken, bindingView) {
+                    statusF, messageF ->
+                    callback.invoke(statusF, messageF)
+                }
+            } else {
+                callback.invoke(false, message)
             }
+
         }
     }
 
-//    initialize database for scanning (needs to be initiliazed at least once before scanning)
+//    initialize database for scanning (needs to be initialized at least once before scanning)
     @RequiresApi(Build.VERSION_CODES.O)
-    fun initializeDatabase(context: Context, message: (String) -> Unit){
+    fun initializeDatabase(context: Context, completion: InitializeDatabaseCompletion){
 
-        progressDialog = showProgressDialog(context,"Initializing")
-
-        InitializeDatabase.InitDatabase(context, progressDialog) {
-            if (it.equals("success")) {
-                progressDialog?.setTitle("Configuring Face Scanner")
-                configureFaceScanner(context, message)
-            } else {
-                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
-                message.invoke("Error : $it")
+        InitializeDatabase.InitDatabase(context, object : InitializeDatabaseCompletion {
+            override fun onProgressChanged(progress: Int) {
+                completion.onProgressChanged(progress)
             }
-        }
+
+            override fun onCompleted(status: Boolean, message: String?) {
+                if (status) {
+                    configureFaceScanner(context, completion)
+                } else {
+                    completion.onCompleted(status, message)
+                }
+            }
+
+        })
     }
 
 //    Face scanner configuration
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun configureFaceScanner(context: Context, message: (String) -> Unit) {
+    private fun configureFaceScanner(context: Context, completion: InitializeDatabaseCompletion) {
         FaceScannerData.configureFaceScanner(context) {
             if (it.equals("FaceScannerConfigured")) {
-                progressDialog?.setTitle("Authenticating")
-                getAuthToken(context, message)
+                completion.onCompleted(true, "Database Initialized Successfully")
             } else {
-                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
-                message.invoke("Error : $it")
+                completion.onCompleted(false, it)
             }
         }
     }
 
 //    Request Auth Token
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun getAuthToken(context: Context, message: (String) -> Unit) {
-        val request = LoginRequest(Constants.EMAIL, Constants.PASSWORD)
-        LoginData.login(context, request, object : ResultListener<LoginResponse> {
-            override fun onSuccess(response: LoginResponse?) {
-                auth_token = response?.user?.token!!
-                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
-                message.invoke("Database initialized Successfully")
-            }
-            override fun onError(exception: String) {
-                if (progressDialog?.isShowing!!) progressDialog?.dismiss()
-                message.invoke("Error : $exception ")
-            }
-        })
+     fun getAuthToken(context: Context, email: String, password: String, completion: ResultListener<LoginResponse>) {
+        val request = LoginRequest(email, password)
+        LoginData.login(context, request, completion)
     }
 
     //    returns a unique sId for every scan

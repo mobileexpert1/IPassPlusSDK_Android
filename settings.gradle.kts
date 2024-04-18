@@ -12,7 +12,7 @@ dependencyResolutionManagement {
         mavenCentral()
         jcenter()
         maven {
-            url =uri("https://maven.regulaforensics.com/RegulaDocumentReader")
+            url =uri("https://maven.regulaforensics.com/RegulaDocumentReader/Beta")
         }
     }
 }

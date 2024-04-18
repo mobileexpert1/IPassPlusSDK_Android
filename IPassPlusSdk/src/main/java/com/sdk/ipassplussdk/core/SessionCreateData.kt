@@ -21,7 +21,6 @@ object SessionCreateData {
     fun sessionCreate(
         context: Context,
         token: String,
-        bindView: ViewGroup,
         request: SessionCreateRequest,
         completion: ResultListener<Data>
     ) {

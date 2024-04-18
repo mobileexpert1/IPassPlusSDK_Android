@@ -23,8 +23,7 @@ object FaceScannerData {
             Amplify.configure(context)
             callback.invoke("FaceScannerConfigured")
         } catch (e: AmplifyException) {
-            Log.e("FaceScannerException", e.message.toString())
-            callback.invoke(e.message.toString())
+            callback.invoke("Error Initializing Face Scanner")
         }
     }
     fun initFaceDetector(context: Context, sessionId: String, bindView:ViewGroup, callback: (String) -> Unit) {
@@ -47,7 +46,7 @@ object FaceScannerData {
                         },
                         onError = { error ->
                             Log.e("FaceLivenessDetector", "onError")
-                            callback.invoke("Error during Face Liveness flow ${error.message}")
+                            callback.invoke("Error during Face Liveness flow")
                         }
                     )
                 }

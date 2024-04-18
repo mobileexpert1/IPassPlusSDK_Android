@@ -2,30 +2,43 @@ package com.app.ipassplus
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.app.ipassplus.Utils.Constants.PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE
 import com.app.ipassplus.databinding.ActivityMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.sdk.ipassplussdk.apis.ResultListener
 import com.sdk.ipassplussdk.core.IPassSDK
+import com.sdk.ipassplussdk.model.response.login.LoginResponse
+import com.sdk.ipassplussdk.resultCallbacks.InitializeDatabaseCompletion
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    private lateinit var progressDialog: AlertDialog
+
+    companion object {
+        var authToken = ""
+    }
 
     private fun findNavController():NavController? {
         val navHostFragment = (this as? MainActivity)?.supportFragmentManager?.findFragmentById(R.id.fragment_container) as? NavHostFragment
@@ -35,10 +48,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        IPassSDK.initializeDatabase(this) {
-            Log.e("initializeDatabase", it)
-            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-        }
+        progressDialog = showProgressDialog(this@MainActivity, "Initializing")
+        IPassSDK.initializeDatabase(this, object: InitializeDatabaseCompletion {
+            override fun onProgressChanged(progress: Int) {
+                progressDialog.setTitle("Downloading database $progress%")
+            }
+
+            override fun onCompleted(
+                status: Boolean,
+                message: String?
+            ) {
+                progressDialog.hide()
+                Log.e("onCompleted", message!!)
+               Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
+                if (status) getToken()
+            }
+
+        })
 
         supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -46,6 +72,41 @@ class MainActivity : AppCompatActivity() {
         initNavigation()
 
     }
+
+        fun showProgressDialog(context: Context, msg: String): AlertDialog {
+        val dialog = MaterialAlertDialogBuilder(context, R.style.Theme_MyApp_Dialog_Alert)
+        dialog.background = ResourcesCompat.getDrawable(context.resources, R.drawable.rounded, context.theme)
+        dialog.setTitle(msg)
+
+        // Inflate a custom layout for the dialog
+        val inflater = LayoutInflater.from(context)
+        val dialogView = inflater.inflate(R.layout.simple_dialog, null)
+        dialog.setView(dialogView)
+
+        dialog.setCancelable(false)
+
+        return dialog.show()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun getToken() {
+        progressDialog.setTitle("Generating Token Please wait!")
+        progressDialog.show()
+        IPassSDK.getAuthToken(this@MainActivity, "ipassmob@yopmail.com", "Admin@123#", object : ResultListener<LoginResponse> {
+            override fun onSuccess(response: LoginResponse?) {
+                progressDialog.cancel()
+                val authToken = response?.user?.token!!
+                Companion.authToken = authToken
+                Toast.makeText(this@MainActivity, "Token Generated Successfully", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onError(exception: String) {
+                progressDialog.cancel()
+                Toast.makeText(this@MainActivity, exception, Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
     @RequiresApi(Build.VERSION_CODES.O)
     private fun initNavigation() {
         val navHostFragment =

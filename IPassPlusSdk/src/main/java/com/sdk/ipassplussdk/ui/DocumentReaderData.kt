@@ -19,47 +19,19 @@ import com.regula.documentreader.api.errors.DocReaderRfidException
 import com.regula.documentreader.api.errors.DocumentReaderException
 import com.regula.documentreader.api.results.DocumentReaderNotification
 import com.regula.documentreader.api.results.DocumentReaderResults
-import com.sdk.ipassplussdk.core.IPassSDK.setRawResult
 
 @SuppressLint("StaticFieldLeak")
 object DocumentReaderData {
-
-    var isAnimationStarted: Boolean = false
-    var mTimerAnimator: ValueAnimator? = null
-    var loadingDialog: AlertDialog? = null
-    lateinit var documentReader: DocumentReaderResults
     private var context: Context? = null
-    private var sid: String? = null
-    private var email: String? = null
-    private var auth_token: String? = null
     private var rawResult: String? = null
-    private var callback: (String) -> Unit = {}
-//    private var img1: String? = null
-//    private var img2: String? = null
-
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    fun showScanner(context: Context) {
-//        this.context = context
-//        val scannerConfig = ScannerConfig.Builder(Scenario.SCENARIO_FULL_AUTH).build()
-//        DocumentReader.Instance().showScanner(context, scannerConfig, completion)
-//    }
+    private var callback: (Boolean, String) -> Unit = { _, _ ->}
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun showScanner(context: Context,
-                    sid:String,
-                    custEmail: String,
-                    auth_token: String,
-                    callback: (String) -> Unit
-//                    img1: String,
-//                    img2: String,
+                    callback: (Boolean, String) -> Unit
                     ) {
         this.context = context
-        this.sid = sid
-        this.email = custEmail
-        this.auth_token = auth_token
         this.callback = callback
-//        this.img1 = img1
-//        this.img2 = img2
 
         DocumentReader.Instance().processParams().multipageProcessing = true
         DocumentReader.Instance().functionality().edit().setShowSkipNextPageButton(false).apply()
@@ -70,24 +42,11 @@ object DocumentReaderData {
 
     @RequiresApi(Build.VERSION_CODES.O)
     val completion = IDocumentReaderCompletion { action, results, error ->
-
-        if(!isAnimationStarted) {
-            mTimerAnimator?.let {
-                it.start()
-                isAnimationStarted = true
-            }
-        }
-
+        DocumentReader.Instance().customization().edit().setUiCustomizationLayer(null).apply()
         if (action == DocReaderAction.COMPLETE
             || action == DocReaderAction.TIMEOUT) {
 
-            rawResult = results?.rawResult!!
-            setRawResult(rawResult!!)
-            callback.invoke("success")
-
-//            ProgressManager.showProgress(context!!, "Uploading scanned data")
-
-            if (results.chipPage != 0) {
+            if (results?.chipPage != 0) {
                 DocumentReader.Instance().startRFIDReader(context!!, object: IRfidReaderCompletion() {
                     override fun onChipDetected() {
                         Log.d("Rfid", "Chip detected")
@@ -108,70 +67,26 @@ object DocumentReaderData {
                     ) {
                         if (rfidAction == DocReaderAction.COMPLETE) {
                             rawResult = results_RFIDReader?.rawResult!!
-                            setRawResult(rawResult!!)
-                            callback.invoke("success")
+                            callback.invoke(true, rawResult!!)
                         } else if (rfidAction == DocReaderAction.CANCEL) {
-                            rawResult = results.rawResult
-                            setRawResult(rawResult!!)
-                            callback.invoke("success")
+                            rawResult = results?.rawResult
+                            callback.invoke(true, rawResult!!)
                         }
                     }
                 })
             } else {
-                rawResult = results.rawResult!!
-                setRawResult(rawResult!!)
-                callback.invoke("success")
+                rawResult = results.rawResult
+                callback.invoke(true, rawResult!!)
             }
 
-
-//            val request = OcrPostdataRequest()
-//            request.sid = sid
-//            request.email = Constants.EMAIL
-//            request.custEmail = email
-//            request.workflow = "10032"
-//            request.authToken = auth_token
-//            results?.graphicResult?.fields?.forEach {
-//                if (it.getFieldName(context!!).equals("Document image")) {
-//                    println(it.getFieldName(context!!))
-//                    if (request.image1.isNullOrEmpty()) {
-//                        request.image1 = it.imageBase64()
-//                    } else {
-//                        request.image2 = it.imageBase64()
-//                    }
-//                }
-//            }
-//
-//            OcrPostData.ocrPostData(context!!, Constants.TOKEN, request, object : ResultListener<OcrPostDataResponse> {
-//                override fun onSuccess(response: OcrPostDataResponse?) {
-//                    ProgressManager.dismissProgress()
-//                    print(response)
-//                    Log.e("call","Ocr data Response:: "+response.toString())
-//                    Toast.makeText(context, "Success ::  "+response.toString(), Toast.LENGTH_LONG).show()
-//                }
-//                override fun onError(exception: String) {
-//                    ProgressManager.dismissProgress()
-//                    print(exception)
-//                    Toast.makeText(context, exception, Toast.LENGTH_LONG).show()
-//                }
-//            })
-
-//            OcrPostData.ocrPostData(context!!, "token", OcrPostdataRequest(), completion)
-
-
-            hideDialog()
-            cancelAnimation()
         }
-        else
-            if (action == DocReaderAction.CANCEL) {
+        else if (action == DocReaderAction.CANCEL) {
                 if (DocumentReader.Instance().functionality().isManualMultipageMode)
                     DocumentReader.Instance().functionality().edit().setManualMultipageMode(false).apply()
-
-                hideDialog()
-                cancelAnimation()
+                callback.invoke(false, "Scanning Cancelled")
             }
             else if (action == DocReaderAction.ERROR) {
-                hideDialog()
-                cancelAnimation()
+                callback.invoke(false, error?.message!!)
             }
     }
 
@@ -190,17 +105,5 @@ object DocumentReaderData {
         }
     }
 
-    private fun hideDialog() {
-        loadingDialog?.dismiss()
-        loadingDialog = null
-    }
-    private fun cancelAnimation() {
-        mTimerAnimator?.let {
-            it.cancel()
-            isAnimationStarted = false
-            mTimerAnimator = null
-        }
-        DocumentReader.Instance().customization().edit().setUiCustomizationLayer(null).apply()
-    }
 
 }
