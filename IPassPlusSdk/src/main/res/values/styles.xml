@@ -2,13 +2,13 @@
 <resources>
 
 <!-- custom dialog theme -->
-    <style name="Theme.MyApp.Dialog.Alert" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialogText</item>
-    </style>
-    <style name="MaterialAlertDialogText" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
-        <item name="android:textColor">#ffffff</item>
-<!--        <item name="fontFamily">@font/robotobold</item>-->
-    </style>
+<!--    <style name="Theme.MyApp.Dialog.Alert" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">-->
+<!--        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialogText</item>-->
+<!--    </style>-->
+<!--    <style name="MaterialAlertDialogText" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">-->
+<!--        <item name="android:textColor">#ffffff</item>-->
+<!--&lt;!&ndash;        <item name="fontFamily">@font/robotobold</item>&ndash;&gt;-->
+<!--    </style>-->
 
 <!-- custom switch theme -->
 <!--    <style name="SCBSwitch" parent="Theme.AppCompat.Light">-->
