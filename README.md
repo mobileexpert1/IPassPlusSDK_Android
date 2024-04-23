@@ -4,7 +4,7 @@ To explain how a user can use the IPass SDK framework in steps, you can outline 
 
 Steps to Use IPass SDK :
 Integrate of SDK into App
-In this steps User Will add the IPass SDK inside the project's write: implementation 'com.github.mobileexpert1:IPassPlusSDK_Android:1.0.3'
+In this steps User Will add the IPass SDK inside the project's write: implementation 'com.github.mobileexpert1:IPassPlusSDK_Android:1.0.10'
     Add:- id ("maven-publish")
 Configure Permissions in manifest file
 In this step user will give required permissions in manifest file to enable the necessary device features:
