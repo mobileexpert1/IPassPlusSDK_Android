@@ -14,19 +14,6 @@ data class DataSaveRequest (
 )
 
 
-data class RegulaDat (
-
-  @SerializedName("ChipPage"           ) var ChipPage           : Int?             = null,
-  @SerializedName("ContainerList"      ) var ContainerList      : ContainerList?   = ContainerList(),
-  @SerializedName("ProcessingFinished" ) var ProcessingFinished : Int?             = null,
-  @SerializedName("TransactionInfo"    ) var TransactionInfo    : TransactionInfo? = TransactionInfo(),
-  @SerializedName("elapsedTime"        ) var elapsedTime        : Int?             = null,
-  @SerializedName("lightType"          ) var lightType          : ArrayList<Int>   = arrayListOf(),
-  @SerializedName("morePagesAvailable" ) var morePagesAvailable : Int?             = null,
-  @SerializedName("processCommandRes"  ) var processCommandRes  : Int?             = null
-
-)
-
 data class TransactionInfo (
 
   @SerializedName("ComputerName"  ) var ComputerName  : String? = null,

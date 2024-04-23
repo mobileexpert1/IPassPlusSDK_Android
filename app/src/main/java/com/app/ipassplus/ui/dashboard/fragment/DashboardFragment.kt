@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +15,10 @@ import com.app.ipassplus.MainActivity
 import com.app.ipassplus.R
 import com.app.ipassplus.ui.dashboard.model.ScenariosItemModel
 import com.app.ipassplus.databinding.FragmentDashboardBinding
+import com.sdk.ipassplussdk.apis.ResultListener
 import com.sdk.ipassplussdk.core.IPassSDK
+import com.sdk.ipassplussdk.model.response.document_scanner.DocumentScannerResponse
+import com.sdk.ipassplussdk.model.response.liveness_facesimilarity.FaceScannerResponse
 import com.sdk.ipassplussdk.utils.Constants
 
 class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
@@ -64,10 +66,40 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
             status, message ->
             if (status) {
                 Log.e("showScannerRequest", message)
+                getDocData()
             } else {
                 Log.e("showScannerRequest", message)
             }
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun getDocData() {
+        IPassSDK.getDocumentScannerData(requireContext(), Constants.TOKEN, object : ResultListener<DocumentScannerResponse> {
+            override fun onSuccess(response: DocumentScannerResponse?) {
+                Log.e("onSuccess", response?.message!!)
+                Log.e("onSuccess", response.data.toString())
+                getFaceData()
+            }
+
+            override fun onError(exception: String) {
+                Log.e("onSuccess", exception)
+            }
+
+        })
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun getFaceData() {
+        IPassSDK.getFaceScannerData(requireContext(), Constants.TOKEN, object : ResultListener<FaceScannerResponse> {
+            override fun onSuccess(response: FaceScannerResponse?) {
+                Log.e("onSuccess", response?.message!!)
+            }
+
+            override fun onError(exception: String) {
+                Log.e("onSuccess", exception)
+            }
+        })
     }
 
 }

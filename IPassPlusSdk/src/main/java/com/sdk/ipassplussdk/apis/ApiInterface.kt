@@ -20,11 +20,13 @@ import com.sdk.ipassplussdk.model.response.check_face_analysis.CheckFaceAnalysis
 import com.sdk.ipassplussdk.model.response.data_save.DataSaveRequest
 import com.sdk.ipassplussdk.model.response.data_save.DataSaveResponse
 import com.sdk.ipassplussdk.model.response.data_save.Livenessdata
+import com.sdk.ipassplussdk.model.response.document_scanner.DocumentScannerResponse
 import com.sdk.ipassplussdk.model.response.livenesscheck.LivenessCheckResponse
 import com.sdk.ipassplussdk.model.response.login.LoginResponse
 import com.sdk.ipassplussdk.model.response.ipass.ipass_data_get_sid.IpassDataGetSidResponse
 import com.sdk.ipassplussdk.model.response.ipass.ipass_get_data_by_email.OcrGetDataByEmailResponse
 import com.sdk.ipassplussdk.model.response.ipass.ipass_post_data.OcrPostDataResponse
+import com.sdk.ipassplussdk.model.response.liveness_facesimilarity.FaceScannerResponse
 import com.sdk.ipassplussdk.model.response.session_create.Data
 import com.sdk.ipassplussdk.model.response.valid_api.ValidApiResponse
 import com.sdk.ipassplussdk.utils.ServerUrls
@@ -132,5 +134,17 @@ interface ApiInterface {
     fun dataSaveRequest(
         @Body getCeonRequest: DataSaveRequest
     ): Call<DataSaveResponse>
+
+    @GET(ServerUrls.url_id_card_details)
+    fun getDocumentScannerData(
+        @Query("token") token: String,
+        @Query("sessId") sessId: String
+    ): Call<DocumentScannerResponse>
+
+    @GET(ServerUrls.url_facesimilarity_details)
+    fun getLivenessFaceSimilarityData(
+        @Query("token") token: String,
+        @Query("sessId") sessId: String
+    ): Call<FaceScannerResponse>
 
 }

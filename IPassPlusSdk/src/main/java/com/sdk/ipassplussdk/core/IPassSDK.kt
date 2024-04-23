@@ -12,6 +12,8 @@ import com.sdk.ipassplussdk.model.request.session_result.SessionResultRequest
 import com.sdk.ipassplussdk.model.response.data_save.DataSaveRequest
 import com.sdk.ipassplussdk.model.response.data_save.DataSaveResponse
 import com.sdk.ipassplussdk.model.response.data_save.Livenessdata
+import com.sdk.ipassplussdk.model.response.document_scanner.DocumentScannerResponse
+import com.sdk.ipassplussdk.model.response.liveness_facesimilarity.FaceScannerResponse
 import com.sdk.ipassplussdk.model.response.login.LoginResponse
 import com.sdk.ipassplussdk.model.response.session_create.Data
 import com.sdk.ipassplussdk.resultCallbacks.InitializeDatabaseCompletion
@@ -199,6 +201,16 @@ object IPassSDK {
 //    returns a list of available Processing Scenarios
     fun getScenariosList() {
         val list = arrayListOf(Scenarios.SCENARIO_FULL_PROCESS)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getFaceScannerData(context: Context, appToken: String, completion: ResultListener<FaceScannerResponse>) {
+        GetResults.FaceScannerResult(context, appToken, sid, completion)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getDocumentScannerData(context: Context, appToken: String, completion: ResultListener<DocumentScannerResponse>) {
+        GetResults.DocumentScanerResult(context, appToken, sid, completion)
     }
 
 }
