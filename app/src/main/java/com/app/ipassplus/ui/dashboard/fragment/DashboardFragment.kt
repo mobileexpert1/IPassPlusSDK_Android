@@ -94,6 +94,7 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
         IPassSDK.getFaceScannerData(requireContext(), Constants.TOKEN, object : ResultListener<FaceScannerResponse> {
             override fun onSuccess(response: FaceScannerResponse?) {
                 Log.e("onSuccess", response?.message!!)
+                Log.e("onSuccess", response.data.toString())
             }
 
             override fun onError(exception: String) {
