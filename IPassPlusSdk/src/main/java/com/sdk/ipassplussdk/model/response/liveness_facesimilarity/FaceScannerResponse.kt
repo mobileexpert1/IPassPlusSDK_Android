@@ -1,12 +1,13 @@
 package com.sdk.ipassplussdk.model.response.liveness_facesimilarity
 
+import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 
 data class FaceScannerResponse (
 
   @SerializedName("status"  ) var status  : Boolean? = null,
   @SerializedName("message" ) var message : String?  = null,
-  @SerializedName("data"    ) var data    : Data?    = Data()
+  @SerializedName("data"    ) var data    : JsonObject?    = null
 
 )
 
