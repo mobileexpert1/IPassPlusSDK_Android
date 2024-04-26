@@ -30,7 +30,7 @@ data class FaceComparisonResult (
   @SerializedName("_id"               ) var Id                : String? = null,
   @SerializedName("sourceImageBase64" ) var sourceImageBase64 : String? = null,
   @SerializedName("targetImageBase64" ) var targetImageBase64 : String? = null,
-  @SerializedName("facePercentage"    ) var facePercentage    : Int?    = null,
+  @SerializedName("facePercentage"    ) var facePercentage    : Double?    = null,
   @SerializedName("timestamp"         ) var timestamp         : String? = null,
   @SerializedName("email"             ) var email             : String? = null,
   @SerializedName("sid"               ) var sid               : String? = null,
