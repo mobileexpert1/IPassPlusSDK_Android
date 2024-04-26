@@ -20,9 +20,9 @@ fun ApiClient(x_api_key: String): Retrofit? {
         .addCallAdapterFactory(ResultCallAdapterFactory())
         .addConverterFactory(GsonConverterFactory.create()).client(
             OkHttpClient.Builder()
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(200, TimeUnit.SECONDS)
+                .writeTimeout(200, TimeUnit.SECONDS)
+                .readTimeout(200, TimeUnit.SECONDS)
                 .addInterceptor(interceptor)
                 .addNetworkInterceptor { chain ->
                     val original: Request = chain.request()

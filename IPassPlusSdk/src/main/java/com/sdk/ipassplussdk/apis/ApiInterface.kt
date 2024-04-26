@@ -138,7 +138,7 @@ interface ApiInterface {
     @GET(ServerUrls.url_id_card_details)
     fun getDocumentScannerData(
         @Query("token") token: String,
-        @Query("sessId") sessId: String
+        @Query("sesid") sessId: String
     ): Call<DocumentScannerResponse>
 
     @GET(ServerUrls.url_facesimilarity_details)

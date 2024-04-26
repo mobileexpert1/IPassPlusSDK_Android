@@ -77,9 +77,13 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
     private fun getDocData() {
         IPassSDK.getDocumentScannerData(requireContext(), Constants.TOKEN, object : ResultListener<DocumentScannerResponse> {
             override fun onSuccess(response: DocumentScannerResponse?) {
-                Log.e("onSuccess", response?.message!!)
-                Log.e("onSuccess", response.data.toString())
-                getFaceData()
+                if (response?.Apistatus!!) {
+                    Log.e("onSuccess", response.Apimessage!!)
+                    Log.e("onSuccess", response.data.toString())
+                    getFaceData()
+                } else {
+                    Log.e("error", response.Apimessage!!)
+                }
             }
 
             override fun onError(exception: String) {

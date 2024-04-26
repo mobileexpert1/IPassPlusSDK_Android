@@ -17,7 +17,7 @@ object ServerUrls {
     const val url_post_ceon = "ipass/plus/socialmedia"
     const val url_get_ceon = "ipass/plus/socialmedia/get"
     const val url_data_save = "ipass/sdk/data/save"
-    const val url_id_card_details = "ipass/get/idCard/details"
+    const val url_id_card_details = "ipass/get/document/manipulated/result"
     const val url_facesimilarity_details = "ipass/get/liveness/facesimilarity/details"
 
 }
