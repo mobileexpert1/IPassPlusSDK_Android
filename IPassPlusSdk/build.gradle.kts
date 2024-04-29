@@ -21,7 +21,6 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -50,6 +49,8 @@ android {
 dependencies {
     coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:1.0.5")
     implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("com.regula.documentreader.core:fullauthrfid:7.2.10816@aar")
@@ -90,7 +91,7 @@ project.afterEvaluate {
                 from(components["release"])
                 groupId = "com.sdk.ipassplussdk"
                 artifactId = "IPassPlusSDK"
-                version = "2.0.4"
+                version = "2.0.5"
             }
         }
     }
