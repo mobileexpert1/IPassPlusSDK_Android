@@ -109,7 +109,7 @@
                 android:layout_width="@dimen/_18sdp"
                 android:layout_height="@dimen/_18sdp"
                 android:layout_weight="1"
-                android:src="@drawable/circle_tik" />
+                android:src="@drawable/ic_tick_green_circle" />
 
             <ImageView
                 android:layout_width="@dimen/_18sdp"

@@ -267,6 +267,8 @@
     <string name="nationality">Nationality</string>
     <string name="save_rfid_session_to_the_device_for_debugging">Save RFID session to the device (for\ndebugging)</string>
     <string name="save_rfid_session">Save RFID session</string>
+    <string name="title_regula_core_sdk">Document Reader</string>
+      <string name="title_document_reader_sdk">Document Reader SDK</string>
 
 
 </resources>

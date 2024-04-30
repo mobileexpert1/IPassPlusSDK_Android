@@ -69,7 +69,7 @@
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginStart="@dimen/_6sdp"
                         android:layout_marginTop="@dimen/_6sdp"
-                        android:src="@drawable/check_tick" />
+                        android:src="@drawable/ic_tick_green" />
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"

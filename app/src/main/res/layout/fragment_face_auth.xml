@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
-        tools:src="@drawable/circle_cross"
+        tools:src="@drawable/ic_cross_red_circle"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
-        android:src="@drawable/circle_cross"
+        android:src="@drawable/ic_cross_red_circle"
         app:layout_constraintBottom_toBottomOf="@+id/cvDoc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/cvDoc" />

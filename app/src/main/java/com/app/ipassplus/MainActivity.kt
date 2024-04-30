@@ -25,6 +25,9 @@ import androidx.navigation.ui.NavigationUI
 import com.app.ipassplus.Utils.Constants.PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE
 import com.app.ipassplus.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.play.core.splitinstall.SplitInstallManager
+import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
+import com.google.android.play.core.splitinstall.SplitInstallRequest
 import com.sdk.ipassplussdk.apis.ResultListener
 import com.sdk.ipassplussdk.core.IPassSDK
 import com.sdk.ipassplussdk.model.response.login.LoginResponse
@@ -35,6 +38,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var progressDialog: AlertDialog
+    private lateinit var splitInstallManager: SplitInstallManager
+    private val coreModule = "document_reader_sdk"
 
     companion object {
         var authToken = ""
@@ -47,6 +52,9 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        splitInstallManager = SplitInstallManagerFactory.create(this)
+        loadModule(coreModule)
 
         progressDialog = showProgressDialog(this@MainActivity, "Initializing")
         IPassSDK.initializeDatabase(this, object: InitializeDatabaseCompletion {
@@ -70,9 +78,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavigation()
-
     }
 
+    private fun loadModule(name: String) {
+        val request = SplitInstallRequest.newBuilder()
+            .addModule(name)
+            .build()
+
+        splitInstallManager.startInstall(request)
+            .addOnFailureListener {
+                Log.e("splitInstallManager", it.message!!)
+            }
+    }
+    
         fun showProgressDialog(context: Context, msg: String): AlertDialog {
         val dialog = MaterialAlertDialogBuilder(context, R.style.Theme_MyApp_Dialog_Alert)
         dialog.background = ResourcesCompat.getDrawable(context.resources, R.drawable.rounded, context.theme)
