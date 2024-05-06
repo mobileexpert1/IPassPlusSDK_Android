@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 rootProject.name = "IPassPlus"
 include(":app")
 include(":IPassPlusSdk")
-include(":document_reader_sdk")
+//include(":document_reader_sdk")
