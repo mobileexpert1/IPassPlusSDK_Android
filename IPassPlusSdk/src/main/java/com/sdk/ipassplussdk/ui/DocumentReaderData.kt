@@ -34,6 +34,7 @@ object DocumentReaderData {
         this.callback = callback
 
         DocumentReader.Instance().processParams().multipageProcessing = true
+        DocumentReader.Instance().processParams().dateFormat = "dd-mm-yyyy"
         DocumentReader.Instance().functionality().edit().setShowSkipNextPageButton(false).apply()
 
         val scannerConfig = ScannerConfig.Builder(Scenario.SCENARIO_FULL_PROCESS).build()
