@@ -89,21 +89,21 @@ interface ApiInterface {
         @Body amlManualRequest: AmlManualRequest
     ): Call<AmlManualResponse>
 
-    @POST(ServerUrls.url_regula_post_data)
+    @POST(ServerUrls.url_post_data)
     fun ocrPostData(
         @Query("token") token: String,
 //        @Query("token1") token1: String,
         @Body ocrPostdataRequest: OcrPostdataRequest
     ): Call<OcrPostDataResponse>
 
-    @POST(ServerUrls.url_regula_get_dataBy_email)
+    @POST(ServerUrls.url_get_dataBy_email)
     fun ocrGetDataBy(
         @Query("token") token: String,
         @Query("token1") token1: String,
         @Body ocrGetDataByEmailRequest: OcrGetDataByEmailRequest
     ): Call<BaseModel<OcrGetDataByEmailResponse>>
 
-    @GET(ServerUrls.url_regula_data_get_sid)
+    @GET(ServerUrls.url_data_get_sid)
     fun dataGetSid(
         @Query("token") token: String,
         @Query("token1") token1: String,

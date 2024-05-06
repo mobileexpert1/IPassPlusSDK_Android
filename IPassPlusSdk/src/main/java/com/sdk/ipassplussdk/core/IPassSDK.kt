@@ -2,6 +2,7 @@ package com.sdk.ipassplussdk.core
 
 import android.content.Context
 import android.os.Build
+import android.util.Log
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import com.google.gson.JsonParser
@@ -194,6 +195,7 @@ object IPassSDK {
         // Generate a random UUID
         val myUuid = UUID.randomUUID()
         val myUuidAsString = myUuid.toString()
+        Log.e("Sid", myUuidAsString)
 
         return myUuidAsString
     }

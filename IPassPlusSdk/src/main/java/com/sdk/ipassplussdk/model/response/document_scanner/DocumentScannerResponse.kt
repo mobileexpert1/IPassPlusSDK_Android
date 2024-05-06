@@ -128,7 +128,8 @@ data class DocDetails (
   @SerializedName("Place of RegistrationAr" )             var         Place_of_RegistrationAr :      String?    = null,
   @SerializedName("Place of Birth"          )             var         Place_of_Birth          :      String?    = null,
   @SerializedName("Mothers Name"       )               var           Mothers_Name       :        String?        =      null,
-  @SerializedName("Surname"       )           var             Surname       :           String?    =        null
+  @SerializedName("Surname"       )           var             Surname       :           String?    =        null,
+  @SerializedName("Date of Issue"       )           var             Date_of_Issue       :           String?    =        null
 
 )
 
