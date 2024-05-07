@@ -15,7 +15,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-        resConfigs("en")
+//        resConfigs("en")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -25,7 +25,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -53,29 +53,6 @@ android {
         jniLibs {
             useLegacyPackaging = true // Enabling flag to compress JNI Libs to reduce APK size Ref: https://developer.android.com/studio/releases/gradle-plugin#compress-native-libs-dsl
         }
-        exclude("AndroidManifest.xml")
-        exclude("lib/arm64-v8a/libcardioDecider.so")
-        exclude("lib/arm64-v8a/libcardioRecognizer.so")
-        exclude("lib/arm64-v8a/libcardioRecognizer_tegra2.so")
-        exclude("lib/arm64-v8a/libopencv_core.so")
-        exclude("lib/arm64-v8a/libopencv_imgproc.so")
-        exclude("lib/armeabi/libcardioDecider.so")
-        exclude("lib/armeabi-v7a/libcardioDecider.so")
-        exclude("lib/armeabi-v7a/libcardioRecognizer.so")
-        exclude("lib/armeabi-v7a/libcardioRecognizer_tegra2.so")
-        exclude("lib/armeabi-v7a/libopencv_core.so")
-        exclude("lib/armeabi-v7a/libopencv_imgproc.so")
-        exclude("lib/mips/libcardioDecider.so")
-        exclude("lib/x86/libcardioDecider.so")
-        exclude("lib/x86/libcardioRecognizer.so")
-        exclude("lib/x86/libcardioRecognizer_tegra2.so")
-        exclude("lib/x86/libopencv_core.so")
-        exclude("lib/x86/libopencv_imgproc.so")
-        exclude("lib/x86_64/libcardioDecider.so")
-        exclude("lib/x86_64/libcardioRecognizer.so")
-        exclude("lib/x86_64/libcardioRecognizer_tegra2.so")
-        exclude("lib/x86_64/libopencv_core.so")
-        exclude("lib/x86_64/libopencv_imgproc.so")
     }
 }
 
