@@ -47,6 +47,9 @@ android {
         kotlinCompilerExtensionVersion = "1.5.10"
     }
     packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true // Enabling flag to compress JNI Libs to reduce APK size Ref: https://developer.android.com/studio/releases/gradle-plugin#compress-native-libs-dsl
+        }
         exclude("AndroidManifest.xml")
         exclude("lib/arm64-v8a/libcardioDecider.so")
         exclude("lib/arm64-v8a/libcardioRecognizer.so")
@@ -123,7 +126,7 @@ project.afterEvaluate {
                 from(components["release"])
                 groupId = "com.sdk.ipassplussdk"
                 artifactId = "IPassPlusSDK"
-                version = "2.0.14"
+                version = "2.0.15"
             }
         }
     }

@@ -26,7 +26,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = true
-            isShrinkResources = true
+            isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -50,6 +50,9 @@ android {
         kotlinCompilerExtensionVersion = "1.5.10"
     }
     packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true // Enabling flag to compress JNI Libs to reduce APK size Ref: https://developer.android.com/studio/releases/gradle-plugin#compress-native-libs-dsl
+        }
         exclude("AndroidManifest.xml")
         exclude("lib/arm64-v8a/libcardioDecider.so")
         exclude("lib/arm64-v8a/libcardioRecognizer.so")
