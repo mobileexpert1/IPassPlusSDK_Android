@@ -72,6 +72,9 @@ object DocumentReaderData {
                         } else if (rfidAction == DocReaderAction.CANCEL) {
                             rawResult = results?.rawResult
                             callback.invoke(true, rawResult!!)
+                        } else {
+                            rawResult = results?.rawResult
+                            callback.invoke(true, rawResult!!)
                         }
                     }
                 })

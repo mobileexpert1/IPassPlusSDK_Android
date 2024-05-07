@@ -13,7 +13,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+//            isMinifyEnabled = true
+//            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -39,5 +40,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 //    androidTestImplementation("androidx.annotation:annotation:1.7.1")
 
-    implementation ("com.regula.documentreader.core:fullauthrfid:7.2.10816@aar")
+//    implementation ("com.regula.documentreader.core:fullauthrfid:7.2.10816@aar")
 }

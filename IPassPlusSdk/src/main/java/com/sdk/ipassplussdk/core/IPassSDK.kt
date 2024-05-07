@@ -5,9 +5,6 @@ import android.os.Build
 import android.util.Log
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import com.google.android.play.core.splitinstall.SplitInstallManager
-import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
-import com.google.android.play.core.splitinstall.SplitInstallRequest
 import com.google.gson.JsonParser
 import com.sdk.ipassplussdk.apis.ResultListener
 import com.sdk.ipassplussdk.model.request.login.LoginRequest
@@ -35,10 +32,6 @@ object IPassSDK {
     private var sid = ""
 //    private var auth_token = ""
     private var rawResult: String? = null
-
-
-    private lateinit var splitInstallManager: SplitInstallManager
-    private val coreModule = "document_reader_sdk"
 
 
 //    init face detection
@@ -222,21 +215,5 @@ object IPassSDK {
         GetResults.DocumentScanerResult(context, appToken, sid, completion)
     }
 
-    fun loadModule(context: Context, callback: (Boolean, String) -> Unit) {
-
-        splitInstallManager = SplitInstallManagerFactory.create(context)
-        val request = SplitInstallRequest.newBuilder()
-            .addModule(coreModule)
-            .build()
-
-        splitInstallManager.startInstall(request).addOnSuccessListener {
-            callback.invoke(true, it.toString())
-        }
-            .addOnFailureListener {
-                callback.invoke(false, it.message.toString())
-                Log.e("splitInstallManager", it.message!!)
-            }
-
-    }
 
 }

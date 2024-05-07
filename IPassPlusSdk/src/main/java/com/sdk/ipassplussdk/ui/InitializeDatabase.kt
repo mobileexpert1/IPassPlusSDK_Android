@@ -48,7 +48,7 @@ object InitializeDatabase {
         license: ByteArray,
         context: Context, completion: InitializeDatabaseCompletion
     ) {
-        DocumentReader.Instance().prepareDatabase(context, "FullAuth", object :
+        DocumentReader.Instance().prepareDatabase(context, "Full", object :
             IDocumentReaderPrepareCompletion {
             override fun onPrepareProgressChanged(progress: Int) {
                 // getting progress
@@ -83,7 +83,7 @@ object InitializeDatabase {
         DocumentReader.Instance().processParams().debugSaveImages = false
 
         val path = DocumentReader.Instance().processParams().sessionLogFolder
-        Log.d("SdkLicense" , "Path: $path")
+//        Log.d("SdkLicense" , "Path: $path")
 
 
         DocumentReader.Instance().setLocalizationCallback { stringId ->
