@@ -67,7 +67,7 @@ dependencies {
     implementation("com.regula.documentreader:api:7.2.9754+@aar") {
         this.isTransitive = true
     }
-//    implementation ("com.regula.documentreader.core:fullauthrfid:7.2.10816@aar")
+    implementation ("com.regula.documentreader.core:fullauthrfid:7.2.10816@aar")
 //    implementation(files("libs/api-6.9.1398"))
 
 
@@ -103,7 +103,7 @@ project.afterEvaluate {
                 from(components["release"])
                 groupId = "com.sdk.ipassplussdk"
                 artifactId = "IPassPlusSDK"
-                version = "2.0.16"
+                version = "2.0.17"
             }
         }
     }
