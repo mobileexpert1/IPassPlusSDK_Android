@@ -40,6 +40,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var progressDialog: AlertDialog
     private lateinit var splitInstallManager: SplitInstallManager
     private val coreModule = "document_reader_sdk"
+    private val email = "mabusanimeh@access2arabia.com"
+    private val password = "A2a@123456"
+    private val apptoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYzODg4MWYyYzNmMDFmMTg5OTNlMWI4IiwiZW1haWwiOiJtYWJ1c2FuaW1laEBhY2Nlc3MyYXJhYmlhLmNvbSIsImlhdCI6MTcxNTE2MDU1MywiZXhwIjoxNzE1MTYyMzUzfQ.Jyp8s_c3oc2grx2_Xip8yMTIU3_TZCctbEXnsyAMKLw"
+
 
     companion object {
         var authToken = ""
@@ -108,18 +112,18 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getToken() {
-        progressDialog.setTitle("Generating Token Please wait!")
-        progressDialog.show()
-        IPassSDK.getAuthToken(this@MainActivity, "ipassmob@yopmail.com", "Admin@123#", object : ResultListener<LoginResponse> {
+//        progressDialog.setTitle("Generating Token Please wait!")
+//        progressDialog.show()
+        IPassSDK.getAuthToken(this@MainActivity, email, password, object : ResultListener<LoginResponse> {
             override fun onSuccess(response: LoginResponse?) {
-                progressDialog.cancel()
+//                progressDialog.cancel()
                 val authToken = response?.user?.token!!
                 Companion.authToken = authToken
                 Toast.makeText(this@MainActivity, "Token Generated Successfully", Toast.LENGTH_SHORT).show()
             }
 
             override fun onError(exception: String) {
-                progressDialog.cancel()
+//                progressDialog.cancel()
                 Toast.makeText(this@MainActivity, exception, Toast.LENGTH_SHORT).show()
             }
         })

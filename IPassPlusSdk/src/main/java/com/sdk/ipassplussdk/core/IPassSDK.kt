@@ -93,7 +93,7 @@ object IPassSDK {
         sessionResultRequest.authToken = authToken
         SessionResultData.sessionResult(context, appToken, sessionId, sid, email, sessionResultRequest, object : ResultListener<Livenessdata> {
             override fun onSuccess(response: Livenessdata?) {
-                postDataToServer(context, response, callback)
+                postDataToServer(context, email, response, callback)
             }
             override fun onError(exception: String) {
                 callback.invoke(false, exception)
@@ -105,11 +105,12 @@ object IPassSDK {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun postDataToServer(
         context: Context,
+        email: String,
         response: Livenessdata?,
         callback: (Boolean, String) -> Unit
     ) {
         val postdataRequest = DataSaveRequest()
-        postdataRequest.email = Constants.EMAIL
+        postdataRequest.email = email
         postdataRequest.randomid = sid
         val rawData = JsonParser().parse(rawResult).asJsonObject
         postdataRequest.idvData = rawData

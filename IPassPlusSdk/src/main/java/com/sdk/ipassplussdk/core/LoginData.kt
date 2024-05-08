@@ -20,7 +20,6 @@ object LoginData {
     fun login(
         context: Context,
         request: LoginRequest,
-//        callback: (String) -> Unit
         completion: ResultListener<LoginResponse>
     ) {
         if (InternetConnectionService.networkAvailable(context)) {
@@ -31,10 +30,7 @@ object LoginData {
                         call: Call<LoginResponse>,
                         response: Response<LoginResponse>
                     ) {
-                        print("Response ==> $response")
                         if (response.isSuccessful) {
-//                            IPassSDK.setAuthToken(response.body()?.user?.token!!)
-//                            callback.invoke()
                             completion.onSuccess(response.body()!!)
                         } else {
                             try {

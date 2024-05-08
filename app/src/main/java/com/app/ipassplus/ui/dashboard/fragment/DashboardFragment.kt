@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,13 +20,14 @@ import com.sdk.ipassplussdk.apis.ResultListener
 import com.sdk.ipassplussdk.core.IPassSDK
 import com.sdk.ipassplussdk.model.response.document_scanner.DocumentScannerResponse
 import com.sdk.ipassplussdk.model.response.liveness_facesimilarity.FaceScannerResponse
-import com.sdk.ipassplussdk.utils.Constants
 
 class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
 
     private val binding by lazy { FragmentDashboardBinding.inflate(layoutInflater) }
     private lateinit var adapter: ScenariosListAdapter
-    private lateinit var rvitems:RecyclerView
+    private val email = "mabusanimeh@access2arabia.com"
+    private val password = "A2a@123456"
+    private val apptoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYzODg4MWYyYzNmMDFmMTg5OTNlMWI4IiwiZW1haWwiOiJtYWJ1c2FuaW1laEBhY2Nlc3MyYXJhYmlhLmNvbSIsImlhdCI6MTcxNTE2MDU1MywiZXhwIjoxNzE1MTYyMzUzfQ.Jyp8s_c3oc2grx2_Xip8yMTIU3_TZCctbEXnsyAMKLw"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -62,20 +64,22 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onScenarioPickClick(position: Int, model: ScenariosItemModel) {
-        IPassSDK.showScannerRequest(requireContext(),Constants.EMAIL, MainActivity.authToken, Constants.TOKEN, binding.root as ViewGroup) {
+        IPassSDK.showScannerRequest(requireContext(),email, MainActivity.authToken, apptoken, binding.root as ViewGroup) {
             status, message ->
             if (status) {
                 Log.e("showScannerRequest", message)
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                 getDocData()
             } else {
                 Log.e("showScannerRequest", message)
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getDocData() {
-        IPassSDK.getDocumentScannerData(requireContext(), Constants.TOKEN, object : ResultListener<DocumentScannerResponse> {
+        IPassSDK.getDocumentScannerData(requireContext(), apptoken, object : ResultListener<DocumentScannerResponse> {
             override fun onSuccess(response: DocumentScannerResponse?) {
                 if (response?.Apistatus!!) {
                     Log.e("onSuccess", response.Apimessage!!)
@@ -95,7 +99,7 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getFaceData() {
-        IPassSDK.getFaceScannerData(requireContext(), Constants.TOKEN, object : ResultListener<FaceScannerResponse> {
+        IPassSDK.getFaceScannerData(requireContext(), apptoken, object : ResultListener<FaceScannerResponse> {
             override fun onSuccess(response: FaceScannerResponse?) {
                 Log.e("onSuccess", response?.message!!)
                 Log.e("onSuccess", response.data.toString())

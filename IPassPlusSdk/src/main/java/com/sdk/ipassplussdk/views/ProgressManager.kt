@@ -18,4 +18,8 @@ object ProgressManager {
         progressDialog?.dismiss()
         progressDialog = null
     }
+
+    fun setMessage(message: String) {
+        progressDialog?.setMessage(message)
+    }
 }

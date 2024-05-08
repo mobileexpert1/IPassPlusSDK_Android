@@ -103,7 +103,7 @@ project.afterEvaluate {
                 from(components["release"])
                 groupId = "com.sdk.ipassplussdk"
                 artifactId = "IPassPlusSDK"
-                version = "2.0.17"
+                version = "2.0.18"
             }
         }
     }
