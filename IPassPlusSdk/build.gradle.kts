@@ -91,6 +91,7 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6")
     implementation ("com.google.code.gson:gson:2.8.9")
     implementation ("com.google.android.gms:play-services-vision:20.1.3")
+    implementation("com.google.android.material:material:1.11.0")
 
 
 

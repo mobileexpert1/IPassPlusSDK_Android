@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             ) {
 //                progressDialog.hide()
                 Log.e("onCompleted", message!!)
-               Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
+//               Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
                 if (status) getToken()
             }
 
@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity() {
 //                progressDialog.cancel()
                 val authToken = response?.user?.token!!
                 Companion.authToken = authToken
-                Toast.makeText(this@MainActivity, "Token Generated Successfully", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@MainActivity, "Token Generated Successfully", Toast.LENGTH_SHORT).show()
             }
 
             override fun onError(exception: String) {

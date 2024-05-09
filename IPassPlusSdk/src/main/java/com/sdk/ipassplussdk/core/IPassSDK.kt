@@ -78,7 +78,7 @@ object IPassSDK {
         ProgressManager.dismissProgress()
         initFaceDetector(context, sessionId, bindingView) {
             if (it.equals("success")) {
-                ProgressManager.showProgress(context, "Processing Data")
+                ProgressManager.showProgress(context)
                 getSessionResult(context, email, authToken, appToken, sessionId, callback)
             } else callback.invoke(false, it)
         }
@@ -96,7 +96,6 @@ object IPassSDK {
         sessionResultRequest.authToken = authToken
         SessionResultData.sessionResult(context, appToken, sessionId, sid, email, sessionResultRequest, object : ResultListener<Livenessdata> {
             override fun onSuccess(response: Livenessdata?) {
-                ProgressManager.setMessage("Uploading data on Server")
                 postDataToServer(context, email, response, callback)
             }
             override fun onError(exception: String) {
@@ -147,7 +146,7 @@ object IPassSDK {
         DocumentReaderData.showScanner(context) {
                 status, message ->
             if (status) {
-                ProgressManager.showProgress(context, "Initializing Face Scanner...")
+                ProgressManager.showProgress(context)
                 this.rawResult = message
                 faceSessionCreateRequest(context, email, authToken, appToken, bindingView) {
                         statusF, messageF ->
@@ -163,15 +162,10 @@ object IPassSDK {
     //    initialize database for scanning (needs to be initialized at least once before scanning)
     @RequiresApi(Build.VERSION_CODES.O)
     fun initializeDatabase(context: Context, completion: InitializeDatabaseCompletion){
-        ProgressManager.showProgress(context, "Initializing...")
+        ProgressManager.showProgress(context)
 
         InitializeDatabase.InitDatabase(context, object : InitializeDatabaseCompletion {
             override fun onProgressChanged(progress: Int) {
-                if (progress < 100) {
-                    ProgressManager.setMessage("Downloading Database : $progress%")
-                } else {
-                    ProgressManager.setMessage("Initializing...")
-                }
                 completion.onProgressChanged(progress)
             }
 
@@ -190,7 +184,6 @@ object IPassSDK {
     //    Face scanner configuration
     @RequiresApi(Build.VERSION_CODES.O)
     private fun configureFaceScanner(context: Context, completion: InitializeDatabaseCompletion) {
-        ProgressManager.setMessage("Configuring Face Scanner")
         FaceScannerData.configureFaceScanner(context) {
             ProgressManager.dismissProgress()
             if (it.equals("FaceScannerConfigured")) {
@@ -218,7 +211,7 @@ object IPassSDK {
             return
         }
 
-        ProgressManager.showProgress(context, "Generating Token")
+        ProgressManager.showProgress(context)
         val request = LoginRequest(email, password)
         LoginData.login(context, request, object : ResultListener<LoginResponse> {
             override fun onSuccess(response: LoginResponse?) {
@@ -251,7 +244,7 @@ object IPassSDK {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getFaceScannerData(context: Context, appToken: String, completion: ResultListener<FaceScannerResponse>) {
-        ProgressManager.showProgress(context, "Fetching Face Data")
+        ProgressManager.showProgress(context)
         GetResults.FaceScannerResult(context, appToken, sid, object : ResultListener<FaceScannerResponse> {
             override fun onSuccess(response: FaceScannerResponse?) {
                 ProgressManager.dismissProgress()
@@ -267,7 +260,7 @@ object IPassSDK {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getDocumentScannerData(context: Context, appToken: String, completion: ResultListener<DocumentScannerResponse>) {
-        ProgressManager.showProgress(context, "Fetching Document Data")
+        ProgressManager.showProgress(context)
         GetResults.DocumentScanerResult(context, appToken, sid, object : ResultListener<DocumentScannerResponse> {
             override fun onSuccess(response: DocumentScannerResponse?) {
                 ProgressManager.dismissProgress()

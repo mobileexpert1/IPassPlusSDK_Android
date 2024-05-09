@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!-- custom dialog theme -->
-<!--    <style name="Theme.MyApp.Dialog.Alert" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">-->
-<!--        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialogText</item>-->
-<!--    </style>-->
-<!--    <style name="MaterialAlertDialogText" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">-->
-<!--        <item name="android:textColor">#ffffff</item>-->
-<!--&lt;!&ndash;        <item name="fontFamily">@font/robotobold</item>&ndash;&gt;-->
-<!--    </style>-->
+ custom dialog theme
+    <style name="Theme.MyApp.Dialog.Alert" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialogText</item>
+    </style>
+    <style name="MaterialAlertDialogText" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">#ffffff</item>
+<!--        <item name="fontFamily">@font/robotobold</item>-->
+    </style>
 
 <!-- custom switch theme -->
 <!--    <style name="SCBSwitch" parent="Theme.AppCompat.Light">-->
@@ -22,5 +22,26 @@
 
 <!--        &lt;!&ndash; inactive track color (30% transparency) &ndash;&gt;-->
 <!--    </style>-->
+
+
+    <style name="progressDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowMinWidthMajor">10%</item>
+        <item name="android:windowMinWidthMinor">10%</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:windowTitleStyle">@style/DialogTitle</item>
+    </style>
+
+    <style name="DialogTitle" parent="@android:style/TextAppearance.DialogWindowTitle">
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+
+    <style name="WrapContentDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowMinWidthMajor">0%</item>
+        <item name="windowMinWidthMinor">0%</item>
+    </style>
+
 
 </resources>

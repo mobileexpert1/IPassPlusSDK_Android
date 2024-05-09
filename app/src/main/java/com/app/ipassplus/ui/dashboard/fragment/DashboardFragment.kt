@@ -72,7 +72,7 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
                 getDocData()
             } else {
                 Log.e("showScannerRequest", message)
-                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             }
         }
     }
