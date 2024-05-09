@@ -32,9 +32,7 @@ object SessionCreateData {
                         call: Call<Data>,
                         response: Response<Data>
                     ) {
-                        print("Response ==> $response")
                         if (response.isSuccessful) {
-//                            FaceScannerData.initFaceDetector(context, response.body()?.sessionId!!, bindView)
                             completion.onSuccess(response.body()!!)
                         } else {
                             try {

@@ -21,7 +21,7 @@ object InitializeDatabase {
     @RequiresApi(Build.VERSION_CODES.O)
     fun InitDatabase(context: Context, completion: InitializeDatabaseCompletion){
         if (InternetConnectionService.networkAvailable(context)) {
-            if (LicenseUtil.readFileFromAssets("SdkLicense", "sdkLicense.license", context) == null
+            if (LicenseUtil.readFileFromAssets("SdkLicense", "sdk.license", context) == null
                 && !isInitializedByBleDevice
             ) completion.onCompleted(false, "License not found")
 
@@ -30,7 +30,7 @@ object InitializeDatabase {
 
             val license = LicenseUtil.readFileFromAssets(
                 "SdkLicense",
-                "sdkLicense.license",
+                "sdk.license",
                 context
             )
 

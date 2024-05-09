@@ -60,17 +60,17 @@ class MainActivity : AppCompatActivity() {
         splitInstallManager = SplitInstallManagerFactory.create(this)
         loadModule(coreModule)
 
-        progressDialog = showProgressDialog(this@MainActivity, "Initializing")
+//        progressDialog = showProgressDialog(this@MainActivity, "Initializing")
         IPassSDK.initializeDatabase(this, object: InitializeDatabaseCompletion {
             override fun onProgressChanged(progress: Int) {
-                progressDialog.setTitle("Downloading database $progress%")
+//                progressDialog.setTitle("Downloading database $progress%")
             }
 
             override fun onCompleted(
                 status: Boolean,
                 message: String?
             ) {
-                progressDialog.hide()
+//                progressDialog.hide()
                 Log.e("onCompleted", message!!)
                Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
                 if (status) getToken()

@@ -68,7 +68,7 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
             status, message ->
             if (status) {
                 Log.e("showScannerRequest", message)
-                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                 getDocData()
             } else {
                 Log.e("showScannerRequest", message)
@@ -101,8 +101,9 @@ class DashboardFragment : Fragment(), ScenariosListAdapter.OnClickListener {
     private fun getFaceData() {
         IPassSDK.getFaceScannerData(requireContext(), apptoken, object : ResultListener<FaceScannerResponse> {
             override fun onSuccess(response: FaceScannerResponse?) {
-                Log.e("onSuccess", response?.message!!)
-                Log.e("onSuccess", response.data.toString())
+//                Log.e("onSuccess", response?.message!!)
+//                Log.e("onSuccess", response.data.toString())
+//                Toast.makeText(context, response?.message, Toast.LENGTH_SHORT).show()
             }
 
             override fun onError(exception: String) {

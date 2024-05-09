@@ -25,16 +25,16 @@ import com.sdk.ipassplussdk.ui.InitializeDatabase
 import com.sdk.ipassplussdk.utils.Constants
 import com.sdk.ipassplussdk.utils.InternetConnectionService
 import com.sdk.ipassplussdk.utils.Scenarios
+import com.sdk.ipassplussdk.views.ProgressManager
 import java.util.UUID
 
 object IPassSDK {
 
     private var sid = ""
-//    private var auth_token = ""
     private var rawResult: String? = null
 
 
-//    init face detection
+    //    init face detection
     @RequiresApi(Build.VERSION_CODES.O)
     private fun faceSessionCreateRequest(
         context: Context,
@@ -58,30 +58,33 @@ object IPassSDK {
                 showFaceScanner(context, email, authToken, appToken, sessionId, bindingView, callback)
             }
             override fun onError(exception: String) {
+                ProgressManager.dismissProgress()
                 callback.invoke(false, exception)
             }
         })
     }
 
-//    show scanner to detect face liveness
+    //    show scanner to detect face liveness
     @RequiresApi(Build.VERSION_CODES.O)
     private fun showFaceScanner(
-    context: Context,
-    email: String,
-    authToken: String,
-    appToken: String,
-    sessionId: String,
-    bindingView: ViewGroup,
-    callback: (Boolean, String) -> Unit
-) {
+        context: Context,
+        email: String,
+        authToken: String,
+        appToken: String,
+        sessionId: String,
+        bindingView: ViewGroup,
+        callback: (Boolean, String) -> Unit
+    ) {
+        ProgressManager.dismissProgress()
         initFaceDetector(context, sessionId, bindingView) {
             if (it.equals("success")) {
+                ProgressManager.showProgress(context, "Processing Data")
                 getSessionResult(context, email, authToken, appToken, sessionId, callback)
             } else callback.invoke(false, it)
         }
     }
 
-//    get liveness data and images from aws
+    //    get liveness data and images from aws
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getSessionResult(context: Context,
                                  email: String,
@@ -93,15 +96,17 @@ object IPassSDK {
         sessionResultRequest.authToken = authToken
         SessionResultData.sessionResult(context, appToken, sessionId, sid, email, sessionResultRequest, object : ResultListener<Livenessdata> {
             override fun onSuccess(response: Livenessdata?) {
+                ProgressManager.setMessage("Uploading data on Server")
                 postDataToServer(context, email, response, callback)
             }
             override fun onError(exception: String) {
+                ProgressManager.dismissProgress()
                 callback.invoke(false, exception)
             }
         })
     }
 
-//    post scanned data to server
+    //    post scanned data to server
     @RequiresApi(Build.VERSION_CODES.O)
     private fun postDataToServer(
         context: Context,
@@ -118,9 +123,11 @@ object IPassSDK {
 
         PostAllData.postAllData(context, postdataRequest, object : ResultListener<DataSaveResponse> {
             override fun onSuccess(response: DataSaveResponse?) {
+                ProgressManager.dismissProgress()
                 callback.invoke(true, response?.message!!)
             }
             override fun onError(exception: String) {
+                ProgressManager.dismissProgress()
                 callback.invoke(false, exception)
             }
         })
@@ -138,11 +145,12 @@ object IPassSDK {
     ) {
         sid = getSid()
         DocumentReaderData.showScanner(context) {
-            status, message ->
+                status, message ->
             if (status) {
+                ProgressManager.showProgress(context, "Initializing Face Scanner...")
                 this.rawResult = message
                 faceSessionCreateRequest(context, email, authToken, appToken, bindingView) {
-                    statusF, messageF ->
+                        statusF, messageF ->
                     callback.invoke(statusF, messageF)
                 }
             } else {
@@ -152,12 +160,18 @@ object IPassSDK {
         }
     }
 
-//    initialize database for scanning (needs to be initialized at least once before scanning)
+    //    initialize database for scanning (needs to be initialized at least once before scanning)
     @RequiresApi(Build.VERSION_CODES.O)
     fun initializeDatabase(context: Context, completion: InitializeDatabaseCompletion){
+        ProgressManager.showProgress(context, "Initializing...")
 
         InitializeDatabase.InitDatabase(context, object : InitializeDatabaseCompletion {
             override fun onProgressChanged(progress: Int) {
+                if (progress < 100) {
+                    ProgressManager.setMessage("Downloading Database : $progress%")
+                } else {
+                    ProgressManager.setMessage("Initializing...")
+                }
                 completion.onProgressChanged(progress)
             }
 
@@ -165,6 +179,7 @@ object IPassSDK {
                 if (status) {
                     configureFaceScanner(context, completion)
                 } else {
+                    ProgressManager.dismissProgress()
                     completion.onCompleted(status, message)
                 }
             }
@@ -172,23 +187,51 @@ object IPassSDK {
         })
     }
 
-//    Face scanner configuration
+    //    Face scanner configuration
     @RequiresApi(Build.VERSION_CODES.O)
     private fun configureFaceScanner(context: Context, completion: InitializeDatabaseCompletion) {
+        ProgressManager.setMessage("Configuring Face Scanner")
         FaceScannerData.configureFaceScanner(context) {
+            ProgressManager.dismissProgress()
             if (it.equals("FaceScannerConfigured")) {
                 completion.onCompleted(true, "Database Initialized Successfully")
             } else {
-                completion.onCompleted(false, it)
+//                completion.onCompleted(false, it)
             }
         }
     }
 
-//    Request Auth Token
+    //    Request Auth Token
     @RequiresApi(Build.VERSION_CODES.O)
-     fun getAuthToken(context: Context, email: String, password: String, completion: ResultListener<LoginResponse>) {
+    fun getAuthToken(context: Context, email: String?, password: String?, completion: ResultListener<LoginResponse>) {
+
+        if (!InternetConnectionService.networkAvailable(context)) {
+            completion.onError(Constants.NO_INTERNET_TEXT)
+            return
+        }
+        if (email.isNullOrEmpty()) {
+            completion.onError("Email is required")
+            return
+        }
+        if (password.isNullOrEmpty()) {
+            completion.onError("Password is required")
+            return
+        }
+
+        ProgressManager.showProgress(context, "Generating Token")
         val request = LoginRequest(email, password)
-        LoginData.login(context, request, completion)
+        LoginData.login(context, request, object : ResultListener<LoginResponse> {
+            override fun onSuccess(response: LoginResponse?) {
+                ProgressManager.dismissProgress()
+                completion.onSuccess(response)
+            }
+
+            override fun onError(exception: String) {
+                ProgressManager.dismissProgress()
+                completion.onError(exception)
+            }
+
+        })
     }
 
     //    returns a unique sId for every scan
@@ -201,19 +244,41 @@ object IPassSDK {
         return myUuidAsString
     }
 
-//    returns a list of available Processing Scenarios
+    //    returns a list of available Processing Scenarios
     fun getScenariosList() {
         val list = arrayListOf(Scenarios.SCENARIO_FULL_PROCESS)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getFaceScannerData(context: Context, appToken: String, completion: ResultListener<FaceScannerResponse>) {
-        GetResults.FaceScannerResult(context, appToken, sid, completion)
+        ProgressManager.showProgress(context, "Fetching Face Data")
+        GetResults.FaceScannerResult(context, appToken, sid, object : ResultListener<FaceScannerResponse> {
+            override fun onSuccess(response: FaceScannerResponse?) {
+                ProgressManager.dismissProgress()
+                completion.onSuccess(response)
+            }
+
+            override fun onError(exception: String) {
+                ProgressManager.dismissProgress()
+                completion.onError(exception)
+            }
+        })
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getDocumentScannerData(context: Context, appToken: String, completion: ResultListener<DocumentScannerResponse>) {
-        GetResults.DocumentScanerResult(context, appToken, sid, completion)
+        ProgressManager.showProgress(context, "Fetching Document Data")
+        GetResults.DocumentScanerResult(context, appToken, sid, object : ResultListener<DocumentScannerResponse> {
+            override fun onSuccess(response: DocumentScannerResponse?) {
+                ProgressManager.dismissProgress()
+                completion.onSuccess(response)
+            }
+
+            override fun onError(exception: String) {
+                ProgressManager.dismissProgress()
+                completion.onError(exception)
+            }
+        })
     }
 
 
