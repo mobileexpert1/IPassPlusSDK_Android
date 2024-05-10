@@ -136,12 +136,32 @@ object IPassSDK {
     @RequiresApi(Build.VERSION_CODES.O)
     fun showScannerRequest(
         context: Context,
-        email: String,
-        authToken: String,
-        appToken: String,
-        bindingView: ViewGroup,
+        email: String?,
+        authToken: String?,
+        appToken: String?,
+        bindingView: ViewGroup?,
         callback: (status: Boolean, message: String) -> Unit
     ) {
+        if (!InternetConnectionService.networkAvailable(context)) {
+            callback.invoke(false, Constants.NO_INTERNET_TEXT)
+            return
+        }
+        if (email.isNullOrEmpty()) {
+            callback.invoke(false, "Email is required")
+            return
+        }
+        if (authToken.isNullOrEmpty()) {
+            callback.invoke(false, "Auth Token is required")
+            return
+        }
+        if (appToken.isNullOrEmpty()) {
+            callback.invoke(false, "App Token is required")
+            return
+        }
+        if (bindingView == null) {
+            callback.invoke(false, "binding view group is null")
+            return
+        }
         sid = getSid()
         DocumentReaderData.showScanner(context) {
                 status, message ->
@@ -162,6 +182,11 @@ object IPassSDK {
     //    initialize database for scanning (needs to be initialized at least once before scanning)
     @RequiresApi(Build.VERSION_CODES.O)
     fun initializeDatabase(context: Context, completion: InitializeDatabaseCompletion){
+        if (!InternetConnectionService.networkAvailable(context)) {
+            completion.onCompleted(false, Constants.NO_INTERNET_TEXT)
+            return
+        }
+
         ProgressManager.showProgress(context)
 
         InitializeDatabase.InitDatabase(context, object : InitializeDatabaseCompletion {
@@ -243,7 +268,16 @@ object IPassSDK {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun getFaceScannerData(context: Context, appToken: String, completion: ResultListener<FaceScannerResponse>) {
+    fun getFaceScannerData(context: Context, appToken: String?, completion: ResultListener<FaceScannerResponse>) {
+        if (!InternetConnectionService.networkAvailable(context)) {
+            completion.onError(Constants.NO_INTERNET_TEXT)
+            return
+        }
+        if (appToken.isNullOrEmpty()) {
+            completion.onError("App Token is required")
+            return
+        }
+
         ProgressManager.showProgress(context)
         GetResults.FaceScannerResult(context, appToken, sid, object : ResultListener<FaceScannerResponse> {
             override fun onSuccess(response: FaceScannerResponse?) {
@@ -260,6 +294,15 @@ object IPassSDK {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getDocumentScannerData(context: Context, appToken: String, completion: ResultListener<DocumentScannerResponse>) {
+        if (!InternetConnectionService.networkAvailable(context)) {
+            completion.onError(Constants.NO_INTERNET_TEXT)
+            return
+        }
+        if (appToken.isNullOrEmpty()) {
+            completion.onError("App Token is required")
+            return
+        }
+
         ProgressManager.showProgress(context)
         GetResults.DocumentScanerResult(context, appToken, sid, object : ResultListener<DocumentScannerResponse> {
             override fun onSuccess(response: DocumentScannerResponse?) {

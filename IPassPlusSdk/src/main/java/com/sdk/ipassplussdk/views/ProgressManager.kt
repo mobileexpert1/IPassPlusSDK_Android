@@ -1,39 +1,31 @@
 package com.sdk.ipassplussdk.views
 
+import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Context
-import android.view.Gravity
-import android.view.ViewGroup.LayoutParams
-import android.view.Window
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import androidx.appcompat.app.AlertDialog
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import com.sdk.ipassplussdk.R
 
 
 object ProgressManager {
-    private var progressDialog: ProgressDialog? = null
-    private var dialogQQ: AlertDialog? = null
+    private var dialogQQ: Dialog? = null
 
     fun showProgress(context: Context) {
         dismissProgress()
-        progressDialog = ProgressDialog(context)
-        progressDialog?.getWindow()?.setGravity(Gravity.CENTER);
-       /* val window: Window = progressDialog?.getWindow()!!
-        window.setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        window.setGravity(Gravity.CENTER)
-        progressDialog!!.addContentView(
-            ProgressBar(context),
-            LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-        )*/
-        progressDialog?.setCancelable(false)
-        progressDialog?.show()
+
+        dialogQQ = Dialog(context)
+        dialogQQ?.setContentView(R.layout.loading)
+        dialogQQ?.setCancelable(false)
+        dialogQQ?.show()
+        dialogQQ?.findViewById<ImageView>(R.id.loading_icon)?.startAnimation(AnimationUtils.loadAnimation(context, R.anim.rotate360))
 
     }
 
 
     fun dismissProgress() {
-        progressDialog?.dismiss()
-        progressDialog = null
+        dialogQQ?.dismiss()
+        dialogQQ = null
     }
 
 }
