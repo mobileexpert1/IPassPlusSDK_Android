@@ -2,6 +2,7 @@ package com.sdk.ipassplussdk.utils
 
 object ServerUrls {
     const val base_url = "https://plusapi.ipass-mena.com/api/v1/"
+//    const val base_url = "https://ipassplus.csdevhub.com/api/v1/"
 
     const val url_login = "ipass/create/authenticate/login"
     const val url_liveness = "ipass/plus/face/liveness"

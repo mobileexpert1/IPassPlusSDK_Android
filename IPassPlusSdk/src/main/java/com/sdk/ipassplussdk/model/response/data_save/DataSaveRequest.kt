@@ -87,7 +87,7 @@ data class Livenessdata(
 data class Response (
 
   @SerializedName("\$metadata"      ) var metadata      : metadata?        = metadata(),
-@SerializedName("AuditImages"    ) var AuditImages    : ArrayList<String> = arrayListOf(),
+  @SerializedName("AuditImages"    ) var AuditImages    : ArrayList<AuditImages> = arrayListOf(),
 @SerializedName("Confidence"     ) var Confidence     : Double?           = null,
 @SerializedName("ReferenceImage" ) var ReferenceImage : ReferenceImage?   = ReferenceImage(),
 @SerializedName("SessionId"      ) var SessionId      : String?           = null,
@@ -119,5 +119,12 @@ data class metadata (
   @SerializedName("requestId"       ) var requestId       : String? = null,
   @SerializedName("attempts"        ) var attempts        : Int?    = null,
   @SerializedName("totalRetryDelay" ) var totalRetryDelay : Int?    = null
+
+)
+
+data class AuditImages (
+
+  @SerializedName("BoundingBox" ) var BoundingBox : BoundingBox? = BoundingBox(),
+  @SerializedName("Bytes"       ) var Bytes       : String?      = null
 
 )

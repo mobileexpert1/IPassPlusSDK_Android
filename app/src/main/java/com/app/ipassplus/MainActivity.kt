@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         IPassSDK.initializeDatabase(this, object: InitializeDatabaseCompletion {
             override fun onProgressChanged(progress: Int) {
 //                progressDialog.setTitle("Downloading database $progress%")
+                Log.e("onProgressChanged", "$progress")
             }
 
             override fun onCompleted(

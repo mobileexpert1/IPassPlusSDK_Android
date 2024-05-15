@@ -60,7 +60,7 @@ dependencies {
 
     val kotlin_version= "1.9.22"
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
-    implementation ("com.regula.documentreader.core:fullauthrfid:7.2.10816@aar")
+//    implementation ("com.regula.documentreader.core:fullauthrfid:7.2.10816@aar")
 
     implementation(project(mapOf("path" to ":IPassPlusSdk")))
     implementation("androidx.core:core-ktx:1.12.0")
