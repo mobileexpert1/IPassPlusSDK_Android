@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="amplify_ui_liveness_get_ready_center_face_label">Centra tu cara</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_title">Advertencia de fotosensibilidad</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_description">Esta verificación parpadea en diferentes colores. Tenga cuidado si es fotosensible.</string>
+    <string name="amplify_ui_liveness_get_ready_a11y_photosensitivity_icon_content_description">Información sobre fotosensibilidad</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_title">Advertencia de fotosensibilidad</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_description">Algunas personas pueden experimentar ataques epilépticos cuando se exponen a luces de colores. Tenga cuidado si usted o alguien de su familia padece una enfermedad epiléptica.</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_dismiss">Entendido</string>
+    <string name="amplify_ui_liveness_get_ready_begin_check">Iniciar verificación de video</string>
+    <string name="amplify_ui_liveness_challenge_recording_indicator_label">REC</string>
+    <string name="amplify_ui_liveness_challenge_instruction_hold_face_during_freshness">Quédate quieto</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face_further">Retroceder</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face_closer">Acércate</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face">Mover la cara frente a la cámara</string>
+    <string name="amplify_ui_liveness_challenge_instruction_multiple_faces_detected">Solo una cara por verificación</string>
+    <string name="amplify_ui_liveness_challenge_connecting">Conectando</string>
+    <string name="amplify_ui_liveness_challenge_verifying">Verificando</string>
+    <string name="amplify_ui_liveness_challenge_a11y_cancel_content_description">Cancelar desafío</string>
+
+
+</resources>

@@ -36,18 +36,18 @@ android {
 
     compileOptions {
         //isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "11"
     }
     buildFeatures {
         viewBinding = true
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
+        kotlinCompilerExtensionVersion = "1.4.0"
     }
     packagingOptions {
         jniLibs {
@@ -58,7 +58,7 @@ android {
 
 dependencies {
 
-    val kotlin_version= "1.9.22"
+    val kotlin_version= "1.8.0"
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
 //    implementation ("com.regula.documentreader.core:fullauthrfid:7.2.10816@aar")
 
@@ -87,7 +87,7 @@ dependencies {
 
     implementation ("com.intuit.sdp:sdp-android:1.1.0")
 //    implementation ("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.tbuonomo:dotsindicator:5.0")
+    implementation("com.tbuonomo:dotsindicator:4.2")
     implementation ("androidx.viewpager2:viewpager2:1.0.0")
 
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")

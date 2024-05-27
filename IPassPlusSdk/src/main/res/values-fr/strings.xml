@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="amplify_ui_liveness_get_ready_center_face_label">Centrez votre visage</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_title">Avertissement de photosensibilité</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_description">Cette vérification clignote de différentes couleurs. Soyez prudent si vous êtes photosensible.</string>
+    <string name="amplify_ui_liveness_get_ready_a11y_photosensitivity_icon_content_description">Informations sur la photosensibilité</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_title">Avertissement de photosensibilité</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_description">Certaines personnes peuvent souffrir de crises d\'épilepsie lorsqu\'elles sont exposées à des lumières colorées. Soyez prudent si vous, ou un membre de votre famille, souffrez d\'épilepsie.</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_dismiss">Compris</string>
+    <string name="amplify_ui_liveness_get_ready_begin_check">Démarrer la vérification vidéo</string>
+    <string name="amplify_ui_liveness_challenge_recording_indicator_label">REC</string>
+    <string name="amplify_ui_liveness_challenge_instruction_hold_face_during_freshness">Tenez tranquille</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face_further">Reculer</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face_closer">Rapprochez-vous</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face">Déplacer le visage devant la caméra</string>
+    <string name="amplify_ui_liveness_challenge_instruction_multiple_faces_detected">Un seul visage par chèque</string>
+    <string name="amplify_ui_liveness_challenge_connecting">Connexion</string>
+    <string name="amplify_ui_liveness_challenge_verifying">Vérification</string>
+    <string name="amplify_ui_liveness_challenge_a11y_cancel_content_description">Annuler le défi</string>
+
+
+</resources>

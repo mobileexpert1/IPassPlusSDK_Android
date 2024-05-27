@@ -13,8 +13,11 @@ import com.regula.documentreader.api.completions.rfid.IRfidReaderCompletion
 import com.regula.documentreader.api.config.ScannerConfig
 import com.regula.documentreader.api.enums.DocReaderAction
 import com.regula.documentreader.api.enums.Scenario
+import com.regula.documentreader.api.enums.eGraphicFieldType
 import com.regula.documentreader.api.enums.eRFID_DataFile_Type
 import com.regula.documentreader.api.enums.eRFID_NotificationCodes
+import com.regula.documentreader.api.enums.eRPRM_Lights
+import com.regula.documentreader.api.enums.eRPRM_ResultType
 import com.regula.documentreader.api.errors.DocReaderRfidException
 import com.regula.documentreader.api.errors.DocumentReaderException
 import com.regula.documentreader.api.results.DocumentReaderNotification
@@ -35,6 +38,7 @@ object DocumentReaderData {
 
         DocumentReader.Instance().processParams().multipageProcessing = true
         DocumentReader.Instance().processParams().dateFormat = "dd-mm-yyyy"
+        DocumentReader.Instance().processParams().returnUncroppedImage = true
         DocumentReader.Instance().functionality().edit().setShowSkipNextPageButton(false).apply()
 
         val scannerConfig = ScannerConfig.Builder(Scenario.SCENARIO_FULL_PROCESS).build()
@@ -47,6 +51,13 @@ object DocumentReaderData {
         if (action == DocReaderAction.COMPLETE
             || action == DocReaderAction.TIMEOUT) {
 
+            // Get document image from the first page with white light
+            var documentImageWhite = results?.getGraphicFieldImageByType(eGraphicFieldType.GF_DOCUMENT_IMAGE, eRPRM_ResultType.RPRM_RESULT_TYPE_RAW_IMAGE, 0, eRPRM_Lights.RPRM_LIGHT_WHITE_FULL)
+// Get document image from the first page with UV light
+            var documentImageUV = results?.getGraphicFieldImageByType(eGraphicFieldType.GF_DOCUMENT_IMAGE, eRPRM_ResultType.RPRM_RESULT_TYPE_RAW_IMAGE, 0, eRPRM_Lights.RPRM_LIGHT_UV)
+
+            Log.e("!!!!!!", documentImageWhite.toString())
+            Log.e("!!!!!!", documentImageUV.toString())
             if (results?.chipPage != 0) {
                 DocumentReader.Instance().startRFIDReader(context!!, object: IRfidReaderCompletion() {
                     override fun onChipDetected() {

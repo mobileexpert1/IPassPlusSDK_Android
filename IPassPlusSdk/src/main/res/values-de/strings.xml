@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="amplify_ui_liveness_get_ready_center_face_label">Zentrieren Sie Ihr Gesicht</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_title">Lichtempfindlichkeitswarnung</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_description">Diese Prüfung blinkt in verschiedenen Farben. Seien Sie vorsichtig, wenn Sie lichtempfindlich sind.</string>
+    <string name="amplify_ui_liveness_get_ready_a11y_photosensitivity_icon_content_description">Informationen zur Lichtempfindlichkeit</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_title">Lichtempfindlichkeitswarnung</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_description">Bei manchen Menschen kann es zu epileptischen Anfällen kommen, wenn sie farbigem Licht ausgesetzt werden. Seien Sie vorsichtig, wenn Sie oder jemand in Ihrer Familie an einer epileptischen Erkrankung leiden.</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_dismiss">Verstanden</string>
+    <string name="amplify_ui_liveness_get_ready_begin_check">Videoprüfung starten</string>
+    <string name="amplify_ui_liveness_challenge_recording_indicator_label">REC</string>
+    <string name="amplify_ui_liveness_challenge_instruction_hold_face_during_freshness">Halt still</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face_further">Zurückbewegen</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face_closer">Komm näher</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face">Gesicht vor der Kamera bewegen</string>
+    <string name="amplify_ui_liveness_challenge_instruction_multiple_faces_detected">Nur ein Gesicht pro Prüfung</string>
+    <string name="amplify_ui_liveness_challenge_connecting">Verbinden</string>
+    <string name="amplify_ui_liveness_challenge_verifying">Überprüfen</string>
+    <string name="amplify_ui_liveness_challenge_a11y_cancel_content_description">Herausforderung abbrechen</string>
+
+
+</resources>

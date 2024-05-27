@@ -32,6 +32,8 @@ import com.sdk.ipassplussdk.apis.ResultListener
 import com.sdk.ipassplussdk.core.IPassSDK
 import com.sdk.ipassplussdk.model.response.login.LoginResponse
 import com.sdk.ipassplussdk.resultCallbacks.InitializeDatabaseCompletion
+import com.sdk.ipassplussdk.utils.ContextUtils
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,8 +42,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var progressDialog: AlertDialog
     private lateinit var splitInstallManager: SplitInstallManager
     private val coreModule = "document_reader_sdk"
-    private val email = "mabusanimeh@access2arabia.com"
-    private val password = "A2a@123456"
+    private val email = "ipassmobsdk@yopmail.com"
+    //    private val email = "mabusanimeh@access2arabia.com"
+    private val password = "Admin@123#"
     private val apptoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYzODg4MWYyYzNmMDFmMTg5OTNlMWI4IiwiZW1haWwiOiJtYWJ1c2FuaW1laEBhY2Nlc3MyYXJhYmlhLmNvbSIsImlhdCI6MTcxNTE2MDU1MywiZXhwIjoxNzE1MTYyMzUzfQ.Jyp8s_c3oc2grx2_Xip8yMTIU3_TZCctbEXnsyAMKLw"
 
 
@@ -53,6 +56,16 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = (this as? MainActivity)?.supportFragmentManager?.findFragmentById(R.id.fragment_container) as? NavHostFragment
         return navHostFragment?.navController
     }
+
+    override fun attachBaseContext(newBase: Context?) {
+        val localeToSwitchTo = "tr"
+//        val localeToSwitchTo = newBase?.getResources()?.getConfiguration()?.locale?.toLanguageTag()!!
+        Log.e("@@@@@@@@@", localeToSwitchTo)
+        val localeUpdatedContext = ContextUtils.updateLocale(newBase!!, localeToSwitchTo)
+        super.attachBaseContext(localeUpdatedContext)
+    }
+
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

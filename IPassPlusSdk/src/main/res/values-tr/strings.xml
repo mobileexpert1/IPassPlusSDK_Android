@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="amplify_ui_liveness_get_ready_center_face_label">Yüzünüzü ortalayın</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_title">Işığa duyarlılık uyarısı</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_description">Bu onay farklı renklerde yanıp söner. Işığa duyarlıysanız dikkatli olun.</string>
+    <string name="amplify_ui_liveness_get_ready_a11y_photosensitivity_icon_content_description">Işığa Duyarlılık Bilgileri</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_title">Işığa duyarlılık uyarısı</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_description">Bazı kişiler renkli ışıklara maruz kaldıklarında epileptik nöbetler yaşayabilir. Sizde veya ailenizden herhangi birinde epilepsi hastasıysanız dikkatli olun.</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_dismiss">Anladım</string>
+    <string name="amplify_ui_liveness_get_ready_begin_check">Video kontrolünü başlat</string>
+    <string name="amplify_ui_liveness_challenge_recording_indicator_label">KAYIT</string>
+    <string name="amplify_ui_liveness_challenge_instruction_hold_face_during_freshness">Hareketsiz dur</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face_further">Geri git</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face_closer">Yaklaş</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face">Yüzü kameranın önüne taşı</string>
+    <string name="amplify_ui_liveness_challenge_instruction_multiple_faces_detected">Kontrol başına yalnızca bir yüz</string>
+    <string name="amplify_ui_liveness_challenge_connecting">Bağlanıyor</string>
+    <string name="amplify_ui_liveness_challenge_verifying">Doğrulanıyor</string>
+    <string name="amplify_ui_liveness_challenge_a11y_cancel_content_description">Mücadeleyi İptal Et</string>
+
+</resources>

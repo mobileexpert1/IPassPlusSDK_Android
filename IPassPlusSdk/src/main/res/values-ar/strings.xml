@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="amplify_ui_liveness_get_ready_center_face_label">مركز وجهك</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_title">تحذير الحساسية الضوئية</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_description">يتضمن هذا الفحص وميض ألوان مختلفة. يرجى توخي الحذر إذا كنت حساسًا للضوء.</string>
+    <string name="amplify_ui_liveness_get_ready_a11y_photosensitivity_icon_content_description">معلومات الحساسية الضوئية</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_title">تحذير الحساسية الضوئية</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_description">قد يعاني بعض الأشخاص من نوبات صرع عند التعرض لأضواء ملونة. يرجى توخي الحذر إذا كنت أنت أو أي شخص في عائلتك مصابًا بحالة صرع.</string>
+    <string name="amplify_ui_liveness_get_ready_photosensitivity_dialog_dismiss">فهمت</string>
+    <string name="amplify_ui_liveness_get_ready_begin_check">ابدأ فحص الفيديو</string>
+    <string name="amplify_ui_liveness_challenge_recording_indicator_label">تسجيل</string>
+    <string name="amplify_ui_liveness_challenge_instruction_hold_face_during_freshness">ابقَ ثابتًا</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face_further">ابتعد</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face_closer">اقترب أكثر</string>
+    <string name="amplify_ui_liveness_challenge_instruction_move_face">حرك وجهك أمام الكاميرا</string>
+    <string name="amplify_ui_liveness_challenge_instruction_multiple_faces_detected">وجه واحد لكل فحص</string>
+    <string name="amplify_ui_liveness_challenge_connecting">جارٍ الاتصال</string>
+    <string name="amplify_ui_liveness_challenge_verifying">جارٍ التحقق</string>
+    <string name="amplify_ui_liveness_challenge_a11y_cancel_content_description">إلغاء التحدي</string>
+
+
+</resources>

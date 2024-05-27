@@ -6,7 +6,7 @@ To explain how a user can use the IPass SDK framework in steps, you can outline 
 -> Integrate of SDK into App
 In this step User Will add the IPass SDK inside the project's write:
     
-    implementation 'com.github.mobileexpert1:IPassPlusSDK_Android:2.0.23'
+    implementation 'com.github.mobileexpert1:IPassPlusSDK_Android:2.1.6'
 
 Add:-
     

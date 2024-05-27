@@ -33,18 +33,18 @@ android {
     }
     compileOptions {
 //        isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "11"
     }
     buildFeatures {
         viewBinding = true
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
+        kotlinCompilerExtensionVersion = "1.4.0"
     }
     packagingOptions {
         jniLibs {
@@ -67,7 +67,7 @@ dependencies {
     implementation("com.regula.documentreader:api:7.2.9754+@aar") {
         this.isTransitive = true
     }
-//    implementation("com.regula.documentreader.core:fullauthrfid:7.2.10816@aar")
+    implementation("com.regula.documentreader.core:fullauthrfid:7.2.10816@aar")
 //    implementation(files("libs/api-6.9.1398"))
 
 
@@ -104,7 +104,7 @@ project.afterEvaluate {
                 from(components["release"])
                 groupId = "com.sdk.ipassplussdk"
                 artifactId = "IPassPlusSDK"
-                version = "2.1.5"
+                version = "2.1.6"
             }
         }
     }
