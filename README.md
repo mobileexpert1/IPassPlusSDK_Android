@@ -194,7 +194,7 @@ This Method Returns data scanned from Documents.
 -----
 
 ### SDK Properties
- ```ruby
+ ```kotlin
 configProperties.needHologramDetection(value: true)
 configProperties.needHologramDetection(value: false)
 ```
