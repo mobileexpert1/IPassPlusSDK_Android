@@ -13,14 +13,13 @@
 - [Overview](#overview)
 - [Get Started](#steps-of-using-ipass-android-package)
   - [Integrate Package into the App](#integrate-package-into-the-app)
-  - [Import Package](#import-package)
   - [Permissions](#permissions)
   - [Add NFC Compatibility](#add-nfc-compatibility)
   - [Initialize Database](#initialize-database)
   - [Get User Login Token](#get-user-login-token)
   - [Get Supported Flows](#get-supported-flows)
   - [Document Scanning](#document-scanning)
-  - [Add Delegate to Get Response](#get-document-data)
+  - [Get Document Data](#get-document-data)
   - [SDK Properties](#sdk-properties)
   - [Language Localization](#add-multiple-languages-optional)
 - [Support](#support)
@@ -197,7 +196,7 @@ This Method Returns data scanned from Documents.
 ### SDK Properties
  ```ruby
 configProperties.needHologramDetection(value: true)
-configProperties.needHologramDetection(value: true)
+configProperties.needHologramDetection(value: false)
 ```
 - "needHologramDetection" property is used for Authenticity checks like detection of Electronic Device, Optically Variable Ink, Multiple Laser Images, Image Patterns.
 - By default hologram detection is disabled. you can enable it by passing the true in hologram detection property.
