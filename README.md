@@ -52,13 +52,13 @@ To explain how a user can use the iPASS Package in steps, you can outline the pr
 ### Integrate Package into the App
 
 In this step User Will add the IPass SDK inside the app's gradle file:
-
+```kotlin
     implementation("com.github.yazanalqasem:iPass2.0NativeAndroidSDK:2.12")
     implementation("com.github.yazanalqasem:iPass2.0CoreAndroidSDK:2.1")
-
+```
 
 Add these lines in your settings.gradle file
-
+```kotlin
     dependencyResolutionManagement {
         repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
         repositories {
@@ -72,7 +72,7 @@ Add these lines in your settings.gradle file
             }
         }
     }
-
+```
 -----
 
 # Permissions
@@ -80,14 +80,14 @@ Add these lines in your settings.gradle file
 ### Configure Permissions in manifest file
 
 You need to specify required permissions in manifest file to enable the necessary device features:
-
+```kotlin
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-permission android:name="android.permission.NFC" />
-  
+  ```
 
 -----
 
@@ -98,7 +98,7 @@ You need to specify required permissions in manifest file to enable the necessar
 - To start the process user need to download the database using following code.
 - In this step progress object can be used to track the downloading percentage.
 - Once the database is downloaded 100% and status returns true, user can start the next step.
-
+```kotlin
         DataBaseDownloading.initialization(this, object: InitializeDatabaseCompletion {
             override fun onProgressChanged(progress: Int) {
                 // get progress
@@ -116,13 +116,13 @@ You need to specify required permissions in manifest file to enable the necessar
             }
 
         })
-
+```
 
 -----
 
 ### Get User Login Token
 - Pass valid email id and password to get user token
-
+```kotlin
         iPassSDKManger.UserOnboardingProcess(context, email, password, object : ResultListener<AuthenticationResponse> {
             override fun onSuccess(response: AuthenticationResponse?) {
                 val authToken = response?.user?.token!!
@@ -133,15 +133,15 @@ You need to specify required permissions in manifest file to enable the necessar
                 // show error message
             }
         })
-
+```
 - Once the user is logged in user token need to save because this will be used in document scanning process
 
 -----
   
 ### Get Supported Flows
-
+```kotlin
         iPassSDKManger.getScenariosList()
-
+```
 - Get the flowId from the list of supported flows which will be required for scanning process
 - Sdk Supported Flows
   - Full Processing(10031)
@@ -154,7 +154,7 @@ You need to specify required permissions in manifest file to enable the necessar
 
 - User can scan various types of documents.
 - Users can scan both the front and back sides of documents, but it totally depends on the document type.
-
+```kotlin
         iPassSDKManger.startScanningProcess(requireContext(), email, userToken, apptoken, socialMediaEmail, phoneNumber, flowId, ViewGroup) {
             status, message ->
             if (status) {
@@ -163,7 +163,7 @@ You need to specify required permissions in manifest file to enable the necessar
                 // show error message message
             }
         }
-
+```
 - usertoken will be the login token
 - appToken will be the auth token provided by Admin
 - flowId will be the id selected by the user from above step.
@@ -173,7 +173,7 @@ You need to specify required permissions in manifest file to enable the necessar
 ### Get Document Data :
 
 This Method Returns data scanned from Documents.
-
+```kotlin
         iPassSDKManger.getDocumentScannerData(requireContext(), apptoken, object : ResultListener<TransactionDetailResponse> {
             override fun onSuccess(response: TransactionDetailResponse?) {
                 if (response?.Apistatus!!) {
@@ -188,7 +188,7 @@ This Method Returns data scanned from Documents.
             }
 
         })
-
+```
 - onSuccess - "response.data" object will return the required json response
 - onError - "exception" will return the error message in String
 -----
@@ -228,13 +228,13 @@ To reduce the APK size, follow these steps:
   4. Check the Enable on-demand box. Hit Finish and wait for the project to sync.
 
   5. Now add the below mentioned line in the dynamic module's (iPassSdk) build gradle file and sync project.
-
+```kotlin
            implementation("com.github.yazanalqasem:iPass2.0CoreAndroidSDK:2.1")
-
+```
      Note : Remove this line from app's build gradle file
 
   6. Add these lines in your activity
-
+```kotlin
            var splitInstallManager: SplitInstallManager? = null
 
            splitInstallManager = SplitInstallManagerFactory.create(this)
@@ -250,7 +250,7 @@ To reduce the APK size, follow these steps:
            ?.addOnFailureListener {
            // Packages Installation failed!
            }
-
+```
      
 # Support
 Please refer to our [support policy](https://ipass-mena.com/contact/) for more information about Mobile SDK support.
