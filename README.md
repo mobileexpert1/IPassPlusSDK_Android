@@ -4,25 +4,23 @@
 
 [![License](https://img.shields.io/badge/License-Commercial-blue.svg)](LICENSE)
 [![iPass](https://img.shields.io/badge/iPass-lightgreen)](https://ipass-mena.com)
-![API Doc](https://img.shields.io/badge/API%20doc-v4.10.0-green)
-![Swift](https://img.shields.io/badge/Swift-3x,%204x,%205x-red.svg)
-![platform](https://img.shields.io/badge/Platforms-ios-orange)
-![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20manager-compatible-orange)
-![pod](https://img.shields.io/badge/pod-v4.10.0-yellow)
+![API Doc](https://img.shields.io/badge/API%20doc-v2.12-green)
+![Swift](https://img.shields.io/badge/Kotlin-1.9-red.svg)
+![platform](https://img.shields.io/badge/Platforms-Android-orange)
+![pod](https://img.shields.io/badge/sdk-v2.12-yellow)
 
 # Table of Contents
 - [Overview](#overview)
-- [Get Started](#steps-of-using-ipass-ios-package)
+- [Get Started](#steps-of-using-ipass-android-package)
   - [Integrate Package into the App](#integrate-package-into-the-app)
   - [Import Package](#import-package)
-  - [General Requirements](#import-package)
   - [Permissions](#permissions)
   - [Add NFC Compatibility](#add-nfc-compatibility)
   - [Initialize Database](#initialize-database)
   - [Get User Login Token](#get-user-login-token)
   - [Get Supported Flows](#get-supported-flows)
   - [Document Scanning](#document-scanning)
-  - [Add Delegate to Get Response](#add-delegate-to-get-response)
+  - [Add Delegate to Get Response](#get-document-data)
   - [SDK Properties](#sdk-properties)
   - [Language Localization](#add-multiple-languages-optional)
 - [Support](#support)
@@ -46,94 +44,105 @@ remain trustworthy.
 
 ---
 
-## Steps of using iPASS iOS Package
+## Steps of using iPASS Android Package
 
 To explain how a user can use the iPASS Package in steps, you can outline the process as follows:
 
-## Steps to use iPASS iOS Package
+## Steps to use iPASS Android Package
 
 ### Integrate Package into the App
 
-First, we need to add the package to the application using the git link: [https://github.com/yazanalqasem/iPass2.0NativeiOS](https://github.com/yazanalqasem/iPass2.0NativeiOS)
+In this step User Will add the IPass SDK inside the app's gradle file:
 
-Steps to add the package:
-1. Go to `Files > Add Package Dependencies`
-2. Paste the Package URL
-3. Click on "Add Package" to include the package in your project.
+    implementation("com.github.yazanalqasem:iPass2.0NativeAndroidSDK:2.12")
+    implementation("com.github.yazanalqasem:iPass2.0CoreAndroidSDK:2.1")
 
------
 
-### Import Package
+Add these lines in your settings.gradle file
 
-Import the package in your required view controller.
+    dependencyResolutionManagement {
+        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+        repositories {
+            google()
+            mavenCentral()
+            maven {
+                url = uri("https://jitpack.io")
+            }
+            maven {
+                url =uri("https://maven.regulaforensics.com/RegulaDocumentReader/Beta")
+            }
+        }
+    }
 
-```ruby
-import iPass2_0NativeiOS
-```
 -----
 
 # Permissions
-### Configure Permissions in Info.plist
 
-In this step user will give required permissions in the Info.plist file to enable the necessary device features:
+### Configure Permissions in manifest file
 
-- Privacy - Camera Usage Description — Description for camera access.
-- Privacy - Photo Library Usage Description - Description for photo library access.
-- Privacy - Bluetooth Always Usage Description - Description for Bluetooth access.
-- Privacy - Speech Recognition Usage Description - Description for speech recognition.
-- Privacy - Privacy - NFC Scan Usage Description - Description for NFC usage.
-- ISO7816 application identifiers for NFC Tag Reader Session - For NFC features.
+You need to specify required permissions in manifest file to enable the necessary device features:
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.NFC" />
   
-
-Add following items to above array item
-- A0000002471001
-- E80704007F00070302
-- A000000167455349474E
-- A0000002480100
-- A0000002480200
-- A0000002480300
-- A00000045645444C2D3031
-- com.apple.developer.nfc.readersession.formats. - NFC reading formats
-
-Add following items to above array item
-- NDEF
-- TAG
 
 -----
 
 ### Add NFC Compatibility
-- Near Field Communication Tag Reading
+- Check NFC is enabled in device settings
 -----
 ### Initialize Database
 - To start the process user need to download the database using following code.
 - In this step progress object can be used to track the downloading percentage.
-- Once the database is downloaded 100% and status is Start Now, user can start the next step.
-```ruby
- DataBaseDownloading.initialization(completion:{progres, status, error in
-                    print(progres, status, error)
-                })
-```
+- Once the database is downloaded 100% and status returns true, user can start the next step.
+
+        DataBaseDownloading.initialization(this, object: InitializeDatabaseCompletion {
+            override fun onProgressChanged(progress: Int) {
+                // get progress
+            }
+
+            override fun onCompleted(
+                status: Boolean,
+                message: String?
+            ) {
+                if (status) {
+                    // Show message
+                } else {
+                    // Show error message
+                }
+            }
+
+        })
+
+
 -----
 
 ### Get User Login Token
 - Pass valid email id and password to get user token
-```ruby
-iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr) { status, tokenString in
-    if(status == true) {
-        self.userToken = tokenString!
-    }
-}
-```
+
+        iPassSDKManger.UserOnboardingProcess(context, email, password, object : ResultListener<AuthenticationResponse> {
+            override fun onSuccess(response: AuthenticationResponse?) {
+                val authToken = response?.user?.token!!
+                // Get auth token
+            }
+
+            override fun onError(exception: String) {
+                // show error message
+            }
+        })
+
 - Once the user is logged in user token need to save because this will be used in document scanning process
 
 -----
   
 ### Get Supported Flows
-```ruby
-    var getList = [[String: Any]]()
-    getList = iPassSDKManger.getWorkFlows()
-```
-- In the getList object you will get the array of dictionary with all the flows
+
+        iPassSDKManger.getScenariosList()
+
 - Get the flowId from the list of supported flows which will be required for scanning process
 - Sdk Supported Flows
   - Full Processing(10031)
@@ -147,42 +156,51 @@ iPassSDKManger.UserOnboardingProcess(email: emailStr, password: passwordStr) { s
 - User can scan various types of documents.
 - Users can scan both the front and back sides of documents, but it totally depends on the document type.
 
- ```ruby
-iPassSDKManger.delegate = self
-iPassSDKManger.startScanningProcess(userEmail: "sam@gmail.com", flowId: 10031, socialMediaEmail :"samfb@gmail.com", phoneNumber : "978xxxxxx", controller: self, userToken: self.userToken, appToken: self.appToken)
-```
+        iPassSDKManger.startScanningProcess(requireContext(), email, userToken, apptoken, socialMediaEmail, phoneNumber, flowId, ViewGroup) {
+            status, message ->
+            if (status) {
+                // show success message
+            } else {
+                // show error message message
+            }
+        }
+
 - usertoken will be the login token
 - appToken will be the auth token provided by Admin
 - flowId will be the id selected by the user from above step.
-- After the scanning process, Response will be available in package delegate.
+- After the scanning process, the response can be obtained from getDocumentScannerData method.
 -----
 
-### Add Delegate to Get Response
- ```ruby
-   extension ViewController : iPassSDKManagerDelegate {
-        func getScanCompletionResult(result: String, transactionId: String, error: String) {
-            print(result)
-            print(transactionId)
-            print(error)
-        }
-    }
-```
-- "result" object will return the required json response
-- "transactionId" object will return the unique transcation number for completed transaction
-- "error" object will return the error description
+### Get Document Data :
+
+This Method Returns data scanned from Documents.
+
+        iPassSDKManger.getDocumentScannerData(requireContext(), apptoken, object : ResultListener<TransactionDetailResponse> {
+            override fun onSuccess(response: TransactionDetailResponse?) {
+                if (response?.Apistatus!!) {
+                    //   Get Document Scanner Data
+                } else {
+                    //   Show error
+                }
+            }
+
+            override fun onError(exception: String) {
+                //   Show error
+            }
+
+        })
+
+- onSuccess - "response.data" object will return the required json response
+- onError - "exception" will return the error message in String
 -----
 
 ### SDK Properties
  ```ruby
-configProperties.setLoaderColor(color: UIColor.red)
 configProperties.needHologramDetection(value: true)
 configProperties.needHologramDetection(value: true)
-configProperties.setDateFormat(format: "dd/mm/yyyy")
 ```
-- "setLoaderColor" property is used to change the color of the loader.
 - "needHologramDetection" property is used for Authenticity checks like detection of Electronic Device, Optically Variable Ink, Multiple Laser Images, Image Patterns.
-- By default hologram detection is enabled. you can disabled passing the false in hologram detection property.
-- "setDateFormat" property is used to change the format of dates displayed in the results. The mask examples are "dd/mm/yyyy", "mm/dd/yyyy", "dd-mm-yyyy", "mm-dd-yyyy", "dd/mm/yy".
+- By default hologram detection is disabled. you can enable it by passing the true in hologram detection property.
 -----
 
 ### Add Multiple Languages (Optional)
@@ -196,14 +214,45 @@ Applications supports following langauges
 - Turkish
 - Urdu
 
-You need to add the multi languages files from the xcode for requried languages and you can copy the language keys from the following link
-
- <a href="https://devdocs.ipass-mena.com/ipass-sdkLanguages.html">
-   Language Files
-  </a>
-
 -----
 
+### Reduce APK Size
+
+To reduce the APK size, follow these steps:
+
+  1. In android studio, Select File > New > New Module from the menu bar. In the Create New Module dialog, select Dynamic Feature Module and click Next.
+
+  2. On the Configure your new module screen, give your module a name(iPassSdk).
+
+  3. On the Configure your new module screen, specify the module title(iPass).
+
+  4. Check the Enable on-demand box. Hit Finish and wait for the project to sync.
+
+  5. Now add the below mentioned line in the dynamic module's (iPassSdk) build gradle file and sync project.
+
+           implementation("com.github.yazanalqasem:iPass2.0CoreAndroidSDK:2.1")
+
+     Note : Remove this line from app's build gradle file
+
+  6. Add these lines in your activity
+
+           var splitInstallManager: SplitInstallManager? = null
+
+           splitInstallManager = SplitInstallManagerFactory.create(this)
+
+           val request = SplitInstallRequest.newBuilder()
+          .addModule(name)
+          .build()
+
+           splitInstallManager?.startInstall(request)
+            ?.addOnSuccessListener {
+           // Packages Installed (Initialise Database Here)
+           }
+           ?.addOnFailureListener {
+           // Packages Installation failed!
+           }
+
+     
 # Support
 Please refer to our [support policy](https://ipass-mena.com/contact/) for more information about Mobile SDK support.
 
